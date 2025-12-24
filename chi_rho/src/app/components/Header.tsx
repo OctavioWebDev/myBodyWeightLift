@@ -40,19 +40,23 @@ export default function Header() {
                         <FontAwesomeIcon icon={faHome} className="mr-3" />
                     </Link>
                     <div
-                        className="relative"
+                        className="relative group"
                         onMouseEnter={handleMouseEnter}
                         onMouseLeave={handleMouseLeave}
                     >
-                        <button aria-label="Information" className="flex items-center hover:text-gray-400">
-                            <FontAwesomeIcon icon={faCircleInfo} className="mr-3" />
+                        <button 
+                            aria-label="Information" 
+                            className="flex items-center hover:text-gray-400 p-2 rounded-full hover:bg-gray-800 transition-colors"
+                            onClick={() => setIsDropdownOpen(!isDropdownOpen)}
+                        >
+                            <FontAwesomeIcon icon={faCircleInfo} className="text-xl" />
                         </button>
-                        {isDropdownOpen && (
-                            <div
-                                className="absolute top-full left-0 mt-2 w-56 bg-white text-black rounded-lg shadow-lg z-10"
-                                onMouseEnter={handleMouseEnter}
-                                onMouseLeave={handleMouseLeave}
-                            >
+                        <div 
+                            className={`absolute left-1/2 -translate-x-1/2 mt-2 w-56 bg-white text-black rounded-lg shadow-lg z-50 transition-all duration-200 ease-in-out transform ${isDropdownOpen ? 'opacity-100 scale-100' : 'opacity-0 scale-95 pointer-events-none'}`}
+                            onMouseEnter={handleMouseEnter}
+                            onMouseLeave={handleMouseLeave}
+                            style={{ minWidth: '14rem' }}
+                        >
                                 <div className="px-4 py-2 font-semibold text-gray-700 border-b border-gray-200">
                                     Training
                                 </div>
@@ -77,7 +81,6 @@ export default function Header() {
                                     </Link>
                                 </div>
                             </div>
-                        )}
                     </div>
                     <Search />
                 </nav>
