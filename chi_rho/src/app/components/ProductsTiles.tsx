@@ -12,16 +12,6 @@ export default function ProductsTiles() {
       description: 'Navigate your journey with our training templates',
       image: '/assets/images/nathan-dumlao-IFme2F6eQ2E-unsplash.jpg',
     },
-    {
-      title: 'Equipment',
-      description: 'Elevate your training with our premium equipment',
-      image: '/assets/images/samuel-girven-VJ2s0c20qCo-unsplash.jpg',
-    },
-    {
-      title: 'Podcast',
-      description: 'Get perspective on fitness with our podcast',
-      image: '/assets/images/kelly-sikkema-E5QVkd3c5Ew-unsplash.jpg',
-    },
   ]
   
     return (
