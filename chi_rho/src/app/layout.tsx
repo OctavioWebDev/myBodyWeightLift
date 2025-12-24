@@ -58,12 +58,19 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
+      <head>
+        <link rel="icon" href="/favicon.ico" sizes="any" />
+        <link rel="icon" href="/icon?<generated>" type="image/png" sizes="32x32" />
+        <link rel="apple-touch-icon" href="/apple-icon?<generated>" type="image/png" sizes="180x180" />
+        <link rel="manifest" href="/manifest.json" />
+        <meta name="theme-color" content="#000000" />
+      </head>
       <body className="bg-black">
         <Header />
         {children}
         <Footer />
         <Analytics />
-        </body>
+      </body>
     </html>
   );
 }
