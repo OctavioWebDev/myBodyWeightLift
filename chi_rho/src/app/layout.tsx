@@ -2,38 +2,27 @@ import type { Metadata } from "next";
 import "./globals.css";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
+import Analytics from "../components/Analytics";
 
-
+// Basic metadata configuration
 export const metadata: Metadata = {
   title: {
-    default: 'Chi-Rho Power & Strength',
-    template: '%s | Chi-Rho Power & Strength',
+    default: "Chi-Rho Power & Strength",
+    template: "%s | Chi-Rho Power & Strength",
   },
-  description: 'Prepare, Commit, Respond - A blog on my thoughts and learnings on strength training and living a purposeful life.',
+  description: "Prepare, Commit, Respond - A blog on my thoughts and learnings on strength training and living a purposeful life.",
   keywords: ['strength training', 'fitness', 'bodyweight exercises', 'workout plans', 'health and wellness'],
   authors: [{ name: 'Your Name' }],
   creator: 'Your Name',
   publisher: 'Chi-Rho Power & Strength',
-  formatDetection: {
-    email: false,
-    address: false,
-    telephone: false,
-  },
   metadataBase: new URL('https://yourdomain.com'),
-  alternates: {
-    canonical: '/',
-    languages: {
-      'en-US': '/en-US',
-    },
-  },
   openGraph: {
     title: 'Chi-Rho Power & Strength',
-    description: 'Prepare, Commit, Respond - A blog on my thoughts and learnings on strength training and living a purposeful life.',
-    url: 'https://yourdomain.com',
+    description: 'Prepare, Commit, Respond - A blog on strength training and purposeful living',
     siteName: 'Chi-Rho Power & Strength',
     images: [
       {
-        url: 'https://yourdomain.com/og-image.jpg',
+        url: '/og-image.jpg',
         width: 1200,
         height: 630,
         alt: 'Chi-Rho Power & Strength',
@@ -46,7 +35,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: 'Chi-Rho Power & Strength',
     description: 'Prepare, Commit, Respond - Strength training and purposeful living',
-    images: ['https://yourdomain.com/twitter-image.jpg'],
+    images: ['/twitter-image.jpg'],
     creator: '@yourtwitterhandle',
   },
   robots: {
@@ -59,10 +48,6 @@ export const metadata: Metadata = {
       'max-image-preview': 'large',
       'max-snippet': -1,
     },
-  },
-  verification: {
-    google: 'your-google-verification-code',
-    yandex: 'your-yandex-verification-code',
   },
 };
 
@@ -77,6 +62,7 @@ export default function RootLayout({
         <Header />
         {children}
         <Footer />
+        <Analytics />
         </body>
     </html>
   );
