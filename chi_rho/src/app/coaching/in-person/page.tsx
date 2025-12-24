@@ -6,11 +6,12 @@ import Image from 'next/image';
 
 export default function InPersonCoaching() {
   return (
-    <div className="min-h-screen bg-gradient-to-b from-gray-900 to-gray-800 py-12 px-4 sm:px-6 lg:px-8">
+    <div className="min-h-screen bg-black py-12 px-4 sm:px-6 lg:px-8">
       <div className="max-w-7xl mx-auto">
         {/* Hero Section */}
         <div className="text-center mb-16">
-          <h1 className="text-4xl font-bold text-white mb-6">In-Person Coaching</h1>
+          <h1 className="text-4xl font-bold text-yellow-400 mb-4">In-Person Coaching</h1>
+          <div className="w-24 h-1 bg-yellow-500 mx-auto mb-6"></div>
           <p className="text-xl text-gray-300 max-w-3xl mx-auto">
             Get personalized, one-on-one training tailored to your fitness goals with our expert coaches.
           </p>
@@ -19,18 +20,18 @@ export default function InPersonCoaching() {
         {/* Benefits Section */}
         <div className="grid md:grid-cols-2 gap-12 items-center mb-16">
           <div className="space-y-6">
-            <h2 className="text-3xl font-bold text-white">Why Choose In-Person Coaching?</h2>
+            <h2 className="text-3xl font-bold text-white mb-6">Why Choose In-Person Coaching?</h2>
             <ul className="space-y-4">
               <li className="flex items-start">
-                <div className="flex-shrink-0 h-6 w-6 text-blue-400 mr-3">
+                <div className="flex-shrink-0 h-6 w-6 text-yellow-500 mr-3">
                   <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
                   </svg>
                 </div>
-                <span className="text-gray-200">Personalized workout plans designed specifically for you</span>
+                <span className="text-white">Personalized workout plans designed specifically for you</span>
               </li>
               <li className="flex items-start">
-                <div className="flex-shrink-0 h-6 w-6 text-blue-400 mr-3">
+                <div className="flex-shrink-0 h-6 w-6 text-yellow-500 mr-3">
                   <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
                   </svg>
@@ -38,7 +39,7 @@ export default function InPersonCoaching() {
                 <span className="text-gray-200">Immediate feedback on your form and technique</span>
               </li>
               <li className="flex items-start">
-                <div className="flex-shrink-0 h-6 w-6 text-blue-400 mr-3">
+                <div className="flex-shrink-0 h-6 w-6 text-yellow-500 mr-3">
                   <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
                   </svg>
@@ -46,7 +47,7 @@ export default function InPersonCoaching() {
                 <span className="text-gray-200">Accountability and motivation from your coach</span>
               </li>
               <li className="flex items-start">
-                <div className="flex-shrink-0 h-6 w-6 text-blue-400 mr-3">
+                <div className="flex-shrink-0 h-6 w-6 text-yellow-500 mr-3">
                   <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
                   </svg>
@@ -57,7 +58,7 @@ export default function InPersonCoaching() {
             <div className="pt-4">
               <Link 
                 href="/contact?service=in-person" 
-                className="inline-block bg-blue-500 hover:bg-blue-600 text-white font-semibold py-3 px-8 rounded-lg transition duration-200 shadow-lg hover:shadow-xl"
+                className="inline-block bg-yellow-500 hover:bg-yellow-600 text-gray-900 font-semibold py-3 px-8 rounded-lg transition duration-200 shadow-lg hover:shadow-xl hover:scale-105 transform"
               >
                 Get Started with In-Person Coaching
               </Link>
@@ -75,8 +76,9 @@ export default function InPersonCoaching() {
         </div>
 
         {/* How It Works */}
-        <div className="bg-gray-800 rounded-xl shadow-lg p-8 mb-16 border border-gray-700">
-          <h2 className="text-3xl font-bold text-center text-white mb-12">How It Works</h2>
+        <div className="bg-gray-900/80 rounded-xl shadow-xl p-8 mb-16 border border-yellow-500/20">
+          <h2 className="text-3xl font-bold text-center text-yellow-400 mb-4">How It Works</h2>
+          <div className="w-24 h-1 bg-yellow-500 mx-auto mb-12"></div>
           <div className="grid md:grid-cols-3 gap-8">
             {[
               {
@@ -95,11 +97,11 @@ export default function InPersonCoaching() {
                 description: 'Regular check-ins and adjustments to keep you on track and seeing results.'
               }
             ].map((step) => (
-              <div key={step.number} className="text-center">
-                <div className="w-16 h-16 bg-blue-500/20 rounded-full flex items-center justify-center text-2xl font-bold text-blue-400 mx-auto mb-4 border border-blue-400/30">
+              <div key={step.number} className="text-center bg-gray-800/50 p-6 rounded-lg hover:bg-gray-800/80 transition-colors border border-gray-800 hover:border-yellow-500/30">
+                <div className="w-16 h-16 bg-yellow-500/10 rounded-full flex items-center justify-center text-2xl font-bold text-yellow-400 mx-auto mb-4 border border-yellow-500/30">
                   {step.number}
                 </div>
-                <h3 className="text-xl font-semibold text-white mb-2">{step.title}</h3>
+                <h3 className="text-xl font-semibold text-white mb-3">{step.title}</h3>
                 <p className="text-gray-300">{step.description}</p>
               </div>
             ))}
@@ -108,7 +110,8 @@ export default function InPersonCoaching() {
 
         {/* FAQ Section */}
         <div className="max-w-3xl mx-auto">
-          <h2 className="text-3xl font-bold text-center text-white mb-8">Frequently Asked Questions</h2>
+          <h2 className="text-3xl font-bold text-center text-yellow-400 mb-4">Frequently Asked Questions</h2>
+          <div className="w-24 h-1 bg-yellow-500 mx-auto mb-12"></div>
           <div className="space-y-4">
             {[
               {
@@ -124,9 +127,18 @@ export default function InPersonCoaching() {
                 answer: 'Sessions typically last 60 minutes, but we can adjust based on your schedule and needs.'
               }
             ].map((faq, index) => (
-              <div key={index} className="bg-gray-800 p-6 rounded-lg shadow-lg border border-gray-700">
-                <h3 className="text-lg font-semibold text-white mb-2">{faq.question}</h3>
-                <p className="text-gray-300">{faq.answer}</p>
+              <div key={index} className="bg-gray-900/50 p-6 rounded-lg shadow-lg border border-yellow-500/10 hover:border-yellow-500/30 transition-colors">
+                <div className="flex items-start">
+                  <div className="flex-shrink-0 mt-1 mr-3 text-yellow-500">
+                    <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                      <path fillRule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clipRule="evenodd" />
+                    </svg>
+                  </div>
+                  <div>
+                    <h3 className="text-lg font-semibold text-white mb-2">{faq.question}</h3>
+                    <p className="text-gray-300">{faq.answer}</p>
+                  </div>
+                </div>
               </div>
             ))}
           </div>
