@@ -16,7 +16,7 @@ export default function MyStory() {
             <div className="flex flex-col md:flex-row items-center gap-8 mb-8">
               <div className="relative w-48 h-48 rounded-full overflow-hidden border-4 border-yellow-500/30">
                 <Image
-                  src="/assets/images/octavio-profile.jpg"
+                  src="/assets/images/MyNewHeadShot.JPG"
                   alt="Octavio Sanchez"
                   fill
                   sizes="(max-width: 768px) 100vw, 33vw"
