@@ -70,7 +70,7 @@ export default function CoachingServices() {
                     ))}
                   </ul>
                   <Link 
-                    href="/contact" 
+                    href={`/contact?service=${service.title.toLowerCase().includes('online') ? 'online' : 'in-person'}`}
                     className="inline-block bg-yellow-500 hover:bg-yellow-600 text-black font-bold py-3 px-8 rounded-full transition-colors duration-300"
                   >
                     Get Started
@@ -85,9 +85,12 @@ export default function CoachingServices() {
             <p className="text-gray-300 mb-8 max-w-2xl mx-auto">
               Schedule a free consultation call to discuss your goals and we'll help you choose the perfect coaching solution.
             </p>
-            <button className="bg-yellow-500 hover:bg-yellow-600 text-black font-bold py-3 px-8 rounded-full transition-colors duration-300">
+            <Link 
+              href="/contact?service=consultation"
+              className="inline-block bg-yellow-500 hover:bg-yellow-600 text-black font-bold py-3 px-8 rounded-full transition-colors duration-300"
+            >
               Book Free Consultation
-            </button>
+            </Link>
           </div>
         </div>
       </section>

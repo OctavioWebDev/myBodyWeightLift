@@ -1,28 +1,17 @@
 import { NextResponse } from 'next/server';
-import { generateTemplatePdf } from '@/lib/generatePdf';
+import { readFile } from 'fs/promises';
+import { join } from 'path';
 
-// This would typically come from your database
-const templates = {
-  'beginner-strength': {
-    id: 'beginner-strength',
-    title: 'Beginner Strength Program',
-    description: 'A 12-week program designed for beginners to build a solid foundation of strength and proper movement patterns.',
-    longDescription: 'This comprehensive 12-week program is perfect for those new to strength training. It focuses on mastering the fundamental movement patterns while progressively increasing intensity. Each workout is designed to be completed in under an hour, making it perfect for busy schedules.',
-    price: 5.00,
-    category: 'Strength',
-    duration: '12 weeks',
-    level: 'Beginner',
-    features: [
-      '3-4 workouts per week',
-      'Detailed exercise instructions',
-      'Progressive overload plan',
-      'Warm-up and cool-down routines',
-      'Form cues and technique tips',
-      'Printable workout logs'
-    ]
-  },
-  // Add other templates here
+// Map template IDs to their corresponding PDF filenames
+const pdfFiles: Record<string, string> = {
+  'beginner-strength': 'beginner-strength-program.pdf',
+  // Add more mappings as needed: 'template-id': 'filename.pdf'
 } as const;
+
+// Helper function to get the PDF path
+function getPdfPath(filename: string): string {
+  return join(process.cwd(), 'public', 'pdfs', filename);
+}
 
 export async function GET(request: Request) {
   try {
@@ -37,18 +26,18 @@ export async function GET(request: Request) {
     // In a real app, you would verify the session with Stripe here
     // to ensure the user has actually paid for this template
     
-    const template = templates[templateId as keyof typeof templates];
-    if (!template) {
+    const pdfFilename = pdfFiles[templateId];
+    if (!pdfFilename) {
       return new NextResponse('Template not found', { status: 404 });
     }
 
-    const pdfBlob = await generateTemplatePdf(template);
-    const pdfBuffer = await pdfBlob.arrayBuffer();
+    const pdfPath = getPdfPath(pdfFilename);
+    const pdfBuffer = await readFile(pdfPath);
 
     return new NextResponse(pdfBuffer, {
       headers: {
         'Content-Type': 'application/pdf',
-        'Content-Disposition': `attachment; filename="${template.title.replace(/\s+/g, '-').toLowerCase()}.pdf"`,
+        'Content-Disposition': `attachment; filename="${templateId}.pdf"`,
       },
     });
   } catch (error) {

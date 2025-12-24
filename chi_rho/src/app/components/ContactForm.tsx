@@ -2,8 +2,13 @@
 import React, { useState, useEffect, useRef } from 'react';
 import emailjs from 'emailjs-com';
 
-export default function ContactForm() {
+interface ContactFormProps {
+    initialService?: string;
+}
+
+export default function ContactForm({ initialService = '' }: ContactFormProps) {
     const formRef = useRef<HTMLFormElement | null>(null);
+    const [selectedService, setSelectedService] = useState(initialService);
 
     useEffect(() => {
         // Check if the window object is available before initializing EmailJS
@@ -16,6 +21,7 @@ export default function ContactForm() {
         firstName: '',
         lastName: '',
         email: '',
+        service: initialService || ''
     });
 
     const [submitStatus, setSubmitStatus] = useState({
@@ -35,10 +41,16 @@ export default function ContactForm() {
         event.preventDefault();
         setSubmitStatus({ message: '', isError: false });
 
+        // Add service to form data
+        const formData = new FormData(event.currentTarget);
+        if (selectedService) {
+            formData.append('service', selectedService);
+        }
+
         emailjs.sendForm(
             process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID || "",
             process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID || "",
-            event.currentTarget,
+            formData as any, // Type assertion needed for FormData
             process.env.NEXT_PUBLIC_EMAILJS_USER_ID || ""
         )
             .then((result) => {
@@ -48,7 +60,9 @@ export default function ContactForm() {
                     firstName: '',
                     lastName: '',
                     email: '',
+                    service: ''
                 });
+                setSelectedService('');
 
                 if (formRef.current) {
                     formRef.current.reset();
@@ -102,6 +116,22 @@ export default function ContactForm() {
                         placeholder='Email'
                         required
                     />
+                </div>
+
+                <div className="mb-4">
+                    <label htmlFor="service" className="block text-white mb-2">Service:</label>
+                    <select
+                        id="service"
+                        name="service"
+                        value={selectedService}
+                        onChange={(e) => setSelectedService(e.target.value)}
+                        className="w-full p-2 bg-slate-900 opacity-50 border-black rounded text-white"
+                    >
+                        <option value="">Select a service</option>
+                        <option value="in-person">In-Person Training</option>
+                        <option value="online">Online Coaching</option>
+                        <option value="consultation">Free Consultation</option>
+                    </select>
                 </div>
                 <button type="submit" className="bg-slate-900 hover:bg-slate-700 text-white font-bold py-2 px-4 rounded">
                     Send

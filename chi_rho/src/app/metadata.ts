@@ -1,11 +1,4 @@
-import { Inter } from 'next/font/google';
-import "./globals.css";
-import { Metadata } from 'next';
-import Header from "./components/Header";
-import Footer from "./components/Footer";
-import BackButton from "./components/BackButton";
-
-const inter = Inter({ subsets: ['latin'] });
+import type { Metadata } from "next";
 
 export const metadata: Metadata = {
   title: {
@@ -45,27 +38,3 @@ export const metadata: Metadata = {
     },
   },
 };
-
-export default function RootLayout({
-  children,
-}: {
-  children: React.ReactNode;
-}) {
-  return (
-    <html lang="en" className={inter.className}>
-      <head>
-        <link rel="icon" href="/favicon.ico" sizes="any" />
-        <link rel="icon" href="/icon?<generated>" type="image/png" sizes="32x32" />
-        <link rel="apple-touch-icon" href="/apple-icon?<generated>" type="image/png" sizes="180x180" />
-        <link rel="manifest" href="/manifest.json" />
-        <meta name="theme-color" content="#000000" />
-      </head>
-      <body className="bg-black">
-        <Header />
-        <BackButton />
-        {children}
-        <Footer />
-      </body>
-    </html>
-  );
-}

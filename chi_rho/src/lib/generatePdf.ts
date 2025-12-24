@@ -1,6 +1,6 @@
 import { jsPDF } from 'jspdf';
 
-type Template = {
+export type Template = {
   id: string;
   title: string;
   description: string;
@@ -9,7 +9,7 @@ type Template = {
   category: string;
   duration: string;
   level: string;
-  features: string[];
+  readonly features: readonly string[];
 };
 
 export const generateTemplatePdf = (template: Template): Blob => {

@@ -45,9 +45,18 @@ export default function TemplatesPage() {
       <section className="py-12 px-4">
         <div className="max-w-6xl mx-auto">
           <h1 className="text-4xl md:text-5xl font-bold text-center mb-4 text-yellow-400">Training Templates</h1>
-          <p className="text-xl text-center text-gray-300 mb-12 max-w-3xl mx-auto">
+          <p className="text-xl text-center text-gray-300 mb-6 max-w-3xl mx-auto">
             Downloadable training programs designed by experts to help you reach your fitness goals.
           </p>
+          <div className="text-center mb-12">
+            <p className="text-gray-400 mb-4">Not sure which program is right for you?</p>
+            <Link 
+              href="/quiz" 
+              className="inline-block bg-yellow-500 hover:bg-yellow-600 text-black font-bold py-3 px-8 rounded-full transition-colors duration-300"
+            >
+              Take Our Quiz
+            </Link>
+          </div>
           
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {templates.map((template) => (
@@ -97,9 +106,12 @@ export default function TemplatesPage() {
             <p className="text-gray-300 mb-6 max-w-2xl mx-auto">
               Take our quick quiz to find the perfect training program for your goals and experience level.
             </p>
-            <button className="bg-yellow-500 hover:bg-yellow-600 text-black font-bold py-2 px-6 rounded-full transition-colors duration-300">
+            <Link 
+              href="/quiz" 
+              className="inline-block bg-yellow-500 hover:bg-yellow-600 text-black font-bold py-3 px-8 rounded-full transition-colors duration-300"
+            >
               Take the Quiz
-            </button>
+            </Link>
           </div>
         </div>
       </section>
