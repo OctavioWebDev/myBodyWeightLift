@@ -1,0 +1,61 @@
+import { NextResponse } from 'next/server';
+import Stripe from 'stripe';
+
+if (!process.env.STRIPE_SECRET_KEY) {
+  throw new Error('STRIPE_SECRET_KEY is not set in environment variables');
+}
+
+const stripe = new Stripe(process.env.STRIPE_SECRET_KEY, {
+  apiVersion: '2024-06-20',
+  typescript: true,
+});
+
+export async function GET(request: Request) {
+  const { searchParams } = new URL(request.url);
+  const sessionId = searchParams.get('session_id');
+
+  if (!sessionId) {
+    return NextResponse.json(
+      { error: 'Session ID is required' },
+      { status: 400 }
+    );
+  }
+
+  try {
+    const session = await stripe.checkout.sessions.retrieve(sessionId, {
+      expand: ['line_items', 'payment_intent'],
+    });
+
+    if (!session) {
+      return NextResponse.json(
+        { error: 'Session not found' },
+        { status: 404 }
+      );
+    }
+
+    // Check if payment was successful
+    if (session.payment_status !== 'paid') {
+      return NextResponse.json(
+        { error: 'Payment not completed' },
+        { status: 400 }
+      );
+    }
+
+    // Here you would typically:
+    // 1. Verify the session in your database
+    // 2. Check if the user has access to the template
+    // 3. Log the purchase
+
+    return NextResponse.json({
+      templateId: session.metadata?.templateId,
+      paymentStatus: session.payment_status,
+      customerEmail: session.customer_details?.email,
+    });
+  } catch (err) {
+    console.error('Error verifying session:', err);
+    return NextResponse.json(
+      { error: 'Error verifying session' },
+      { status: 500 }
+    );
+  }
+}
