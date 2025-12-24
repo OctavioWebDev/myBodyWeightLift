@@ -49,19 +49,33 @@ export default function Header() {
                         </button>
                         {isDropdownOpen && (
                             <div
-                                className="absolute top-full left-0 mt-2 w-48 bg-white text-black rounded-lg shadow-lg z-10"
+                                className="absolute top-full left-0 mt-2 w-56 bg-white text-black rounded-lg shadow-lg z-10"
                                 onMouseEnter={handleMouseEnter}
                                 onMouseLeave={handleMouseLeave}
                             >
-                                <Link href="/workouttemplets" className="block px-4 py-2 hover:bg-gray-100">
-                                    Workout Templets
+                                <div className="px-4 py-2 font-semibold text-gray-700 border-b border-gray-200">
+                                    Training
+                                </div>
+                                <Link href="/templates?type=strength" className="block px-4 py-2 hover:bg-gray-100">
+                                    Strength Training
                                 </Link>
-                                <Link href="/blog" className="block px-4 py-2 hover:bg-gray-100">
-                                    Blog
+                                <Link href="/templates?type=conditioning" className="block px-4 py-2 hover:bg-gray-100">
+                                    Conditioning
                                 </Link>
-                                <Link href="/mystory" className="block px-4 py-2 hover:bg-gray-100">
-                                    My Story
+                                <div className="px-4 py-2 font-semibold text-gray-700 border-t border-b border-gray-200 mt-1">
+                                    Coaching
+                                </div>
+                                <Link href="/coaching/in-person" className="block px-4 py-2 hover:bg-gray-100">
+                                    In-Person Coaching
                                 </Link>
+                                <Link href="/coaching/online" className="block px-4 py-2 hover:bg-gray-100">
+                                    Online Coaching
+                                </Link>
+                                <div className="border-t border-gray-200 mt-1">
+                                    <Link href="/mystory" className="block px-4 py-2 hover:bg-gray-100">
+                                        My Story
+                                    </Link>
+                                </div>
                             </div>
                         )}
                     </div>
