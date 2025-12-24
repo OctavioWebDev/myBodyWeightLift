@@ -1,22 +1,24 @@
-import HeroCarousel from "./components/HeroSection";
-import OurValuesSection from "./components/OurValues";
-import ProductsTiles from "./components/ProductsTiles";
-import { getPosts } from '../../lib/post';
+'use client';
 
-export const revalidate = 60; // in seconds
+import dynamic from 'next/dynamic';
+import AboutSection from './components/AboutSection';
+import ServicesOverview from './components/ServicesOverview';
+import WhyChooseUs from './components/WhyChooseUs';
+import HowItWorks from './components/HowItWorks';
 
-export default async function Home() {
-  const posts = await getPosts();
+// Dynamically import with no SSR for better performance
+const HeroCarousel = dynamic(() => import('./components/HeroSection'), { ssr: false });
+const ProductsTiles = dynamic(() => import('./components/ProductsTiles'), { ssr: false });
+
+export default function Home() {
   return (
-    <div>
+    <main className="flex flex-col">
       <HeroCarousel />
+      <AboutSection />
+      <ServicesOverview />
+      <WhyChooseUs />
+      <HowItWorks />
       <ProductsTiles />
-      <OurValuesSection />
-      <div className="container mx-auto px-4 my-8">
-        <h2 className="text-2xl font-bold mb-4">Latest Articles</h2>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-        </div>
-      </div>
-    </div>
-  )
+    </main>
+  );
 }
