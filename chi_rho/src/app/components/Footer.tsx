@@ -77,7 +77,7 @@ export default function Footer() {
                     <div>
                         <h3 className="text-lg font-semibold mb-6 text-white border-b border-gray-800 pb-2">Quick Links</h3>
                         <div className="space-y-3">
-                            <FooterLink href="/workouttemplets" icon={faDumbbell}>
+                            <FooterLink href="/templates" icon={faDumbbell}>
                                 Workout Plans
                             </FooterLink>
                             <FooterLink href="/blog" icon={faBook}>

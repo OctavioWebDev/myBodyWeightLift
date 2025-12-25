@@ -14,9 +14,7 @@ export default function CoachingServices() {
       benefits: [
         'Customized workout plans',
         'Real-time feedback and adjustments',
-        'Accountability and motivation',
         'Proper form and technique guidance',
-        'Equipment familiarization'
       ],
       image: '/assets/images/samuel-girven-VJ2s0c20qCo-unsplash.jpg'
     },
