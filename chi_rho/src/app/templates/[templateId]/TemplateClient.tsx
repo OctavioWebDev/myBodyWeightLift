@@ -17,6 +17,8 @@ type Template = {
   category: string;
   duration: string;
   level: string;
+  frequency?: string;
+  focus?: string;
   features: string[];
   previewImage?: string;
 };

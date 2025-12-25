@@ -13,58 +13,58 @@ type Question = {
 const questions: Question[] = [
   {
     id: 1,
-    question: 'What is your primary fitness goal?',
+    question: 'How long have you been consistently strength training?',
     options: [
-      'Building strength',
-      'Losing weight',
-      'Improving endurance',
-      'General fitness'
+      'Less than 6 months',
+      '6 months - 1 year',
+      '1-3 years',
+      '3+ years'
     ],
     correctAnswer: 0
   },
   {
     id: 2,
-    question: 'How many days per week can you commit to working out?',
+    question: 'How often do you currently train per week?',
     options: [
       '1-2 days',
-      '3-4 days',
-      '5-6 days',
-      '7 days'
+      '3 days',
+      '4-5 days',
+      '6-7 days'
     ],
     correctAnswer: 1
   },
   {
     id: 3,
-    question: 'What is your current fitness level?',
+    question: 'What best describes your progress in the last 3 months?',
     options: [
-      'Beginner (0-6 months of training)',
-      'Intermediate (6 months - 2 years)',
-      'Advanced (2+ years)',
-      'Competitive athlete'
+      'Making progress almost every workout (new PRs frequently)',
+      'Progressing weekly or every other week',
+      'Progressing monthly or every few months',
+      'Progress is very slow or stalled'
     ],
     correctAnswer: 0
   },
   {
     id: 4,
-    question: 'Do you have any injuries or health concerns?',
+    question: 'What is your current squat 1RM relative to bodyweight?',
     options: [
-      'No injuries or concerns',
-      'Minor injuries (fully recovered)',
-      'Current minor injuries',
-      'Significant health concerns'
+      'Less than bodyweight',
+      '1-1.5x bodyweight',
+      '1.5-2x bodyweight',
+      '2x+ bodyweight'
     ],
     correctAnswer: 0
   },
   {
     id: 5,
-    question: 'What type of workout do you prefer?',
+    question: 'What best describes your training experience?',
     options: [
-      'Bodyweight exercises',
-      'Weight training',
-      'High-intensity interval training (HIIT)',
-      'A mix of everything'
+      'Still learning basic movements and technique',
+      'Comfortable with main lifts, refining technique',
+      'Experienced with periodization and advanced techniques',
+      'Very experienced, possibly competing'
     ],
-    correctAnswer: 3
+    correctAnswer: 0
   }
 ];
 
@@ -87,22 +87,49 @@ export default function QuizPage() {
   };
 
   const calculateResults = () => {
-    // Simple scoring - in a real app, you might want more sophisticated logic
-    const score = answers.reduce((total, answer, index) => {
-      return total + (answer === questions[index].correctAnswer ? 1 : 0);
-    }, 0);
-
-    // Determine the recommended program based on answers
-    let recommendedProgram = 'beginner-strength'; // Default
+    // Calculate experience level based on training duration and progress rate
+    const trainingDuration = answers[0];
+    const progressRate = answers[2];
+    const squatLevel = answers[3];
+    const trainingExperience = answers[4];
     
-    // Simple recommendation logic - adjust based on your needs
-    if (answers[0] === 0 && answers[1] >= 1) { // Strength goal with 3+ days
+    // Calculate a composite score (0-12, higher = more experienced)
+    const experienceScore = trainingDuration + progressRate + squatLevel + trainingExperience;
+    
+    // Determine the recommended program based on experience level
+    let recommendedProgram = 'beginner-strength';
+    let programName = 'Beginner Strength Program';
+    
+    if (experienceScore >= 9) {
+      // Advanced (3+ years, slow progress, high strength levels)
       recommendedProgram = 'advanced-powerlifting';
-    } else if (answers[0] === 1 || answers[0] === 2) { // Weight loss or endurance
+      programName = 'Advanced Powerlifting Program';
+    } else if (experienceScore >= 5) {
+      // Intermediate (1-3 years, monthly progress, intermediate strength)
       recommendedProgram = 'intermediate-hypertrophy';
+      programName = 'Hypertrophy & Strength Program';
+    } else {
+      // Beginner (<1 year, rapid progress, learning technique)
+      recommendedProgram = 'beginner-strength';
+      programName = 'Foundational Strength Program';
     }
 
-    return { score, total: questions.length, recommendedProgram };
+    // Adjust based on training frequency (answers[1])
+    const trainingFrequency = answers[1];
+    if (trainingFrequency === 0) { // 1-2 days
+      recommendedProgram += '-2day';
+    } else if (trainingFrequency === 1) { // 3 days
+      recommendedProgram += '-3day';
+    } else { // 4+ days
+      recommendedProgram += '-4day';
+    }
+
+    return { 
+      score: experienceScore, 
+      total: 12, // Max possible score
+      recommendedProgram,
+      programName
+    };
   };
 
   const handleRestart = () => {
@@ -111,7 +138,7 @@ export default function QuizPage() {
     setShowResults(false);
   };
 
-  const { score, total, recommendedProgram } = showResults ? calculateResults() : { score: 0, total: 0, recommendedProgram: '' };
+  const { score, total, recommendedProgram, programName } = showResults ? calculateResults() : { score: 0, total: 0, recommendedProgram: '', programName: 'Strength Training Program' };
 
   if (showResults) {
     return (
@@ -124,9 +151,7 @@ export default function QuizPage() {
               Based on your answers, we recommend:
             </p>
             <h2 className="text-2xl font-bold text-yellow-400 mb-6">
-              {recommendedProgram === 'advanced-powerlifting' ? 'Advanced Powerlifting Program' : 
-               recommendedProgram === 'intermediate-hypertrophy' ? 'Hypertrophy Builder Program' : 
-               'Beginner Strength Program'}
+              {programName}
             </h2>
             <p className="mb-8 text-gray-300">
               This program is tailored to your fitness level and goals. Get started today!

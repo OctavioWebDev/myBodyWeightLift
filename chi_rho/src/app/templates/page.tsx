@@ -8,34 +8,76 @@ export const metadata = {
 
 const templates = [
   {
-    id: 'beginner-strength',
-    title: 'Beginner Strength Program',
-    description: 'A 12-week program designed for beginners to build a solid foundation of strength and proper movement patterns.',
+    id: 'beginner-strength-2day',
+    title: 'Foundational Strength (2-Day)',
+    description: 'Perfect for those new to strength training, focusing on mastering fundamental movements with linear progression.',
     price: 5.00,
     image: '/assets/images/samuel-girven-VJ2s0c20qCo-unsplash.jpg',
     category: 'Strength',
     duration: '12 weeks',
     level: 'Beginner',
+    frequency: '2 days/week',
+    focus: 'Movement patterns, technique, and building consistency',
   },
   {
-    id: 'intermediate-hypertrophy',
-    title: 'Hypertrophy Builder',
-    description: 'An 8-week program focused on muscle growth and hypertrophy for intermediate lifters.',
+    id: 'beginner-strength-3day',
+    title: 'Foundational Strength (3-Day)',
+    description: 'Build a solid strength base with this 3-day full body program, perfect for beginners ready to commit to regular training.',
+    price: 5.00,
+    image: '/assets/images/samuel-girven-VJ2s0c20qCo-unsplash.jpg',
+    category: 'Strength',
+    duration: '12 weeks',
+    level: 'Beginner',
+    frequency: '3 days/week',
+    focus: 'Progressive overload, movement mastery',
+  },
+  {
+    id: 'intermediate-hypertrophy-3day',
+    title: 'Hypertrophy & Strength (3-Day)',
+    description: 'For lifters with 6+ months of experience looking to build muscle and increase strength with proper periodization.',
     price: 5.00,
     image: '/assets/images/delaney-van-I72QeY20Q7o-unsplash.jpg',
     category: 'Hypertrophy',
     duration: '8 weeks',
     level: 'Intermediate',
+    frequency: '3 days/week',
+    focus: 'Muscle growth, strength development',
   },
   {
-    id: 'advanced-powerlifting',
-    title: 'Powerlifting Peaking Program',
-    description: 'A 6-week peaking program for advanced lifters preparing for competition.',
+    id: 'intermediate-hypertrophy-4day',
+    title: 'Hypertrophy & Strength (4-Day)',
+    description: 'Higher volume split for intermediates ready to take their training to the next level with increased frequency.',
+    price: 5.00,
+    image: '/assets/images/delaney-van-I72QeY20Q7o-unsplash.jpg',
+    category: 'Hypertrophy',
+    duration: '8 weeks',
+    level: 'Intermediate',
+    frequency: '4 days/week',
+    focus: 'Progressive overload, exercise variations',
+  },
+  {
+    id: 'advanced-powerlifting-3day',
+    title: 'Powerlifting Program (3-Day)',
+    description: 'For advanced lifters focusing on the big three lifts with intelligent programming for competition prep.',
     price: 5.00,
     image: '/assets/images/jan-kahanek-fVUl6kzIvLg-unsplash.jpg',
     category: 'Powerlifting',
-    duration: '6 weeks',
+    duration: '12 weeks',
     level: 'Advanced',
+    frequency: '3 days/week',
+    focus: 'Peaking, competition prep',
+  },
+  {
+    id: 'advanced-powerlifting-4day',
+    title: 'Powerlifting Program (4-Day)',
+    description: 'High-volume powerlifting program for advanced athletes with proper recovery capacity and training age.',
+    price: 5.00,
+    image: '/assets/images/jan-kahanek-fVUl6kzIvLg-unsplash.jpg',
+    category: 'Powerlifting',
+    duration: '12 weeks',
+    level: 'Advanced',
+    frequency: '4 days/week',
+    focus: 'Strength development, accessory work',
   },
 ];
 
@@ -88,7 +130,13 @@ export default function TemplatesPage() {
                     <span className="text-xs bg-gray-800 text-gray-200 px-2 py-1 rounded">
                       {template.duration}
                     </span>
+                    <span className="text-xs bg-gray-800 text-yellow-400 px-2 py-1 rounded">
+                      {template.frequency}
+                    </span>
                   </div>
+                  <p className="text-xs text-gray-400 mb-4">
+                    <span className="font-semibold text-yellow-400">Focus:</span> {template.focus}
+                  </p>
                   
                   <Link 
                     href={`/templates/${template.id}`}

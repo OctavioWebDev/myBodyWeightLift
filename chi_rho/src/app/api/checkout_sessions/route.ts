@@ -12,9 +12,12 @@ const stripe = new Stripe(process.env.STRIPE_SECRET_KEY, {
 
 // This would typically come from your database
 const templatePrices = {
-  'beginner-strength': 500, // $5.00 in cents
-  'intermediate-hypertrophy': 500,
-  'advanced-powerlifting': 500,
+  'beginner-strength-2day': 500, // $5.00 in cents
+  'beginner-strength-3day': 500,
+  'intermediate-hypertrophy-3day': 500,
+  'intermediate-hypertrophy-4day': 500,
+  'advanced-powerlifting-3day': 500,
+  'advanced-powerlifting-4day': 500,
 } as const;
 
 export async function POST(request: Request) {
