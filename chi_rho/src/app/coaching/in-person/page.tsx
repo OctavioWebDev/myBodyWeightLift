@@ -66,7 +66,7 @@ export default function InPersonCoaching() {
           </div>
           <div className="relative h-96 rounded-xl overflow-hidden shadow-xl">
             <Image
-              src="/assets/images/in-person-training.jpg"
+              src="/assets/images/samuel-girven-VJ2s0c20qCo-unsplash.jpg"
               alt="In-person personal training session"
               fill
               className="object-cover"
