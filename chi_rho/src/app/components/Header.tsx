@@ -3,7 +3,6 @@
 import React, { useState, useRef } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
-import Search from './ui/Search';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faHome, faCircleInfo } from '@fortawesome/free-solid-svg-icons';
 
@@ -79,7 +78,6 @@ export default function Header() {
                                 </div>
                             </div>
                     </div>
-                    <Search />
                 </nav>
             </div>
         </header>
