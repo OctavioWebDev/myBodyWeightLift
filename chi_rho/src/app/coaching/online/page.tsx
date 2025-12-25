@@ -79,13 +79,8 @@ export default function OnlineCoaching() {
         <div className="bg-gray-900/80 rounded-xl shadow-xl p-8 mb-16 border border-yellow-500/20">
           <h2 className="text-3xl font-bold text-center text-yellow-400 mb-4">What's Included</h2>
           <div className="w-24 h-1 bg-yellow-500 mx-auto mb-12"></div>
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div className="grid md:grid-cols-2 gap-6 max-w-4xl mx-auto">
             {[
-              {
-                icon: '📱',
-                title: 'Mobile App Access',
-                description: 'Track your workouts, nutrition, and progress all in one place.'
-              },
               {
                 icon: '🎥',
                 title: 'Video Calls',
@@ -95,11 +90,6 @@ export default function OnlineCoaching() {
                 icon: '📝',
                 title: 'Custom Plans',
                 description: 'Workout and nutrition plans tailored to your equipment and preferences.'
-              },
-              {
-                icon: '💬',
-                title: '24/7 Support',
-                description: 'Direct messaging with your coach for questions and support.'
               },
               {
                 icon: '📊',
@@ -121,30 +111,26 @@ export default function OnlineCoaching() {
           </div>
         </div>
 
-        {/* Testimonials */}
-        <div className="max-w-4xl mx-auto">
-          <h2 className="text-3xl font-bold text-center text-yellow-400 mb-4">Success Stories</h2>
-          <div className="w-24 h-1 bg-yellow-500 mx-auto mb-12"></div>
-          <div className="grid md:grid-cols-2 gap-8">
-            {[
-              {
-                quote: "The online coaching program completely transformed my fitness routine. I've never been more consistent!",
-                author: "Sarah M.",
-                role: "Online Coaching Client"
-              },
-              {
-                quote: "I was skeptical about online training, but the personalized attention I received was incredible. Best decision ever!",
-                author: "James T.",
-                role: "6-Month Client"
-              }
-            ].map((testimonial, index) => (
-              <div key={index} className="bg-gray-900/50 p-8 rounded-xl shadow-lg border border-yellow-500/10 hover:border-yellow-500/30 transition-colors">
-                <div className="text-yellow-500 text-4xl mb-4">"</div>
-                <p className="text-gray-200 italic mb-6">{testimonial.quote}</p>
-                <div className="font-semibold text-white">{testimonial.author}</div>
-                <div className="text-sm text-gray-400">{testimonial.role}</div>
-              </div>
-            ))}
+        {/* Get Started CTA */}
+        <div className="bg-gradient-to-r from-yellow-500/10 to-yellow-500/5 rounded-xl p-8 md:p-12 text-center border border-yellow-500/20">
+          <h2 className="text-3xl font-bold text-yellow-400 mb-4">Ready to Transform Your Fitness?</h2>
+          <div className="w-24 h-1 bg-yellow-500 mx-auto mb-8"></div>
+          <p className="text-xl text-gray-200 mb-8 max-w-2xl mx-auto">
+            Take the first step towards your fitness goals today. With personalized coaching and a plan designed just for you, your transformation starts now.
+          </p>
+          <div className="space-y-4 sm:space-y-0 sm:space-x-4">
+            <Link 
+              href="/contact?service=online" 
+              className="inline-block bg-yellow-500 hover:bg-yellow-600 text-gray-900 font-semibold py-3 px-8 rounded-lg transition duration-200 shadow-lg hover:shadow-xl hover:scale-105 transform"
+            >
+              Start Your Journey Today
+            </Link>
+            <Link 
+              href="/coaching" 
+              className="inline-block bg-transparent hover:bg-gray-800 text-yellow-400 font-semibold py-3 px-8 rounded-lg transition duration-200 border border-yellow-500/30 hover:border-yellow-500/50"
+            >
+              Compare Coaching Options
+            </Link>
           </div>
         </div>
       </div>

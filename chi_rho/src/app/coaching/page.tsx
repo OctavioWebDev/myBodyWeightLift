@@ -18,7 +18,7 @@ export default function CoachingServices() {
         'Proper form and technique guidance',
         'Equipment familiarization'
       ],
-      image: '/assets/images/in-person-training.jpg'
+      image: '/assets/images/samuel-girven-VJ2s0c20qCo-unsplash.jpg'
     },
     {
       title: 'Online Coaching',
@@ -28,9 +28,8 @@ export default function CoachingServices() {
         'Video form analysis',
         'Weekly check-ins',
         'Nutrition guidance',
-        '24/7 support via app'
       ],
-      image: '/assets/images/online-coaching.jpg'
+      image: '/assets/images/jakub-zerdzicki-2MbXuj8PDrA-unsplash.jpg'
     }
   ];
 
