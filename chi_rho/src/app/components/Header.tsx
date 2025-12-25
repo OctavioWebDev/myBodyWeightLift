@@ -63,9 +63,6 @@ export default function Header() {
                                 <Link href="/templates?type=strength" className="block px-4 py-2 hover:bg-gray-100">
                                     Strength Training
                                 </Link>
-                                <Link href="/templates?type=conditioning" className="block px-4 py-2 hover:bg-gray-100">
-                                    Conditioning
-                                </Link>
                                 <div className="px-4 py-2 font-semibold text-gray-700 border-t border-b border-gray-200 mt-1">
                                     Coaching
                                 </div>
