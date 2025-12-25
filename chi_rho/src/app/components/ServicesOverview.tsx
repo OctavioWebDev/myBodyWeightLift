@@ -14,18 +14,18 @@ const services = [
     description: "Flexible training programs with remote guidance, perfect for busy schedules.",
     link: "/coaching/online"
   },
-  {
-    icon: <FaUsers className="w-8 h-8 text-yellow-500" />,
-    title: "Group Training",
-    description: "Motivating group sessions that combine fitness and community support.",
-    link: "/coaching/group"
-  },
-  {
-    icon: <FaUserFriends className="w-8 h-8 text-yellow-500" />,
-    title: "Family Fitness",
-    description: "Customized programs designed for families to stay active together.",
-    link: "/coaching/family"
-  }
+  // {
+  //   icon: <FaUsers className="w-8 h-8 text-yellow-500" />,
+  //   title: "Group Training",
+  //   description: "Motivating group sessions that combine fitness and community support.",
+  //   link: "/coaching/group"
+  // },
+  // {
+  //   icon: <FaUserFriends className="w-8 h-8 text-yellow-500" />,
+  //   title: "Family Fitness",
+  //   description: "Customized programs designed for families to stay active together.",
+  //   link: "/coaching/family"
+  // }
 ];
 
 export default function ServicesOverview() {
@@ -40,7 +40,7 @@ export default function ServicesOverview() {
           </p>
         </div>
         
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
           {services.map((service, index) => (
             <div 
               key={index}
