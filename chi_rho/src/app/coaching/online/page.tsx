@@ -21,7 +21,7 @@ export default function OnlineCoaching() {
         <div className="grid md:grid-cols-2 gap-12 items-center mb-16">
           <div className="relative h-96 rounded-xl overflow-hidden shadow-xl order-last md:order-first">
             <Image
-              src="/assets/images/online-coaching.jpg"
+              src="/assets/images/jakub-zerdzicki-2MbXuj8PDrA-unsplash.jpg"
               alt="Online coaching session"
               fill
               className="object-cover"
