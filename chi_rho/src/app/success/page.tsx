@@ -141,24 +141,4 @@ export default function SuccessPage() {
   }
 
   return null;
-          </div>
-        </div>
-        
-        <div className="flex flex-col sm:flex-row gap-4 justify-center">
-          <Link 
-            href="/templates" 
-            className="bg-gray-800 hover:bg-gray-700 text-white font-bold py-3 px-6 rounded-full transition-colors"
-          >
-            View More Templates
-          </Link>
-          <Link 
-            href="/" 
-            className="border border-gray-600 hover:bg-gray-800 text-white font-bold py-3 px-6 rounded-full transition-colors"
-          >
-            Back to Home
-          </Link>
-        </div>
-      </div>
-    </div>
-  );
 }
