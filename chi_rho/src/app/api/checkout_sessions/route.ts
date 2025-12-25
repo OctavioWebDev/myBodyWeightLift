@@ -10,14 +10,43 @@ const stripe = new Stripe(process.env.STRIPE_SECRET_KEY, {
   typescript: true,
 });
 
-// This would typically come from your database
-const templatePrices = {
-  'beginner-strength-2day': 500, // $5.00 in cents
-  'beginner-strength-3day': 500,
-  'intermediate-hypertrophy-3day': 500,
-  'intermediate-hypertrophy-4day': 500,
-  'advanced-powerlifting-3day': 500,
-  'advanced-powerlifting-4day': 500,
+// Template configuration with prices and corresponding PDFs
+const templateConfig = {
+  'beginner-strength-2day': {
+    price: 500,
+    pdf: '/pdfs/Foundational_Strength_2Day_Program.pdf',
+    name: 'Foundational Strength 2-Day Program'
+  },
+  'beginner-strength-3day': {
+    price: 500,
+    pdf: '/pdfs/Foundational_Strength_3Day_Program.pdf',
+    name: 'Foundational Strength 3-Day Program'
+  },
+  'intermediate-hypertrophy-3day': {
+    price: 500,
+    pdf: '/pdfs/Hypertrophy_Strength_8Week_Program.pdf',
+    name: 'Hypertrophy & Strength 3-Day Program'
+  },
+  'intermediate-hypertrophy-4day': {
+    price: 500,
+    pdf: '/pdfs/Hypertrophy_Strength_8Week_Program.pdf',
+    name: 'Hypertrophy & Strength 4-Day Program'
+  },
+  'advanced-powerlifting-3day': {
+    price: 500,
+    pdf: '/pdfs/Powerlifting_Competition_12Week_Program.pdf',
+    name: 'Advanced Powerlifting 3-Day Program'
+  },
+  'advanced-powerlifting-4day': {
+    price: 500,
+    pdf: '/pdfs/Advanced_Powerlifting_4Day_Program.pdf',
+    name: 'Advanced Powerlifting 4-Day Program'
+  },
+  'advanced-volume-4day': {
+    price: 500,
+    pdf: '/pdfs/Advanced_Volume_4Day_Program.pdf',
+    name: 'Advanced Volume 4-Day Program'
+  }
 } as const;
 
 export async function POST(request: Request) {
@@ -31,9 +60,9 @@ export async function POST(request: Request) {
       );
     }
 
-    const price = templatePrices[templateId as keyof typeof templatePrices];
+    const template = templateConfig[templateId as keyof typeof templateConfig];
     
-    if (!price) {
+    if (!template) {
       return NextResponse.json(
         { error: 'Invalid template ID' },
         { status: 400 }
@@ -47,21 +76,22 @@ export async function POST(request: Request) {
           price_data: {
             currency: 'usd',
             product_data: {
-              name: `Training Template: ${templateId.split('-').map((word: string) => 
-                word.charAt(0).toUpperCase() + word.slice(1)
-              ).join(' ')}`,
-              description: 'Digital download of training template',
+              name: template.name,
+              description: 'Digital download of training program',
+              images: ['https://your-website.com/logo.png'],
             },
-            unit_amount: price,
+            unit_amount: template.price,
           },
           quantity: 1,
         },
       ],
       mode: 'payment',
-      success_url: successUrl || `${process.env.NEXT_PUBLIC_BASE_URL}/success?session_id={CHECKOUT_SESSION_ID}`,
+      success_url: successUrl || `${process.env.NEXT_PUBLIC_BASE_URL}/success?session_id={CHECKOUT_SESSION_ID}&program=${encodeURIComponent(template.name)}&pdf=${encodeURIComponent(template.pdf)}`,
       cancel_url: cancelUrl || `${process.env.NEXT_PUBLIC_BASE_URL}/templates`,
       metadata: {
         templateId,
+        pdfPath: template.pdf,
+        programName: template.name
       },
     });
 
