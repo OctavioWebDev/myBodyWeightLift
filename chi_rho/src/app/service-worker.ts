@@ -1,20 +1,27 @@
+// This tells TypeScript this is a Service Worker
+/// <reference no-default-lib="true" />
+/// <reference lib="esnext" />
 /// <reference lib="webworker" />
 
-declare const self: ServiceWorkerGlobalScope;
+// This is a type-only import, it will be removed during build
+import type { } from 'serviceworker-webpack-plugin';
 
 const CACHE_NAME = 'chi-rho-cache-v1';
 const urlsToCache = [
   '/',
   '/blog',
-  '/workouttemplets',
+  '/workouttemplates',
   '/mystory',
   '/favicon.ico',
   '/manifest.json',
   // Add other important routes here
 ];
 
+// Cast self to ServiceWorkerGlobalScope
+const sw = self as unknown as ServiceWorkerGlobalScope;
+
 // Install event - cache static assets
-self.addEventListener('install', (event) => {
+sw.addEventListener('install', (event: ExtendableEvent) => {
   event.waitUntil(
     caches.open(CACHE_NAME)
       .then((cache) => {
@@ -25,7 +32,7 @@ self.addEventListener('install', (event) => {
 });
 
 // Fetch event - serve from cache, falling back to network
-self.addEventListener('fetch', (event) => {
+sw.addEventListener('fetch', (event: FetchEvent) => {
   event.respondWith(
     caches.match(event.request)
       .then((response) => {
@@ -56,11 +63,11 @@ self.addEventListener('fetch', (event) => {
           }
         );
       })
-    );
+  );
 });
 
 // Activate event - clean up old caches
-self.addEventListener('activate', (event) => {
+sw.addEventListener('activate', (event: ExtendableEvent) => {
   const cacheWhitelist = [CACHE_NAME];
   event.waitUntil(
     caches.keys().then((cacheNames) => {
@@ -70,8 +77,11 @@ self.addEventListener('activate', (event) => {
             return caches.delete(cacheName);
           }
           return null;
-        })
+        }).filter(Boolean) as Promise<boolean>[]
       );
     })
   );
 });
+
+// Export an empty object to make TypeScript happy
+export { };

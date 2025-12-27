@@ -1,3 +1,4 @@
+// src/app/templates/[templateId]/TemplateClient.tsx
 'use client';
 
 import { useState, useEffect } from 'react';
@@ -5,29 +6,14 @@ import { loadStripe } from '@stripe/stripe-js';
 import { useSearchParams } from 'next/navigation';
 import Image from 'next/image';
 import Link from 'next/link';
-
-// Define the template type
-type Template = {
-  id: string;
-  title: string;
-  description: string;
-  longDescription: string;
-  price: number;
-  image: string;
-  category: string;
-  duration: string;
-  level: string;
-  frequency?: string;
-  focus?: string;
-  features: string[];
-  previewImage?: string;
-};
+import type { Template } from '@/types/template';
 
 type TemplateClientProps = {
   template: Template;
 };
 
-// Initialize Stripe with your publishable key
+
+
 const stripePromise = loadStripe(process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY || '');
 
 export default function TemplateClient({ template }: TemplateClientProps) {
