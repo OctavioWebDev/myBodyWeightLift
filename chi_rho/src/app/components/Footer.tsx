@@ -67,9 +67,9 @@ export default function Footer() {
                             Empowering your fitness journey with personalized training and unwavering support.
                         </p>
                         <div className="flex space-x-4">
-                            <SocialIcon href="#" icon={faFacebookF} />
-                            <SocialIcon href="#" icon={faInstagram} />
-                            <SocialIcon href="#" icon={faYoutube} />
+                            <SocialIcon href="https://www.facebook.com/profile.php?id=61585916301651" icon={faFacebookF} />
+                            <SocialIcon href="https://www.instagram.com/chirhostrength/" icon={faInstagram} />
+                            <SocialIcon href="https://www.youtube.com/@1faith419" icon={faYoutube} />
                         </div>
                     </div>
 
@@ -104,8 +104,7 @@ export default function Footer() {
                                     rel="noopener noreferrer"
                                     className="text-gray-400 hover:text-white transition-colors"
                                 >
-                                    1488 Back Ally LN<br />
-                                    Toledo, Ohio
+                                    Toledo, Ohio<br />
                                 </a>
                             </div>
                             <div className="flex items-center space-x-3">
