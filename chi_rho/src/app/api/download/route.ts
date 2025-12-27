@@ -42,32 +42,26 @@ export async function GET(request: Request) {
     const sessionId = searchParams.get('session_id');
 
     if (!templateId || !sessionId) {
-      return new NextResponse('Missing parameters', { status: 400 });
+      return new NextResponse('Missing required parameters (templateId and session_id)', { status: 400 });
     }
 
     // Verify the Stripe session to ensure the user has paid for this template
     try {
       const session = await stripe.checkout.sessions.retrieve(sessionId);
       
-      // Check if the session is paid and not expired
+      // Check if the session is paid
       if (session.payment_status !== 'paid') {
-        return new NextResponse('Payment not completed', { status: 402 });
+    
+        return new NextResponse('Payment not completed. Please complete your purchase first.', { status: 402 });
       }
       
-      // Verify the template ID matches what was purchased
-      const lineItem = session.line_items?.data[0];
-      const priceId = lineItem?.price?.id;
-      
-      if (!priceId) {
-        return new NextResponse('Invalid session', { status: 400 });
+      // FIXED: Verify the template ID matches what was purchased using metadata
+      if (session.metadata?.templateId !== templateId) {
+        return new NextResponse('Template ID does not match your purchase.', { status: 403 });
       }
-      
-      // Optional: You can add additional verification here, like checking if the price ID matches the template ID
-      // This requires setting up price IDs in your Stripe dashboard that match your template IDs
       
     } catch (error) {
-      console.error('Error verifying Stripe session:', error);
-      return new NextResponse('Error verifying payment', { status: 500 });
+      return new NextResponse('Error verifying payment. Please contact support.', { status: 500 });
     }
     
     const pdfFilename = pdfFiles[templateId];
@@ -75,17 +69,21 @@ export async function GET(request: Request) {
       return new NextResponse('Template not found', { status: 404 });
     }
 
-    const pdfPath = getPdfPath(pdfFilename);
-    const pdfBuffer = await readFile(pdfPath);
+    try {
+      const pdfPath = getPdfPath(pdfFilename);
+      const pdfBuffer = await readFile(pdfPath);
 
-    return new NextResponse(pdfBuffer, {
-      headers: {
-        'Content-Type': 'application/pdf',
-        'Content-Disposition': `attachment; filename="${pdfFilename}"`,
-      },
-    });
+      return new NextResponse(pdfBuffer, {
+        headers: {
+          'Content-Type': 'application/pdf',
+          'Content-Disposition': `attachment; filename="${pdfFilename}"`,
+          'Cache-Control': 'private, no-cache, no-store, must-revalidate',
+        },
+      });
+    } catch (fileError) {
+      return new NextResponse('PDF file not found. Please contact support.', { status: 500 });
+    }
   } catch (error) {
-    console.error('Error generating PDF:', error);
-    return new NextResponse('Error generating PDF', { status: 500 });
+    return new NextResponse('Error processing download. Please contact support.', { status: 500 });
   }
 }

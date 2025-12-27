@@ -86,7 +86,8 @@ export async function POST(request: Request) {
         },
       ],
       mode: 'payment',
-      success_url: successUrl || `${process.env.NEXT_PUBLIC_BASE_URL}/success?session_id={CHECKOUT_SESSION_ID}&program=${encodeURIComponent(template.name)}&pdf=${encodeURIComponent(template.pdf)}`,
+      // FIXED: Pass templateId instead of program/pdf
+      success_url: successUrl || `${process.env.NEXT_PUBLIC_BASE_URL}/success?session_id={CHECKOUT_SESSION_ID}&templateId=${templateId}`,
       cancel_url: cancelUrl || `${process.env.NEXT_PUBLIC_BASE_URL}/templates`,
       metadata: {
         templateId,
@@ -97,7 +98,6 @@ export async function POST(request: Request) {
 
     return NextResponse.json({ url: session.url });
   } catch (err) {
-    console.error('Error creating checkout session:', err);
     return NextResponse.json(
       { error: 'Error creating checkout session' },
       { status: 500 }

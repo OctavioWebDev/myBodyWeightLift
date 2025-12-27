@@ -28,11 +28,9 @@ export default function TemplateClient({ template }: TemplateClientProps) {
     const query = new URLSearchParams(window.location.search);
     
     if (query.get('success')) {
-      console.log('Order placed! You will receive an email confirmation.');
     }
 
     if (query.get('canceled')) {
-      console.log('Order canceled -- continue to shop around and checkout when you’re ready.');
     }
   }, []);
 
@@ -48,7 +46,7 @@ export default function TemplateClient({ template }: TemplateClientProps) {
         },
         body: JSON.stringify({
           templateId: template.id,
-          successUrl: `${window.location.origin}/success?session_id={CHECKOUT_SESSION_ID}`,
+          successUrl: `${window.location.origin}/success?session_id={CHECKOUT_SESSION_ID}&templateId=${template.id}`,
           cancelUrl: window.location.href,
         }),
       });
@@ -67,7 +65,6 @@ export default function TemplateClient({ template }: TemplateClientProps) {
         throw new Error('No checkout URL returned from server');
       }
     } catch (error) {
-      console.error('Error during checkout:', error);
     } finally {
       setLoading(false);
     }

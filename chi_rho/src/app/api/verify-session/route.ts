@@ -52,7 +52,6 @@ export async function GET(request: Request) {
       customerEmail: session.customer_details?.email,
     });
   } catch (err) {
-    console.error('Error verifying session:', err);
     return NextResponse.json(
       { error: 'Error verifying session' },
       { status: 500 }

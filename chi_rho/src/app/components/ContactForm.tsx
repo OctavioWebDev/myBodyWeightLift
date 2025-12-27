@@ -54,7 +54,6 @@ export default function ContactForm({ initialService = '' }: ContactFormProps) {
             process.env.NEXT_PUBLIC_EMAILJS_USER_ID || ""
         )
             .then((result) => {
-                console.log('Email successfully sent!', result.text);
                 setSubmitStatus({ message: 'Your request has been sent successfully!', isError: false });
                 setFormState({
                     firstName: '',
@@ -69,7 +68,6 @@ export default function ContactForm({ initialService = '' }: ContactFormProps) {
                 }
 
             }, (error) => {
-                console.log('Failed to send the email:', error.text);
                 setSubmitStatus({ message: 'Failed to send request. Please try again.', isError: true });
             });
     };
