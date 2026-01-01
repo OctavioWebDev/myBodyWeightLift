@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from 'react';
 import Image from 'next/image';
+import Link from 'next/link';
 
 const images = [
   { src: '/assets/images/cathy-mu-UWFjqxYWAmA-unsplash.jpg' },
@@ -25,39 +26,74 @@ const HeroCarousel = () => {
   return (
     <div className="image-carousel relative w-full h-screen overflow-hidden">
       {images.map((imageData, index) => (
-        <div key={index} className={`transition-opacity duration-9000 ease-in-out ${index === currentImageIndex ? 'opacity-100' : 'opacity-0'} absolute inset-0`}>
+        <div key={index} className={`transition-opacity duration-1000 ease-in-out ${index === currentImageIndex ? 'opacity-100' : 'opacity-0'} absolute inset-0`}>
           <Image
             src={imageData.src}
-            alt={`Display Image ${index + 1}`}
-            layout='fill'
-            objectFit='cover'
+            alt={`Strength Training ${index + 1}`}
+            fill
+            style={{ objectFit: 'cover' }}
             quality={75}
+            priority={index === 0}
           />
           {index === currentImageIndex && (
-            <div className="overlay absolute inset-0 flex flex-col md:flex-row items-center justify-between px-4 md:px-8"
-                 style={{ background: 'linear-gradient(to top, rgba(255,255,255,0) 0%, rgba(0,0,0,5) 100%)' }}>
-              <div className="w-full md:w-1/2 flex flex-col items-start text-left">
-                <div className="tracking-tighter mt-6 mb-6 text-white">
-                  <h2 className="font-bold text-left text-3xl md:text-4xl lg:text-5xl mb-4">
-                    Welcome to Chi-Rho Power and Strength
-                  </h2>
-                  <p className="mt-3 text-xl md:text-2xl text-left text-gray-300">Fortify My Life</p>
-                  <p className='py-8 text-left text-base md:text-xl lg:text-2xl'>
-                    Where the journey of preparation meets the commitment to excellence and the courage
-                    to respond to life's challenges. We are more than just a lifestyle brand; we are a
-                    community committed to fostering strength in every aspect of life.
-                  </p>
-                </div>
-              </div>
-              <div className=" md:w-1/2 flex justify-center md:justify-end items-center">
-                <div className="relative">
+            <div className="overlay absolute inset-0 flex flex-col md:flex-row items-center justify-between px-4 md:px-8 py-4"
+                 style={{ background: 'linear-gradient(to top, rgba(255,255,255,0) 0%, rgba(0,0,0,0.85) 100%)' }}>
+              
+              {/* Logo - Shows FIRST on mobile, SECOND on desktop */}
+              <div className="w-full md:w-1/2 flex justify-center md:justify-end items-center order-1 md:order-2 mb-4 md:mb-0">
+                <div className="relative w-48 h-48 sm:w-56 sm:h-56 md:w-80 md:h-80 lg:w-96 lg:h-96">
                   <Image
                     src={logo}
-                    alt="Logo"
-                    height='1000'
-                    width='1000'
-                    objectFit="contain"
+                    alt="Chi-Rho Power and Strength Logo"
+                    fill
+                    style={{ objectFit: 'contain' }}
+                    priority
                   />
+                </div>
+              </div>
+
+              {/* Content - Shows SECOND on mobile, FIRST on desktop */}
+              <div className="w-full md:w-1/2 flex flex-col items-start text-left order-2 md:order-1">
+                <div className="tracking-tighter text-white">
+                  <h1 className="font-bold text-left text-2xl sm:text-3xl md:text-4xl lg:text-5xl mb-3 md:mb-4">
+                    Get Stronger.<br />
+                    <span className="text-yellow-400">Stop Overthinking.</span>
+                  </h1>
+                  <p className="mt-2 md:mt-3 text-lg sm:text-xl md:text-2xl text-left text-gray-200">
+                    Strength coaching from the author of <em>"Shut Up and Lift"</em>
+                  </p>
+                  <p className='py-4 md:py-8 text-left text-sm sm:text-base md:text-xl lg:text-2xl text-gray-300'>
+                    Cut through the fitness industry BS. Get expert programming that actually works for real people with real schedules.
+                  </p>
+                  
+                  {/* Credentials Badges */}
+                  <div className="flex flex-wrap gap-2 md:gap-3 mb-4 md:mb-6 text-xs sm:text-sm md:text-base">
+                    <div className="bg-yellow-500/10 border border-yellow-500/30 rounded-full px-3 py-1.5 md:px-4 md:py-2 text-yellow-400">
+                      ✓ 10+ Years Training
+                    </div>
+                    <div className="bg-yellow-500/10 border border-yellow-500/30 rounded-full px-3 py-1.5 md:px-4 md:py-2 text-yellow-400">
+                      ✓ Published Author
+                    </div>
+                    <div className="bg-yellow-500/10 border border-yellow-500/30 rounded-full px-3 py-1.5 md:px-4 md:py-2 text-yellow-400">
+                      ✓ Working Professional
+                    </div>
+                  </div>
+
+                  {/* CTA Buttons */}
+                  <div className="flex flex-col sm:flex-row gap-3 md:gap-4">
+                    <Link 
+                      href="/coaching"
+                      className="inline-block bg-yellow-500 hover:bg-yellow-600 text-gray-900 font-bold py-2.5 px-6 md:py-3 md:px-8 rounded-lg transition duration-200 shadow-lg hover:shadow-xl hover:scale-105 transform text-center text-sm md:text-base"
+                    >
+                      View Coaching Options
+                    </Link>
+                    <Link 
+                      href="/contact"
+                      className="inline-block bg-transparent border-2 border-white hover:bg-white hover:text-gray-900 text-white font-bold py-2.5 px-6 md:py-3 md:px-8 rounded-lg transition duration-200 text-center text-sm md:text-base"
+                    >
+                      Free Consultation
+                    </Link>
+                  </div>
                 </div>
               </div>
             </div>
