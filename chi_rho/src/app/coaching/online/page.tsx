@@ -3,23 +3,153 @@
 import React from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
+import { FaCheck, FaLaptop, FaVideo, FaChartLine, FaComments, FaDumbbell } from 'react-icons/fa';
 
 export default function OnlineCoaching() {
+  const packages = [
+    {
+      name: 'Foundation Program',
+      price: '$97',
+      period: '/month',
+      tagline: 'For Self-Motivated Lifters',
+      description: 'Solid programming for experienced beginners who can execute independently.',
+      features: [
+        'Custom training program based on detailed assessment',
+        'Monthly program updates',
+        'Access to training portal with exercise library',
+        'Email support (48-hour response)',
+        'Monthly progress review and adjustments'
+      ],
+      bestFor: [
+        'Experienced lifters who know the basics',
+        'Those who\'ve read "Shut Up and Lift"',
+        'Self-motivated athletes with consistent schedules'
+      ],
+      cta: 'Get Started',
+      href: '/contact?service=foundation',
+      popular: false
+    },
+    {
+      name: 'Strength Athlete Coaching',
+      price: '$247',
+      period: '/month',
+      tagline: 'Most Popular',
+      description: 'Comprehensive coaching for serious lifters chasing PRs.',
+      features: [
+        'Everything in Foundation Program, PLUS:',
+        'Weekly check-ins via training app',
+        'Form check video analysis (up to 3/week)',
+        'Program adjustments based on performance data',
+        'Direct messaging support (24-hour response)',
+        'Bi-weekly accountability calls (15 minutes)',
+        'Basic nutrition framework',
+        'Access to "Shut Up and Lift" methodology resources'
+      ],
+      bestFor: [
+        'Intermediate to advanced lifters chasing PRs',
+        'Those preparing for powerlifting meets',
+        'Lifters who want expert eyes on technique',
+        'Anyone who needs accountability and feedback'
+      ],
+      guarantee: 'See measurable strength gains in first 8 weeks or get a free month',
+      cta: 'Start Coaching',
+      href: '/contact?service=strength-athlete',
+      popular: true
+    },
+    {
+      name: 'Elite Performance Coaching',
+      price: '$447',
+      period: '/month',
+      tagline: 'Premium Service',
+      description: 'White-glove service for competitive lifters pursuing elite strength.',
+      features: [
+        'Everything in Strength Athlete Coaching, PLUS:',
+        'Bi-weekly video coaching calls (30 minutes)',
+        'Unlimited form check reviews (48-hour turnaround)',
+        'Daily messaging access via private channel',
+        'Comprehensive nutrition coaching',
+        'Competition prep and attempt selection',
+        'Quarterly in-depth program design sessions',
+        'Priority support - same-day responses'
+      ],
+      bestFor: [
+        'Competitive powerlifters preparing for meets',
+        'Advanced lifters pursuing elite totals',
+        'High-performers who demand premium service'
+      ],
+      bonus: 'Free copy of "Shut Up and Lift" + signed training journal',
+      cta: 'Apply Now',
+      href: '/contact?service=elite',
+      popular: false
+    }
+  ];
+
+  const howItWorks = [
+    {
+      step: '1',
+      title: 'Complete Application',
+      description: 'Fill out the coaching application with your training history, goals, and current situation.',
+      icon: <FaComments className="w-8 h-8" />
+    },
+    {
+      step: '2',
+      title: 'Discovery Call',
+      description: `We'll schedule a 20-minute call to ensure we're a good fit and answer questions.`,
+      icon: <FaVideo className="w-8 h-8" />
+    },
+    {
+      step: '3',
+      title: 'Assessment & Setup',
+      description: 'Complete detailed assessment, get your training portal access, and receive your first program.',
+      icon: <FaChartLine className="w-8 h-8" />
+    },
+    {
+      step: '4',
+      title: 'Start Training',
+      description: 'Begin your program with ongoing support, form checks, and adjustments based on performance.',
+      icon: <FaDumbbell className="w-8 h-8" />
+    }
+  ];
+
   return (
     <div className="min-h-screen bg-black py-12 px-4 sm:px-6 lg:px-8">
       <div className="max-w-7xl mx-auto">
         {/* Hero Section */}
         <div className="text-center mb-16">
-          <h1 className="text-4xl font-bold text-yellow-400 mb-4">Online Coaching</h1>
+          <div className="inline-flex items-center justify-center w-20 h-20 bg-yellow-500/10 rounded-full mb-6">
+            <FaLaptop className="w-10 h-10 text-yellow-500" />
+          </div>
+          <h1 className="text-4xl md:text-5xl font-bold text-yellow-400 mb-4">
+            Online Strength Coaching
+          </h1>
           <div className="w-24 h-1 bg-yellow-500 mx-auto mb-6"></div>
-          <p className="text-xl text-gray-300 max-w-3xl mx-auto">
-            Professional fitness coaching from anywhere in the world, tailored to your schedule and goals.
+          <p className="text-xl text-gray-300 max-w-3xl mx-auto mb-8">
+            Expert strength programming and accountability from anywhere in the world. Train on your schedule with guidance from someone who actually understands what builds strength.
           </p>
         </div>
 
-        {/* Benefits Section */}
-        <div className="grid md:grid-cols-2 gap-12 items-center mb-16">
-          <div className="relative h-96 rounded-xl overflow-hidden shadow-xl order-last md:order-first">
+        {/* Benefits Grid */}
+        <div className="grid md:grid-cols-2 gap-8 mb-16">
+          <div className="bg-gray-900 rounded-xl p-8 border border-gray-800">
+            <h2 className="text-2xl font-bold text-yellow-400 mb-6">Why Online Coaching Works</h2>
+            <ul className="space-y-4">
+              {[
+                'Train anywhere - your gym, home, or on the road',
+                'Programs built around your equipment and schedule',
+                'Expert programming without the commute',
+                'More affordable than in-person training',
+                'Ongoing support via app and messaging',
+                'Form checks via video analysis'
+              ].map((benefit, i) => (
+                <li key={i} className="flex items-start">
+                  <FaCheck className="w-5 h-5 text-yellow-500 mr-3 mt-1 flex-shrink-0" />
+                  <span className="text-gray-300">{benefit}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          <div className="relative h-96 rounded-xl overflow-hidden shadow-xl">
             <Image
               src="/assets/images/jakub-zerdzicki-2MbXuj8PDrA-unsplash.jpg"
               alt="Online coaching session"
@@ -28,110 +158,191 @@ export default function OnlineCoaching() {
               priority
             />
           </div>
-          <div className="space-y-6">
-            <h2 className="text-3xl font-bold text-white mb-6">Why Choose Online Coaching?</h2>
-            <ul className="space-y-4">
-              <li className="flex items-start">
-                <div className="flex-shrink-0 h-6 w-6 text-yellow-500 mr-3">
-                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                  </svg>
-                </div>
-                <span className="text-white">Work out anytime, anywhere with flexible scheduling</span>
-              </li>
-              <li className="flex items-start">
-                <div className="flex-shrink-0 h-6 w-6 text-yellow-500 mr-3">
-                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                  </svg>
-                </div>
-                <span className="text-gray-200">Personalized workout plans in your pocket</span>
-              </li>
-              <li className="flex items-start">
-                <div className="flex-shrink-0 h-6 w-6 text-yellow-500 mr-3">
-                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                  </svg>
-                </div>
-                <span className="text-gray-200">Regular check-ins and progress tracking</span>
-              </li>
-              <li className="flex items-start">
-                <div className="flex-shrink-0 h-6 w-6 text-yellow-500 mr-3">
-                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                  </svg>
-                </div>
-                <span className="text-gray-200">No equipment? No problem - we'll work with what you have</span>
-              </li>
-            </ul>
-            <div className="pt-4">
-              <Link 
-                href="/contact?service=online" 
-                className="inline-block bg-yellow-500 hover:bg-yellow-600 text-gray-900 font-semibold py-3 px-8 rounded-lg transition duration-200 shadow-lg hover:shadow-xl hover:scale-105 transform"
-              >
-                Start Your Online Coaching Journey
-              </Link>
-            </div>
-          </div>
         </div>
 
-        {/* Features Section */}
-        <div className="bg-gray-900/80 rounded-xl shadow-xl p-8 mb-16 border border-yellow-500/20">
-          <h2 className="text-3xl font-bold text-center text-yellow-400 mb-4">What's Included</h2>
+        {/* Packages */}
+        <div className="mb-16">
+          <h2 className="text-3xl font-bold text-center text-yellow-400 mb-4">
+            Choose Your Package
+          </h2>
           <div className="w-24 h-1 bg-yellow-500 mx-auto mb-12"></div>
-          <div className="grid md:grid-cols-2 gap-6 max-w-4xl mx-auto">
-            {[
-              {
-                icon: '🎥',
-                title: 'Video Calls',
-                description: 'Regular video check-ins with your coach for form checks and adjustments.'
-              },
-              {
-                icon: '📝',
-                title: 'Custom Plans',
-                description: 'Workout and nutrition plans tailored to your equipment and preferences.'
-              },
-              {
-                icon: '📊',
-                title: 'Progress Tracking',
-                description: 'Monitor your improvements with detailed analytics and feedback.'
-              },
-              {
-                icon: '🔄',
-                title: 'Ongoing Adjustments',
-                description: 'Your plan evolves as you do, with regular updates based on your progress.'
-              }
-            ].map((feature, index) => (
-              <div key={index} className="p-6 bg-gray-800/50 rounded-lg hover:bg-gray-800/80 transition-colors border border-gray-800 hover:border-yellow-500/30">
-                <div className="text-4xl mb-4 text-yellow-400">{feature.icon}</div>
-                <h3 className="text-xl font-semibold text-white mb-2">{feature.title}</h3>
-                <p className="text-gray-300">{feature.description}</p>
+          
+          <div className="grid md:grid-cols-3 gap-8">
+            {packages.map((pkg, index) => (
+              <div 
+                key={index}
+                className={`bg-gray-900 rounded-xl overflow-hidden border-2 ${
+                  pkg.popular ? 'border-yellow-500' : 'border-gray-800'
+                } hover:border-yellow-500/50 transition-all relative`}
+              >
+                {pkg.popular && (
+                  <div className="absolute top-0 right-0 bg-yellow-500 text-gray-900 font-bold px-4 py-1 text-sm z-10">
+                    MOST POPULAR
+                  </div>
+                )}
+                
+                <div className="p-6 border-b border-gray-800">
+                  <h3 className="text-2xl font-bold text-white mb-1">{pkg.name}</h3>
+                  <p className="text-yellow-400 text-sm mb-4">{pkg.tagline}</p>
+                  <div className="flex items-baseline mb-2">
+                    <span className="text-4xl font-bold text-yellow-500">{pkg.price}</span>
+                    <span className="text-gray-400 ml-2">{pkg.period}</span>
+                  </div>
+                  <p className="text-gray-300 text-sm">{pkg.description}</p>
+                </div>
+
+                <div className="p-6">
+                  <h4 className="font-semibold text-white mb-4 text-sm">What's Included:</h4>
+                  <ul className="space-y-3 mb-6">
+                    {pkg.features.map((feature, i) => (
+                      <li key={i} className="flex items-start text-sm">
+                        <FaCheck className="w-4 h-4 text-yellow-500 mr-2 mt-0.5 flex-shrink-0" />
+                        <span className="text-gray-300">{feature}</span>
+                      </li>
+                    ))}
+                  </ul>
+
+                  <h4 className="font-semibold text-white mb-3 text-sm">Best For:</h4>
+                  <ul className="space-y-2 mb-6">
+                    {pkg.bestFor.map((item, i) => (
+                      <li key={i} className="text-gray-400 text-sm">• {item}</li>
+                    ))}
+                  </ul>
+
+                  {pkg.guarantee && (
+                    <div className="bg-yellow-500/10 border border-yellow-500/30 rounded-lg p-3 mb-4">
+                      <p className="text-yellow-400 text-xs font-semibold">✓ GUARANTEE</p>
+                      <p className="text-gray-300 text-sm">{pkg.guarantee}</p>
+                    </div>
+                  )}
+
+                  {pkg.bonus && (
+                    <div className="bg-gray-800/50 rounded-lg p-3 mb-4">
+                      <p className="text-yellow-400 text-xs font-semibold">🎁 BONUS</p>
+                      <p className="text-gray-300 text-sm">{pkg.bonus}</p>
+                    </div>
+                  )}
+
+                  <Link
+                    href={pkg.href}
+                    className={`block w-full text-center font-bold py-3 px-6 rounded-lg transition duration-200 ${
+                      pkg.popular
+                        ? 'bg-yellow-500 hover:bg-yellow-600 text-gray-900'
+                        : 'bg-gray-800 hover:bg-gray-700 text-white'
+                    }`}
+                  >
+                    {pkg.cta}
+                  </Link>
+                </div>
               </div>
             ))}
           </div>
         </div>
 
-        {/* Get Started CTA */}
-        <div className="bg-gradient-to-r from-yellow-500/10 to-yellow-500/5 rounded-xl p-8 md:p-12 text-center border border-yellow-500/20">
-          <h2 className="text-3xl font-bold text-yellow-400 mb-4">Ready to Transform Your Fitness?</h2>
-          <div className="w-24 h-1 bg-yellow-500 mx-auto mb-8"></div>
-          <p className="text-xl text-gray-200 mb-8 max-w-2xl mx-auto">
-            Take the first step towards your fitness goals today. With personalized coaching and a plan designed just for you, your transformation starts now.
+        {/* How It Works */}
+        <div className="bg-gray-900/80 rounded-xl p-8 mb-16 border border-yellow-500/20">
+          <h2 className="text-3xl font-bold text-center text-yellow-400 mb-4">How It Works</h2>
+          <div className="w-24 h-1 bg-yellow-500 mx-auto mb-12"></div>
+          <div className="grid md:grid-cols-4 gap-8">
+            {howItWorks.map((item, index) => (
+              <div key={index} className="text-center">
+                <div className="w-16 h-16 bg-yellow-500/10 rounded-full flex items-center justify-center text-yellow-500 mx-auto mb-4 border border-yellow-500/30">
+                  {item.icon}
+                </div>
+                <div className="text-2xl font-bold text-yellow-400 mb-2">{item.step}</div>
+                <h3 className="text-lg font-semibold text-white mb-2">{item.title}</h3>
+                <p className="text-gray-300 text-sm">{item.description}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* Special Offers */}
+        <div className="bg-gradient-to-r from-yellow-500/10 to-yellow-500/5 rounded-xl p-8 mb-16 border border-yellow-500/20">
+          <h2 className="text-2xl font-bold text-yellow-400 mb-6 text-center">Special Offers</h2>
+          <div className="grid md:grid-cols-3 gap-6">
+            <div className="bg-black/50 p-6 rounded-lg border border-gray-800">
+              <p className="text-yellow-400 font-semibold mb-2">📚 Book Buyer Discount</p>
+              <p className="text-gray-300 text-sm">Bought "Shut Up and Lift"? Get 15% off your first month of coaching.</p>
+            </div>
+            <div className="bg-black/50 p-6 rounded-lg border border-gray-800">
+              <p className="text-yellow-400 font-semibold mb-2">🤝 Referral Bonus</p>
+              <p className="text-gray-300 text-sm">Refer a friend who signs up → $50 credit. They get $25 off.</p>
+            </div>
+            <div className="bg-black/50 p-6 rounded-lg border border-gray-800">
+              <p className="text-yellow-400 font-semibold mb-2">💰 Multi-Month Discount</p>
+              <p className="text-gray-300 text-sm">Pay upfront: 3mo = 5% off | 6mo = 10% off | 12mo = 15% off</p>
+            </div>
+          </div>
+        </div>
+
+        {/* FAQ */}
+        <div className="max-w-4xl mx-auto mb-16">
+          <h2 className="text-3xl font-bold text-center text-yellow-400 mb-4">Common Questions</h2>
+          <div className="w-24 h-1 bg-yellow-500 mx-auto mb-12"></div>
+          <div className="space-y-4">
+            {[
+              {
+                question: 'What equipment do I need?',
+                answer: `Foundation and Strength Athlete programs work best with a barbell, rack, and plates. I can adapt for dumbbells, but barbell training produces better results. Elite clients: I'll work with whatever you have.`
+              },
+              {
+                question: 'How often will we communicate?',
+                answer: 'Foundation: email check-ins monthly. Strength Athlete: weekly app check-ins + bi-weekly calls. Elite: bi-weekly video calls + daily messaging access.'
+              },
+              {
+                question: 'I\'m a complete beginner. Is this for me?',
+                answer: 'Foundation Program works for experienced beginners (6+ months training). True beginners should consider in-person training first to learn proper technique, or start with the Foundation package and be prepared to study form videos closely.'
+              },
+              {
+                question: 'Can I cancel anytime?',
+                answer: 'Yes. First month is risk-free with full refund if not satisfied. After that, it\'s month-to-month billing with 30-day notice to cancel.'
+              },
+              {
+                question: 'What if I miss workouts?',
+                answer: 'Life happens. We\'ll adjust your program accordingly. The key is communication—let me know what\'s going on and we\'ll make it work.'
+              }
+            ].map((faq, index) => (
+              <div key={index} className="bg-gray-900/50 p-6 rounded-lg border border-yellow-500/10 hover:border-yellow-500/30 transition-colors">
+                <h3 className="text-lg font-semibold text-white mb-2">{faq.question}</h3>
+                <p className="text-gray-300 text-sm">{faq.answer}</p>
+              </div>
+            ))}
+          </div>
+          <div className="text-center mt-8">
+            <Link 
+              href="/coaching"
+              className="text-yellow-400 hover:text-yellow-300 font-semibold"
+            >
+              ← Back to All Coaching Options
+            </Link>
+          </div>
+        </div>
+
+        {/* Final CTA */}
+        <div className="bg-gradient-to-r from-gray-900 to-black rounded-xl p-8 md:p-12 text-center border border-yellow-500/20">
+          <h2 className="text-3xl font-bold text-white mb-4">Ready to Get Started?</h2>
+          <div className="w-24 h-1 bg-yellow-500 mx-auto mb-6"></div>
+          <p className="text-xl text-gray-300 mb-8 max-w-2xl mx-auto">
+            Limited coaching spots available. Apply now to see if we're a good fit.
           </p>
           <div className="space-y-4 sm:space-y-0 sm:space-x-4">
             <Link 
-              href="/contact?service=online" 
-              className="inline-block bg-yellow-500 hover:bg-yellow-600 text-gray-900 font-semibold py-3 px-8 rounded-lg transition duration-200 shadow-lg hover:shadow-xl hover:scale-105 transform"
+              href="/contact" 
+              className="inline-block bg-yellow-500 hover:bg-yellow-600 text-gray-900 font-bold py-4 px-8 rounded-lg transition duration-200 shadow-lg hover:shadow-xl hover:scale-105 transform"
             >
-              Start Your Journey Today
+              Apply for Online Coaching
             </Link>
             <Link 
-              href="/coaching" 
-              className="inline-block bg-transparent hover:bg-gray-800 text-yellow-400 font-semibold py-3 px-8 rounded-lg transition duration-200 border border-yellow-500/30 hover:border-yellow-500/50"
+              href="/contact?service=consultation" 
+              className="inline-block bg-transparent border-2 border-yellow-500 hover:bg-yellow-500 hover:text-gray-900 text-yellow-500 font-bold py-4 px-8 rounded-lg transition duration-200"
             >
-              Compare Coaching Options
+              Schedule Free Consultation
             </Link>
           </div>
+          <p className="text-gray-400 text-sm mt-6">
+            No pressure. No hard sell. Let's talk about your goals.
+          </p>
         </div>
       </div>
     </div>
