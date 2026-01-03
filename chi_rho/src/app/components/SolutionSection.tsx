@@ -10,7 +10,7 @@ export default function SolutionSection() {
     },
     {
       icon: <FaBullhorn className="w-8 h-8 text-yellow-500" />,
-      title: "No-BS Coaching",
+      title: "No-Nonsense Coaching",
       description: "Straight talk. No supplement pitches. No dependency-creating complexity. Just honest guidance to help you get stronger."
     },
     {

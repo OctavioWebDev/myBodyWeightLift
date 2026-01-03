@@ -111,7 +111,7 @@ export default function CoachingServices() {
           </h1>
           <div className="w-24 h-1 bg-yellow-500 mx-auto mb-6"></div>
           <p className="text-xl text-gray-300 mb-8 max-w-3xl mx-auto">
-            Whether you're in Toledo or training remotely, I offer coaching that cuts through the BS and focuses on what actually builds strength.
+            Whether you're in Toledo or training remotely, I offer coaching that cuts through the garbage and focuses on what actually builds strength.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <a 

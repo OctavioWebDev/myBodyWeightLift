@@ -9,7 +9,7 @@ export default function ProblemSection() {
     },
     {
       icon: <FaBrain className="w-8 h-8 text-yellow-500" />,
-      title: "Drowning in BS",
+      title: "Drowning in sophistry",
       description: "Every 'guru' has a different method. You're confused by contradictory advice and paralyzed by overthinking."
     },
     {
