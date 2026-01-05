@@ -7,7 +7,7 @@ export const templates = {
     description: 'Perfect for those new to strength training, focusing on mastering fundamental movements with linear progression.',
     longDescription: 'This 12-week program is designed for complete beginners or those returning after a long break. It focuses on teaching proper form for the fundamental lifts while building a solid strength foundation. The 2-day split makes it perfect for busy schedules while still providing effective training stimulus.',
     price: 5.00,
-    image: '/assets/images/samuel-girven-VJ2s0c20qCo-unsplash.jpg',
+    image: '/assets/images/Foundation2dayCover.png',
     category: 'Strength',
     duration: '12 weeks',
     level: 'Beginner',
@@ -23,7 +23,7 @@ export const templates = {
       'Exercise substitution guide',
       'Form check guidelines'
     ] as const,
-    previewImage: '/assets/images/samuel-girven-VJ2s0c20qCo-unsplash.jpg'
+    previewImage: '/assets/images/Foundation2dayCover.png'
   },
   'beginner-strength-3day': {
     id: 'beginner-strength-3day',
@@ -31,7 +31,7 @@ export const templates = {
     description: 'Build a solid strength base with this 3-day full body program, perfect for beginners ready to commit to regular training.',
     longDescription: 'This 12-week program is designed for beginners who can commit to 3 training days per week. It uses a full-body split to maximize training frequency and learning opportunities for the main lifts. The program includes structured progression to ensure continuous improvement in strength and technique.',
     price: 5.00,
-    image: '/assets/images/samuel-girven-VJ2s0c20qCo-unsplash.jpg',
+    image: '/assets/images/Foundation3Day.png',
     category: 'Strength',
     duration: '12 weeks',
     level: 'Beginner',
@@ -47,7 +47,7 @@ export const templates = {
       'Exercise substitution guide',
       'Form check guidelines'
     ] as const,
-    previewImage: '/assets/images/samuel-girven-VJ2s0c20qCo-unsplash.jpg'
+    previewImage: '/assets/images/Foundation3Day.png'
   },
   'intermediate-hypertrophy-3day': {
     id: 'intermediate-hypertrophy-3day',
@@ -55,7 +55,7 @@ export const templates = {
     description: 'For lifters with 6+ months of experience looking to build muscle and increase strength with proper periodization.',
     longDescription: 'This 8-week program is designed for intermediate lifters looking to build muscle while increasing strength. The 3-day split allows for proper recovery while providing enough volume for hypertrophy. The program includes periodization to ensure continuous progress and prevent plateaus.',
     price: 5.00,
-    image: '/assets/images/delaney-van-I72QeY20Q7o-unsplash.jpg',
+    image: '/assets/images/Hyper&StrengthCover.png',
     category: 'Hypertrophy',
     duration: '8 weeks',
     level: 'Intermediate',
@@ -71,31 +71,7 @@ export const templates = {
       'Recovery protocols',
       'Progressive overload tracking'
     ] as const,
-    previewImage: '/assets/images/delaney-van-I72QeY20Q7o-unsplash.jpg'
-  },
-  'intermediate-hypertrophy-4day': {
-    id: 'intermediate-hypertrophy-4day',
-    title: 'Hypertrophy & Strength (4-Day)',
-    description: 'Higher volume split for intermediates ready to take their training to the next level with increased frequency.',
-    longDescription: 'This 8-week program is designed for intermediate lifters ready to increase their training volume and frequency. The 4-day split allows for more focused training sessions while still providing adequate recovery. The program includes advanced training techniques to maximize muscle growth and strength gains.',
-    price: 5.00,
-    image: '/assets/images/delaney-van-I72QeY20Q7o-unsplash.jpg',
-    category: 'Hypertrophy',
-    duration: '8 weeks',
-    level: 'Intermediate',
-    frequency: '4 days/week',
-    focus: 'Progressive overload, exercise variations',
-    features: [
-      '4 focused workouts per week',
-      'Upper/lower split',
-      'Advanced training techniques',
-      'Periodization for continuous gains',
-      'Exercise variations',
-      'Recovery optimization',
-      'Deload protocols',
-      'Nutrition and supplementation guide'
-    ] as const,
-    previewImage: '/assets/images/delaney-van-I72QeY20Q7o-unsplash.jpg'
+    previewImage: '/assets/images/Hyper&StrengthCover.png'
   },
   'advanced-powerlifting-3day': {
     id: 'advanced-powerlifting-3day',
@@ -103,7 +79,7 @@ export const templates = {
     description: 'For advanced lifters focusing on the big three lifts with intelligent programming for competition prep.',
     longDescription: "This 12-week powerlifting program is designed for advanced lifters preparing for competition. The 3-day split focuses on the squat, bench press, and deadlift while managing fatigue and optimizing performance. The program includes specific peaking protocols to ensure you're at your strongest on meet day.",
     price: 5.00,
-    image: '/assets/images/jan-kahanek-fVUl6kzIvLg-unsplash.jpg',
+    image: '/assets/images/CompPrepCover.png',
     category: 'Powerlifting',
     duration: '12 weeks',
     level: 'Advanced',
@@ -119,7 +95,7 @@ export const templates = {
       'Warm-up routines',
       'Mental preparation techniques'
     ] as const,
-    previewImage: '/assets/images/jan-kahanek-fVUl6kzIvLg-unsplash.jpg'
+    previewImage: '/assets/images/CompPrepCover.png'
   },
   'advanced-powerlifting-4day': {
     id: 'advanced-powerlifting-4day',
@@ -127,7 +103,7 @@ export const templates = {
     description: 'High-volume powerlifting program for advanced athletes with proper recovery capacity and training age.',
     longDescription: 'This 12-week program is designed for advanced powerlifters who can handle higher training volumes. The 4-day split allows for more focused training sessions while still providing adequate recovery. The program includes advanced periodization techniques to maximize strength gains and peak for competition.',
     price: 5.00,
-    image: '/assets/images/jan-kahanek-fVUl6kzIvLg-unsplash.jpg',
+    image: '/assets/images/AdvancedValumeCover.png',
     category: 'Powerlifting',
     duration: '12 weeks',
     level: 'Advanced',
@@ -143,6 +119,6 @@ export const templates = {
       'Meet day strategy',
       'Mental preparation techniques'
     ] as const,
-    previewImage: '/assets/images/jan-kahanek-fVUl6kzIvLg-unsplash.jpg'
+    previewImage: '/assets/images/AdvancedValumeCover.png'
   }
 } as const satisfies Record<string, Template>;
