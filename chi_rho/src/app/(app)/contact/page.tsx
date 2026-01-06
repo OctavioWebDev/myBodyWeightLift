@@ -529,7 +529,6 @@ export default function ContactPage() {
                   <option value="other">Other</option>
                 </select>
               </div>
-
               <div>
                 <label htmlFor="readBook" className="block text-sm font-medium text-gray-300 mb-2">
                   Have you read "Shut Up and Lift"? <span className="text-red-500">*</span>
