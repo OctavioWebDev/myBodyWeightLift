@@ -43,14 +43,14 @@ export default function Header() {
                         onMouseEnter={handleMouseEnter}
                         onMouseLeave={handleMouseLeave}
                     >
-                        <button 
-                            aria-label="Information" 
+                        <button
+                            aria-label="Information"
                             className="flex items-center hover:text-gray-400 p-2 rounded-full hover:bg-gray-800 transition-colors"
                             onClick={() => setIsDropdownOpen(!isDropdownOpen)}
                         >
                             <FontAwesomeIcon icon={faCircleInfo} className="text-xl" />
                         </button>
-                        <div 
+                        <div
                             className={`absolute left-1/2 -translate-x-1/2 mt-2 w-56 bg-white text-black rounded-lg shadow-lg z-50 transition-all duration-200 ease-in-out transform ${isDropdownOpen ? 'opacity-100 scale-100' : 'opacity-0 scale-95 pointer-events-none'}`}
                             onMouseEnter={handleMouseEnter}
                             onMouseLeave={handleMouseLeave}
@@ -62,7 +62,7 @@ export default function Header() {
                             <Link href="/templates?type=strength" className="block px-4 py-2 hover:bg-gray-100">
                                 Strength Training
                             </Link>
-                            
+
                             <Link href="/coaching" className="block px-4 py-2 font-semibold text-gray-700 border-t border-b border-gray-200 mt-1 hover:bg-gray-100">
                                 Coaching
                             </Link>
@@ -72,10 +72,13 @@ export default function Header() {
                             <Link href="/coaching/online" className="block px-4 py-2 hover:bg-gray-100">
                                 Online Coaching
                             </Link>
-                            
+
                             <div className="border-t border-gray-200 mt-1">
                                 <Link href="/book" className="block px-4 py-2 hover:bg-gray-100">
                                     The Book
+                                </Link>
+                                <Link href="/journal" className="block px-4 py-2 hover:bg-gray-100">
+                                    Training Journal
                                 </Link>
                                 <Link href="/mystory" className="block px-4 py-2 hover:bg-gray-100">
                                     My Story
