@@ -2,11 +2,10 @@
 
 import React, { useState, useEffect, useRef } from 'react';
 import emailjs from '@emailjs/browser';
-import { useSearchParams } from 'next/navigation';
 
 export default function ContactPage() {
-  const searchParams = useSearchParams();
   const formRef = useRef<HTMLFormElement>(null);
+  const [mounted, setMounted] = useState(false);
   
   const [formData, setFormData] = useState({
     // Personal Info
@@ -17,7 +16,7 @@ export default function ContactPage() {
     age: '',
     
     // Service Interest
-    service: searchParams.get('service') || '',
+    service: '',
     
     // Training Background
     trainingExperience: '',
@@ -46,9 +45,25 @@ export default function ContactPage() {
   const [status, setStatus] = useState({ message: '', isError: false });
   const [isSubmitting, setIsSubmitting] = useState(false);
 
+  // Handle mounting and query params client-side only
   useEffect(() => {
-    emailjs.init(process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY || '');
+    setMounted(true);
+    
+    // Get service from URL query param after component mounts
+    if (typeof window !== 'undefined') {
+      const params = new URLSearchParams(window.location.search);
+      const serviceParam = params.get('service');
+      if (serviceParam) {
+        setFormData(prev => ({ ...prev, service: serviceParam }));
+      }
+    }
   }, []);
+
+  useEffect(() => {
+    if (mounted) {
+      emailjs.init(process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY || '');
+    }
+  }, [mounted]);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
     const { name, value } = e.target;
@@ -89,7 +104,7 @@ export default function ContactPage() {
 
       await emailjs.send(
         process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID || '',
-        'template_jmuzz7g', // You'll need to create a new template for this
+        'template_jmuzz7g',
         templateParams,
         process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY || ''
       );
@@ -137,6 +152,15 @@ export default function ContactPage() {
       setIsSubmitting(false);
     }
   };
+
+  // Show loading state until mounted
+  if (!mounted) {
+    return (
+      <div className="min-h-screen bg-black py-12 px-4 sm:px-6 lg:px-8 flex items-center justify-center">
+        <div className="text-yellow-400 text-xl">Loading...</div>
+      </div>
+    );
+  }
 
   return (
     <div className="min-h-screen bg-black py-12 px-4 sm:px-6 lg:px-8">
@@ -529,6 +553,7 @@ export default function ContactPage() {
                   <option value="other">Other</option>
                 </select>
               </div>
+
               <div>
                 <label htmlFor="readBook" className="block text-sm font-medium text-gray-300 mb-2">
                   Have you read "Shut Up and Lift"? <span className="text-red-500">*</span>
