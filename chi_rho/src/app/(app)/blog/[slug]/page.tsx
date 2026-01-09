@@ -330,10 +330,10 @@ const blogPosts: Record<string, {
     <p>Here are the only cues you need to think about:</p>
 
     <ul>
-      <li><strong>Setup:</strong> "Get tight"</li>
-      <li><strong>Descent:</strong> "Big breath, break together, knees out"</li>
+      <li><strong>Setup:</strong> "Proud chest, chin down, big breath, knees out, hips back"</li>
+      <li><strong>Descent:</strong> "Break at hips, drop down"</li>
       <li><strong>Hole:</strong> "Stay tight"</li>
-      <li><strong>Ascent:</strong> "Stand up, chest up"</li>
+      <li><strong>Ascent:</strong> "Stand up"</li>
     </ul>
 
     <p>That's it. Everything else is just noise.</p>
@@ -343,10 +343,12 @@ const blogPosts: Record<string, {
     <p>Good squat form isn't complicated:</p>
 
     <ul>
-      <li>Set up tight</li>
-      <li>Brace hard</li>
-      <li>Break at hips and knees together</li>
-      <li>Hit depth</li>
+      <li>Proud chest</li>
+      <li>Chin down</li>
+      <li>Big breath</li>
+      <li>Knees out</li>
+      <li>Hips back</li>
+      <li>Drop down</li>
       <li>Stand up</li>
     </ul>
 
