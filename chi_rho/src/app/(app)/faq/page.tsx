@@ -194,7 +194,7 @@ export default function FAQPage() {
     {
       category: 'Comparing Options',
       question: 'Can\'t I just follow a free program online?',
-      answer: 'Yes, you can. There are good free programs out there (Starting Strength, StrongLifts, etc.). The difference with coaching is: (1) Customization to your specific situation, (2) Form feedback so you\'re not reinforcing bad habits, (3) Accountability so you actually stick with it, (4) Adjustments when things aren\'t working. Free programs work if you have the discipline and knowledge to execute them properly. Most people don\'t.'
+      answer: 'Yes, you can. There are good free programs out there (StrongLifts, etc.). The difference with coaching is: (1) Customization to your specific situation, (2) Form feedback so you\'re not reinforcing bad habits, (3) Accountability so you actually stick with it, (4) Adjustments when things aren\'t working. Free programs work if you have the discipline and knowledge to execute them properly. Most people don\'t.'
     },
 
     // TECHNICAL QUESTIONS

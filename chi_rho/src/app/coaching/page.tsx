@@ -46,7 +46,7 @@ export default function CoachingServices() {
         'Basic nutrition framework (macros, meal timing)',
         'Access to "Shut Up and Lift" resources'
       ],
-      guarantee: 'See measurable strength gains in first 8 weeks or get a free month',
+      guarantee: 'See measurable strength gains in first 8 weeks',
       cta: 'Start Coaching',
       href: '/contact?service=strength-athlete',
       popular: true

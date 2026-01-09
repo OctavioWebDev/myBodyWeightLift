@@ -175,7 +175,7 @@ export default function TemplatesPage() {
           <h1 className="text-4xl md:text-5xl font-bold text-yellow-400 mb-4">Training Templates</h1>
           <div className="w-24 h-1 bg-yellow-500 mx-auto mb-6"></div>
           <p className="text-xl text-gray-300 mb-6 max-w-3xl mx-auto">
-            Professional training programs and free resources to help you build strength without the gimmicks.
+            Professional training programs and training resources to help you build strength without the gimmicks.
           </p>
         </div>
 

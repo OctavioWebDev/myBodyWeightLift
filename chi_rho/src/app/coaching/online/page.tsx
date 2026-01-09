@@ -51,7 +51,7 @@ export default function OnlineCoaching() {
         'Lifters who want expert eyes on technique',
         'Anyone who needs accountability and feedback'
       ],
-      guarantee: 'See measurable strength gains in first 8 weeks or get a free month',
+      guarantee: 'See measurable strength gains in first 8 weeks',
       cta: 'Start Coaching',
       href: '/contact?service=strength-athlete',
       popular: true

@@ -12,10 +12,10 @@ type ComingSoonNoticeProps = {
 
 export default function ComingSoonNotice({
   title = "Blog Coming Soon",
-  description = "I'm working on creating detailed training articles. In the meantime, check out my book \"Shut Up and Lift\" or grab some free training resources.",
+  description = "I'm working on creating detailed training articles. In the meantime, check out my book \"Shut Up and Lift\" or grab some of my other training resources.",
   primaryButtonText = "Read the Book",
   primaryButtonLink = "/book",
-  secondaryButtonText = "Free Resources",
+  secondaryButtonText = "Training Resources",
   secondaryButtonLink = "/templates"
 }: ComingSoonNoticeProps) {
   return (

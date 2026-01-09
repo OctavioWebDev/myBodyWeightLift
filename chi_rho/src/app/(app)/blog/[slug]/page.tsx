@@ -587,7 +587,7 @@ export default function BlogPostPage({ params }: { params: { slug: string } }) {
                         Want More Training Advice?
                     </h3>
                     <p className="text-gray-300 mb-6">
-                        If you found this helpful, check out my book "Shut Up and Lift" or grab some free training resources.
+                        If you found this helpful, check out my book "Shut Up and Lift" or grab some of my other training resources.
                     </p>
                     <div className="flex flex-col sm:flex-row gap-4">
                         <Link
@@ -600,7 +600,7 @@ export default function BlogPostPage({ params }: { params: { slug: string } }) {
                             href="/templates"
                             className="inline-block bg-transparent border-2 border-yellow-500 hover:bg-yellow-500 hover:text-black text-yellow-500 font-bold py-3 px-6 rounded-lg transition-colors text-center"
                         >
-                            Free Resources
+                            Training Resources
                         </Link>
                     </div>
                 </div>
