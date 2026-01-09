@@ -1,6 +1,6 @@
 import { MetadataRoute } from 'next'
 
-const URL = 'https://yourdomain.com' // Replace with your actual domain
+const URL = 'https://www.chirhostrength.com/' // Replace with your actual domain
 
 export default function sitemap(): MetadataRoute.Sitemap {
   return [
