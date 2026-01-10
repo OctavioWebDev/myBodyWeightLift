@@ -11,7 +11,7 @@ type NewsletterCTAProps = {
 export default function NewsletterCTA({
   title = "Get Weekly Tips",
   description = "No spam. No sales pitches. Just useful strength training advice every week.",
-  buttonText = "Get TrainingResources",
+  buttonText = "Get Training Resources",
   buttonLink = "/templates"
 }: NewsletterCTAProps) {
   return (

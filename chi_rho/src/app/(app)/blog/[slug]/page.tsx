@@ -274,7 +274,7 @@ const blogPosts: Record<string, {
       <li><strong>Step 3:</strong> Adjust if needed</li>
     </ul>
 
-    <p>That's it. Don't waste energy on an elaborate walkout.</p>
+    <p>That's it. Don't waste energy on an elaborate walkout. <strong>YOU LOOK GAY!</strong></p>
 
     <h2>The Descent</h2>
 
@@ -284,7 +284,7 @@ const blogPosts: Record<string, {
 
     <p><strong>Break at the hips and knees simultaneously.</strong> Not hips first. Not knees first. Both at the same time.</p>
 
-    <p><strong>Knees track over your toes.</strong> Don't let them cave in. Don't force them out artificially. Just let them track naturally over your feet.</p>
+    <p><strong>Knees track out over your toes.</strong> Don't let them cave in. Don't force them out artificially. Just let them track naturally over your feet.</p>
 
     <p><strong>Depth:</strong> Hip crease below the top of your knee. That's parallel. Go there or slightly below. You don't need ass-to-grass unless you're competing in weightlifting.</p>
 
@@ -472,7 +472,7 @@ const blogPosts: Record<string, {
 
     <p>Five years later, Guy B is strong. Guy A is still searching for the perfect program.</p>
 
-    <p>Don't be Guy A.</p>
+    <p>Don't be Guy A. Guy A is gay.</p>
 
     <h2>The Bottom Line</h2>
 
