@@ -58,8 +58,8 @@ export default function Header() {
                         </button>
                         <div
                             className={`absolute left-1/2 -translate-x-1/2 mt-2 w-56 bg-gray-900 text-white rounded-lg shadow-2xl border border-gray-800 z-50 transition-all duration-200 ease-in-out transform ${isDropdownOpen
-                                    ? 'opacity-100 scale-100'
-                                    : 'opacity-0 scale-95 pointer-events-none'
+                                ? 'opacity-100 scale-100'
+                                : 'opacity-0 scale-95 pointer-events-none'
                                 }`}
                             onMouseEnter={handleMouseEnter}
                             onMouseLeave={handleMouseLeave}
@@ -115,6 +115,14 @@ export default function Header() {
                                     className="block px-4 py-2 hover:bg-gray-800 hover:text-yellow-400 transition-colors"
                                 >
                                     Blog
+                                </Link>
+                                <Link
+                                    href="https://www.stickermule.com/crps419/item/19655519?origin=PUBLIC_PROFILE"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    className="block px-4 py-2 hover:bg-gray-800 hover:text-yellow-400 transition-colors"
+                                >
+                                    Merch Store
                                 </Link>
                                 <Link
                                     href="/philosophy"
