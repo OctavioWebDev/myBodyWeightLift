@@ -1,10 +1,43 @@
 'use client'
-import React from 'react'
+import React, { useState } from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
-import { FaAmazon, FaCheck, FaBookOpen } from 'react-icons/fa'
+import { FaAmazon, FaCheck, FaBookOpen, FaChevronLeft, FaChevronRight } from 'react-icons/fa'
 
 export default function JournalPage() {
+    const [currentSlide, setCurrentSlide] = useState(0)
+
+    const carouselImages = [
+        {
+            src: '/assets/images/strength-training-journal-cover.jpg',
+            alt: 'Strength Training Journal Cover'
+        },
+        {
+            src: '/assets/images/journal-daily-log.png',
+            alt: 'Daily Training Log Sample'
+        },
+        {
+            src: '/assets/images/journal-weekly-checkin.png',
+            alt: 'Weekly Check-In Sample'
+        },
+        {
+            src: '/assets/images/journal-monthly-review.png',
+            alt: 'Monthly Review Sample'
+        },
+        {
+            src: '/assets/images/journal-annual-goals.png',
+            alt: 'Annual Goals Sample'
+        }
+    ]
+
+    const nextSlide = () => {
+        setCurrentSlide((prev) => (prev + 1) % carouselImages.length)
+    }
+
+    const prevSlide = () => {
+        setCurrentSlide((prev) => (prev - 1 + carouselImages.length) % carouselImages.length)
+    }
+
     const features = [
         'Daily training logs with RPE and rest tracking',
         'Weekly check-ins for progress monitoring',
@@ -77,18 +110,67 @@ export default function JournalPage() {
                     </p>
                 </div>
 
-                {/* Journal Cover + Quick Pitch */}
+                {/* Journal Carousel + Quick Pitch */}
                 <div className="grid md:grid-cols-2 gap-12 items-center mb-16">
                     <div className="flex justify-center">
-                        <div className="relative w-80 h-96 bg-gray-800 rounded-xl overflow-hidden shadow-2xl border-4 border-yellow-500/30 flex items-center justify-center">
-                            <p className="text-gray-400 text-center px-4">Journal Cover Image<br />Coming Soon</p>
-                            <Image
-                                src="/assets/images/strength-training-journal-cover.jpg"
-                                alt="Strength Training Journal Cover"
-                                fill
-                                className="object-cover"
-                                priority
-                            />
+                        <div className="relative w-full max-w-md">
+                            {/* Carousel Container */}
+                            <div className="relative w-80 h-96 mx-auto bg-gray-800 rounded-xl overflow-hidden shadow-2xl border-4 border-yellow-500/30">
+                                {/* Images */}
+                                {carouselImages.map((img, index) => (
+                                    <div
+                                        key={index}
+                                        className={`absolute inset-0 transition-opacity duration-500 ${
+                                            index === currentSlide ? 'opacity-100' : 'opacity-0'
+                                        }`}
+                                    >
+                                        <Image
+                                            src={img.src}
+                                            alt={img.alt}
+                                            fill
+                                            className="object-cover"
+                                            priority={index === 0}
+                                        />
+                                    </div>
+                                ))}
+
+                                {/* Navigation Buttons */}
+                                <button
+                                    onClick={prevSlide}
+                                    className="absolute left-2 top-1/2 -translate-y-1/2 bg-black/50 hover:bg-black/70 text-yellow-400 p-2 rounded-full transition-colors z-10"
+                                    aria-label="Previous image"
+                                >
+                                    <FaChevronLeft className="w-6 h-6" />
+                                </button>
+                                <button
+                                    onClick={nextSlide}
+                                    className="absolute right-2 top-1/2 -translate-y-1/2 bg-black/50 hover:bg-black/70 text-yellow-400 p-2 rounded-full transition-colors z-10"
+                                    aria-label="Next image"
+                                >
+                                    <FaChevronRight className="w-6 h-6" />
+                                </button>
+
+                                {/* Dots Indicator */}
+                                <div className="absolute bottom-4 left-1/2 -translate-x-1/2 flex gap-2 z-10">
+                                    {carouselImages.map((_, index) => (
+                                        <button
+                                            key={index}
+                                            onClick={() => setCurrentSlide(index)}
+                                            className={`w-2 h-2 rounded-full transition-all ${
+                                                index === currentSlide 
+                                                    ? 'bg-yellow-400 w-8' 
+                                                    : 'bg-gray-400 hover:bg-gray-300'
+                                            }`}
+                                            aria-label={`Go to slide ${index + 1}`}
+                                        />
+                                    ))}
+                                </div>
+                            </div>
+
+                            {/* Image Caption */}
+                            <p className="text-center text-gray-400 text-sm mt-4">
+                                {carouselImages[currentSlide].alt}
+                            </p>
                         </div>
                     </div>
 
