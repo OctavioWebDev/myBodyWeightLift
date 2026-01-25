@@ -44,7 +44,6 @@ export default function CoachingServices() {
         'Direct messaging support',
         'Bi-weekly accountability calls (15 minutes)',
         'Basic nutrition framework (macros, meal timing)',
-        'Access to "Shut Up and Lift" resources'
       ],
       guarantee: 'See measurable strength gains in first 8 weeks',
       cta: 'Start Coaching',
