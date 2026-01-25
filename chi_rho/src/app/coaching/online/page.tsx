@@ -16,7 +16,7 @@ export default function OnlineCoaching() {
       features: [
         'Custom training program based on detailed assessment',
         'Monthly program updates',
-        'Access to training portal with exercise library',
+        // 'Access to training portal with exercise library',
         'Email support (48-hour response)',
         'Monthly progress review and adjustments'
       ],
@@ -37,10 +37,10 @@ export default function OnlineCoaching() {
       description: 'Comprehensive coaching for serious lifters chasing PRs.',
       features: [
         'Everything in Foundation Program, PLUS:',
-        'Weekly check-ins via training app',
+        'Weekly check-ins via discord',
         'Form check video analysis (up to 3/week)',
         'Program adjustments based on performance data',
-        'Direct messaging support (24-hour response)',
+        'Direct messaging support (24-hour response time)',
         'Bi-weekly accountability calls (15 minutes)',
         'Basic nutrition framework',
         'Access to "Shut Up and Lift" methodology resources'
@@ -77,7 +77,7 @@ export default function OnlineCoaching() {
         'Advanced lifters pursuing elite totals',
         'High-performers who demand premium service'
       ],
-      bonus: 'Free copy of "Shut Up and Lift" + signed training journal',
+      bonus: 'Free copy of "Shut Up and Lift" + training journal',
       cta: 'Apply Now',
       href: '/contact?service=elite',
       popular: false

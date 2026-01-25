@@ -333,7 +333,7 @@ export default function JournalPage() {
                     </h2>
                     <div className="max-w-3xl mx-auto text-center">
                         <p className="text-gray-300 text-lg mb-6">
-                            Elite Performance Coaching clients receive a <strong className="text-yellow-400">signed
+                            Elite Performance Coaching clients receive a <strong className="text-yellow-400">
                                 journal</strong> as part of their package. Use it to track your customized program and
                             share progress during check-ins.
                         </p>

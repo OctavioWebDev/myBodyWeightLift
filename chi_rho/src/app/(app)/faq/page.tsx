@@ -107,7 +107,7 @@ export default function FAQPage() {
       answer: (
         <>
           <p className="mb-2"><strong className="text-yellow-400">Foundation:</strong> 48-hour response via email</p>
-          <p className="mb-2"><strong className="text-yellow-400">Strength Athlete:</strong> 24-hour response via app messaging</p>
+          <p className="mb-2"><strong className="text-yellow-400">Strength Athlete:</strong> 24-hour response time via discord</p>
           <p><strong className="text-yellow-400">Elite:</strong> Same-day response via private channel</p>
         </>
       )
@@ -122,7 +122,7 @@ export default function FAQPage() {
     {
       category: 'Online vs In-Person',
       question: 'How do form checks work for online coaching?',
-      answer: 'You film your working sets (side angle is best) and upload via the training app. I review within the timeframe for your package (24-48 hours depending on tier) and provide detailed feedback. I\'ll tell you what to fix and how to fix it. If it\'s a major issue, we might schedule a video call to work through it.'
+      answer: 'You film your working sets (side angle is best) and upload via discord. I review within the timeframe for your package (24-48 hours depending on tier) and provide detailed feedback. I\'ll tell you what to fix and how to fix it. If it\'s a major issue, we might schedule a video call to work through it.'
     },
     {
       category: 'Online vs In-Person',

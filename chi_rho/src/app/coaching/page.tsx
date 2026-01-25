@@ -38,7 +38,7 @@ export default function CoachingServices() {
       description: 'Comprehensive coaching for serious lifters who want expert guidance and accountability.',
       features: [
         'Everything in Foundation Program',
-        'Weekly check-ins via training app',
+        'Weekly check-ins via discord',
         'Form check video analysis (up to 3 videos/week)',
         'Program adjustments based on your performance',
         'Direct messaging support',
