@@ -117,7 +117,7 @@ export default function Header() {
                                     Blog
                                 </Link>
                                 <Link
-                                    href="https://www.stickermule.com/crps419/item/19655519?origin=PUBLIC_PROFILE"
+                                    href="https://www.stickermule.com/chirhops"
                                     target="_blank"
                                     rel="noopener noreferrer"
                                     className="block px-4 py-2 hover:bg-gray-800 hover:text-yellow-400 transition-colors"

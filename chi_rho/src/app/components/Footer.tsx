@@ -14,6 +14,7 @@ import {
     faFacebookF,
     faInstagram,
     faYoutube,
+    faTiktok
 } from '@fortawesome/free-brands-svg-icons';
 import dynamic from 'next/dynamic';
 import Image from 'next/image';
@@ -68,7 +69,9 @@ export default function Footer() {
                         <div className="flex space-x-4">
                             <SocialIcon href="https://www.facebook.com/profile.php?id=61585916301651" icon={faFacebookF} />
                             <SocialIcon href="https://www.instagram.com/chirhostrength/" icon={faInstagram} />
-                            <SocialIcon href="https://www.youtube.com/@1faith419" icon={faYoutube} />
+                            <SocialIcon href="https://www.tiktok.com/@chirhostrength?lang=en" icon={faTiktok} />
+                            <SocialIcon href="https://www.youtube.com/@ChiRhoStrength" icon={faYoutube} />
+                            <SocialIcon href="https://www.youtube.com/@chirhoshorts" icon={faYoutube} />
                         </div>
                     </div>
 
