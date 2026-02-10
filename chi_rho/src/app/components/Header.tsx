@@ -95,6 +95,12 @@ export default function Header() {
                             >
                                 Online Coaching
                             </Link>
+                            <Link
+                                href="/coaching/health-accountability"
+                                className="block px-4 py-2 hover:bg-gray-800 hover:text-yellow-400 transition-colors"
+                            >
+                                Health & Accountability
+                            </Link>
 
                             {/* Info Section */}
                             <div className="border-t border-gray-800 mt-1">

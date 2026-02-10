@@ -1,6 +1,6 @@
 import Image from 'next/image';
 import Link from 'next/link';
-import { FaCheck, FaDumbbell, FaLaptop, FaUsers } from 'react-icons/fa';
+import { FaCheck, FaDumbbell, FaLaptop, FaUsers, FaHeart } from 'react-icons/fa';
 
 export const metadata = {
   title: 'Coaching Services & Pricing | Chi-Rho Power & Strength',
@@ -118,6 +118,12 @@ export default function CoachingServices() {
               className="inline-block bg-yellow-500 hover:bg-yellow-600 text-gray-900 font-bold py-3 px-8 rounded-lg transition duration-200"
             >
               View Online Coaching
+            </a>
+            <a 
+              href="#health-coaching"
+              className="inline-block bg-transparent border-2 border-yellow-500 hover:bg-yellow-500 hover:text-gray-900 text-yellow-500 font-bold py-3 px-8 rounded-lg transition duration-200"
+            >
+              View Health Coaching
             </a>
             <a 
               href="#in-person-training"
@@ -265,8 +271,193 @@ export default function CoachingServices() {
         </div>
       </section>
 
+      {/* Health & Accountability Coaching Section */}
+      <section id="health-coaching" className="py-16 px-4 bg-gray-900">
+        <div className="max-w-6xl mx-auto">
+          <div className="text-center mb-12">
+            <div className="inline-flex items-center justify-center w-16 h-16 bg-yellow-500/10 rounded-full mb-4">
+              <FaHeart className="w-8 h-8 text-yellow-500" />
+            </div>
+            <h2 className="text-3xl md:text-4xl font-bold text-yellow-400 mb-4">
+              Health & Accountability Coaching
+            </h2>
+            <div className="w-24 h-1 bg-yellow-500 mx-auto mb-6"></div>
+            <p className="text-xl text-gray-300 max-w-3xl mx-auto">
+              For people ready to make fundamental lifestyle changes that last a lifetime—not just chase temporary results
+            </p>
+          </div>
+
+          {/* Single Package Card */}
+          <div className="max-w-2xl mx-auto mb-12">
+            <div className="bg-black rounded-xl overflow-hidden border-2 border-yellow-500/30 hover:border-yellow-500 transition-all">
+              <div className="p-8 border-b border-gray-800">
+                <h3 className="text-2xl font-bold text-white mb-2">Health & Accountability</h3>
+                <p className="text-yellow-400 text-sm mb-4">Sustainable Lifestyle Change</p>
+                <div className="flex items-baseline mb-2">
+                  <span className="text-4xl font-bold text-yellow-500">$147</span>
+                  <span className="text-gray-400 ml-2">/month</span>
+                </div>
+                <p className="text-gray-300 text-sm">
+                  Perfect for people who need to lose significant weight (50+ lbs), have medical considerations, or need 
+                  accountability to build healthy habits that stick.
+                </p>
+              </div>
+
+              <div className="p-8">
+                <h4 className="font-semibold text-white mb-4">What's Included:</h4>
+                <ul className="space-y-3 mb-6">
+                  {[
+                    'Custom 2-3 day/week strength program (modified for your limitations)',
+                    'Weekly 15-min accountability check-in calls',
+                    'Walking/cardio programming with daily step targets',
+                    'Basic nutrition framework (calories + protein targets)',
+                    'Form check videos (2 per week max)',
+                    'Email/text support (48-hour response)',
+                    'Monthly progress assessments and adjustments'
+                  ].map((feature, i) => (
+                    <li key={i} className="flex items-start text-sm">
+                      <FaCheck className="w-4 h-4 text-yellow-500 mr-2 mt-0.5 flex-shrink-0" />
+                      <span className="text-gray-300">{feature}</span>
+                    </li>
+                  ))}
+                </ul>
+
+                <div className="mb-6">
+                  <h4 className="font-semibold text-gray-400 mb-3 text-sm">Not Included:</h4>
+                  <ul className="space-y-2">
+                    {[
+                      'Competition lift focus or powerlifting meet prep',
+                      'Aggressive strength progression',
+                      'Detailed meal planning or macro tracking',
+                      'Daily messaging access'
+                    ].map((item, i) => (
+                      <li key={i} className="flex items-start text-sm">
+                        <span className="text-gray-600 mr-2">✗</span>
+                        <span className="text-gray-500">{item}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+
+                <div className="bg-yellow-500/10 border border-yellow-500/30 rounded-lg p-4 mb-6">
+                  <p className="text-yellow-400 text-xs font-semibold mb-2">✓ SUCCESS GUARANTEE</p>
+                  <p className="text-gray-300 text-sm">
+                    90% adherence for 8 weeks with no measurable progress = 9th week free
+                  </p>
+                </div>
+
+                <Link
+                  href="/coaching/health-accountability"
+                  className="block w-full text-center bg-yellow-500 hover:bg-yellow-600 text-gray-900 font-bold py-3 px-6 rounded-lg transition duration-200 mb-3"
+                >
+                  Learn More
+                </Link>
+                <Link
+                  href="/contact?service=health-accountability"
+                  className="block w-full text-center bg-gray-800 hover:bg-gray-700 text-white font-bold py-3 px-6 rounded-lg transition duration-200"
+                >
+                  Apply Now
+                </Link>
+              </div>
+            </div>
+          </div>
+
+          {/* Who This Is For */}
+          <div className="bg-black rounded-xl p-8 border border-gray-800 mb-8">
+            <h3 className="text-2xl font-bold text-yellow-400 mb-6 text-center">
+              Is This Right for You?
+            </h3>
+            <div className="grid md:grid-cols-2 gap-6 max-w-4xl mx-auto">
+              <div className="bg-gray-900/50 p-6 rounded-lg border border-gray-800">
+                <h4 className="font-bold text-yellow-400 mb-3">Perfect For:</h4>
+                <ul className="space-y-2 text-gray-300 text-sm">
+                  <li className="flex items-start">
+                    <span className="text-yellow-500 mr-2">•</span>
+                    People who need to lose 50+ lbs sustainably
+                  </li>
+                  <li className="flex items-start">
+                    <span className="text-yellow-500 mr-2">•</span>
+                    Those with injuries or medical limitations
+                  </li>
+                  <li className="flex items-start">
+                    <span className="text-yellow-500 mr-2">•</span>
+                    Anyone who needs accountability to stay consistent
+                  </li>
+                  <li className="flex items-start">
+                    <span className="text-yellow-500 mr-2">•</span>
+                    People ready for a 12-18+ month commitment
+                  </li>
+                </ul>
+              </div>
+              <div className="bg-gray-900/50 p-6 rounded-lg border border-gray-800">
+                <h4 className="font-bold text-gray-400 mb-3">NOT For:</h4>
+                <ul className="space-y-2 text-gray-300 text-sm">
+                  <li className="flex items-start">
+                    <span className="text-gray-600 mr-2">•</span>
+                    People looking for quick-fix transformations
+                  </li>
+                  <li className="flex items-start">
+                    <span className="text-gray-600 mr-2">•</span>
+                    Those primarily focused on maximum strength gains
+                  </li>
+                  <li className="flex items-start">
+                    <span className="text-gray-600 mr-2">•</span>
+                    Competitive powerlifters preparing for meets
+                  </li>
+                  <li className="flex items-start">
+                    <span className="text-gray-600 mr-2">•</span>
+                    Anyone wanting aggressive training progression
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          {/* Realistic Timeline */}
+          <div className="bg-gradient-to-r from-gray-800 to-black rounded-xl p-8 border border-gray-700">
+            <h3 className="text-2xl font-bold text-yellow-400 mb-4 text-center">
+              What to Expect: Realistic Timeline
+            </h3>
+            <p className="text-gray-300 text-center mb-8 max-w-2xl mx-auto">
+              This isn't a 12-week transformation. It's a 12-18+ month journey to build habits that last forever.
+            </p>
+            <div className="grid md:grid-cols-3 gap-6 max-w-5xl mx-auto">
+              <div className="bg-gray-900/50 p-6 rounded-lg border-l-4 border-yellow-500">
+                <h4 className="font-bold text-white mb-2">Months 1-3</h4>
+                <p className="text-yellow-400 text-sm mb-3">Foundation Building</p>
+                <p className="text-gray-300 text-sm">
+                  Training 2x/week, walking 7,500-10,000 steps daily, basic nutrition compliance.
+                  Expected: 8-15 lbs loss.
+                </p>
+              </div>
+              <div className="bg-gray-900/50 p-6 rounded-lg border-l-4 border-yellow-500">
+                <h4 className="font-bold text-white mb-2">Months 4-6</h4>
+                <p className="text-yellow-400 text-sm mb-3">Progressive Challenge</p>
+                <p className="text-gray-300 text-sm">
+                  Increase to 3x/week if tolerated, 10,000+ steps consistently, refined nutrition.
+                  Expected: 12-18 lbs loss.
+                </p>
+              </div>
+              <div className="bg-gray-900/50 p-6 rounded-lg border-l-4 border-yellow-500">
+                <h4 className="font-bold text-white mb-2">Months 7-12+</h4>
+                <p className="text-yellow-400 text-sm mb-3">Building Strength</p>
+                <p className="text-gray-300 text-sm">
+                  May transition to more traditional strength programming. Established healthy lifestyle.
+                  Expected: 20-30+ lbs loss.
+                </p>
+              </div>
+            </div>
+            <div className="mt-6 text-center">
+              <p className="text-yellow-400 font-semibold">
+                For 100+ lbs to lose? Plan for 18-24 months. This is sustainable progress that actually lasts.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* In-Person Training Section */}
-      <section id="in-person-training" className="py-16 px-4 bg-gray-900">
+      <section id="in-person-training" className="py-16 px-4 bg-black">
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-12">
             <div className="inline-flex items-center justify-center w-16 h-16 bg-yellow-500/10 rounded-full mb-4">
@@ -285,7 +476,7 @@ export default function CoachingServices() {
             {inPersonOptions.map((option, index) => (
               <div 
                 key={index}
-                className={`bg-black rounded-xl p-6 border-2 ${
+                className={`bg-gray-900 rounded-xl p-6 border-2 ${
                   option.popular ? 'border-yellow-500' : 'border-gray-800'
                 } hover:border-yellow-500/50 transition-all relative`}
               >
@@ -329,7 +520,7 @@ export default function CoachingServices() {
           </div>
 
           {/* What's Included in Sessions */}
-          <div className="bg-black rounded-xl p-8 border border-gray-800">
+          <div className="bg-gray-900 rounded-xl p-8 border border-gray-800">
             <h3 className="text-2xl font-bold text-yellow-400 mb-6 text-center">
               What's Included in Every Session
             </h3>
@@ -373,7 +564,7 @@ export default function CoachingServices() {
       </section>
 
       {/* Competition Prep */}
-      <section className="py-16 px-4 bg-black">
+      <section className="py-16 px-4 bg-gray-900">
         <div className="max-w-4xl mx-auto">
           <div className="bg-gradient-to-r from-yellow-500/10 to-yellow-500/5 rounded-xl p-8 border border-yellow-500/20">
             <h2 className="text-3xl font-bold text-yellow-400 mb-4 text-center">
@@ -425,7 +616,7 @@ export default function CoachingServices() {
       </section>
 
       {/* FAQ Preview */}
-      <section className="py-16 px-4 bg-gray-900">
+      <section className="py-16 px-4 bg-black">
         <div className="max-w-4xl mx-auto">
           <h2 className="text-3xl font-bold text-yellow-400 mb-8 text-center">Common Questions</h2>
           <div className="space-y-4 mb-8">
@@ -443,7 +634,7 @@ export default function CoachingServices() {
                 a: "First month is risk-free. If you're not satisfied within 30 days, you get a full refund, no questions asked. After that, coaching is month-to-month with 30-day notice to cancel."
               }
             ].map((faq, i) => (
-              <div key={i} className="bg-black rounded-lg p-6 border border-gray-800">
+              <div key={i} className="bg-gray-900 rounded-lg p-6 border border-gray-800">
                 <h3 className="font-bold text-white mb-2">{faq.q}</h3>
                 <p className="text-gray-300 text-sm">{faq.a}</p>
               </div>
@@ -461,7 +652,7 @@ export default function CoachingServices() {
       </section>
 
       {/* Final CTA */}
-      <section className="py-16 px-4 bg-black">
+      <section className="py-16 px-4 bg-gray-900">
         <div className="max-w-4xl mx-auto text-center">
           <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
             Ready to Get Strong?
