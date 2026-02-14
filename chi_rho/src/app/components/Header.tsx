@@ -101,6 +101,13 @@ export default function Header() {
                             >
                                 Health & Accountability
                             </Link>
+                             <Link
+                                href="/gym"
+                                className="block px-4 py-2 hover:bg-gray-800 hover:text-yellow-400 transition-colors"
+                            >
+                                Chi-Rho Strength Barbell Club
+                            </Link>
+
 
                             {/* Info Section */}
                             <div className="border-t border-gray-800 mt-1">

@@ -1,225 +1,298 @@
-import Image from 'next/image';
+'use client';
+
+import React from 'react';
 import Link from 'next/link';
-import { FaCheck, FaDumbbell, FaLaptop, FaUsers, FaHeart } from 'react-icons/fa';
+import { FaCheck, FaDumbbell, FaHeartbeat, FaChartLine, FaUsers, FaArrowRight } from 'react-icons/fa';
 
-export const metadata = {
-  title: 'Coaching Services & Pricing | Chi-Rho Power & Strength',
-  description: 'Expert strength coaching for beginners and intermediate lifters. Online and in-person options available in Toledo, OH.',
-};
-
-export default function CoachingServices() {
-  const onlinePackages = [
+export default function CoachingPage() {
+  const packages = [
     {
       name: 'Foundation Program',
-      tagline: 'For Self-Motivated Lifters',
       price: '$97',
       period: '/month',
-      description: 'Perfect for experienced beginners who need solid programming but can handle execution on their own.',
+      tagline: 'Build the Habits',
+      description:
+        'For guys who are ready to stop guessing and start training with a real plan. Whether you\'re stepping into a gym for the first time or getting back after years away, this gets you moving the right direction.',
       features: [
-        'Custom training program based on detailed assessment',
-        'Monthly program updates',
+        'Custom training program based on your goals, schedule, and experience',
+        'Monthly program updates as you progress',
+        'Access to training portal with full exercise library',
         'Email support (48-hour response)',
-        'Monthly progress review and adjustments'
+        'Monthly progress review and adjustments',
       ],
-      notIncluded: [
-        'Real-time form checks',
-        'Frequent communication',
-        'Nutrition guidance'
+      bestFor: [
+        'Men getting back into training after a long break',
+        'Self-motivated guys who can follow a plan',
+        'Anyone who\'s read "Shut Up and Lift" and wants to apply it',
       ],
       cta: 'Get Started',
       href: '/contact?service=foundation',
-      popular: false
+      popular: false,
+      color: 'border-gray-700',
     },
     {
-      name: 'Strength Athlete Coaching',
-      tagline: 'Most Popular',
+      name: 'Strength Coaching',
       price: '$247',
       period: '/month',
-      description: 'Comprehensive coaching for serious lifters who want expert guidance and accountability.',
+      tagline: 'Most Popular',
+      description:
+        'Comprehensive, hands-on coaching for men who are serious about getting stronger and building a body that performs. Weekly check-ins, form review, and programming that adapts to your life.',
       features: [
-        'Everything in Foundation Program',
-        'Weekly check-ins via discord',
-        'Form check video analysis (up to 3 videos/week)',
-        'Program adjustments based on your performance',
-        'Direct messaging support',
-        'Bi-weekly accountability calls (15 minutes)',
-        'Basic nutrition framework (macros, meal timing)',
+        'Fully individualized auto-regulated programming',
+        'Weekly video check-ins (15-20 minutes)',
+        'Unlimited form check reviews via video',
+        'Direct messaging access (24-hour response)',
+        'Nutrition guidance framework',
+        'Program adjustments based on recovery, stress, and schedule',
       ],
-      guarantee: 'See measurable strength gains in first 8 weeks',
-      cta: 'Start Coaching',
-      href: '/contact?service=strength-athlete',
-      popular: true
+      bestFor: [
+        'Men who want real accountability and coaching',
+        'Intermediate lifters who\'ve plateaued on generic programs',
+        'Guys balancing training with demanding careers and family',
+      ],
+      cta: 'Apply Now',
+      href: '/contact?service=strength-coaching',
+      popular: true,
+      color: 'border-yellow-500',
     },
     {
-      name: 'Elite Performance Coaching',
-      tagline: 'Premium Service',
+      name: 'Health & Accountability',
+      price: '$197',
+      period: '/month',
+      tagline: 'Change Your Life',
+      description:
+        'Built for men who need to lose significant weight and build sustainable habits. Not a crash diet. Not a 90-day fix. This is a long-term coaching relationship focused on getting you healthy and keeping you there.',
+      features: [
+        'Custom 2-3 day/week strength program designed around your limitations',
+        'Weekly 15-minute accountability check-ins',
+        'Walking and cardio programming',
+        'Nutrition framework (calories, protein, meal timing)',
+        'Form check video analysis (2 videos/week)',
+        'Email and text support (48-hour response)',
+        'Monthly progress assessments and program adjustments',
+      ],
+      bestFor: [
+        'Men with 50+ lbs to lose who are ready for real change',
+        'Guys dealing with pre-diabetes, high blood pressure, or joint pain',
+        'Men on GLP-1 medications who need to preserve muscle',
+        'Anyone tired of starting over every January',
+      ],
+      cta: 'Apply Now',
+      href: '/contact?service=health-accountability',
+      popular: false,
+      color: 'border-red-600',
+    },
+    {
+      name: 'Elite Coaching',
       price: '$447',
       period: '/month',
-      description: 'White-glove service for competitive lifters and those pursuing elite strength.',
+      tagline: 'All-In',
+      description:
+        'The highest level of coaching I offer. Daily programming adjustments, priority access, and the kind of attention that produces serious results. Limited to 5 clients at any time.',
       features: [
-        'Everything in Strength Athlete Coaching',
-        'Bi-weekly video coaching calls (30 minutes)',
-        'Unlimited form check reviews (48-hour turnaround)',
-        'Daily messaging access via private channel',
-        'Comprehensive nutrition coaching with meal planning',
-        'Competition prep and attempt selection',
-        'Quarterly in-depth program design sessions',
-        'Priority support - same-day responses'
+        'Everything in Strength Coaching, plus:',
+        'Daily check-ins and real-time program adjustments',
+        'Priority messaging (same-day response)',
+        'Bi-weekly video calls (30 minutes)',
+        'Competition prep and peaking protocols (if applicable)',
+        'Nutrition periodization and supplement guidance',
+        'Quarterly in-depth progress reports',
       ],
-      bonus: 'Free copy of "Shut Up and Lift" + training journal',
+      bestFor: [
+        'Men who want maximum results with maximum support',
+        'Competitive powerlifters or aspiring competitors',
+        'Executives and professionals who value premium service',
+      ],
       cta: 'Apply Now',
       href: '/contact?service=elite',
-      popular: false
-    }
+      popular: false,
+      color: 'border-gray-700',
+    },
   ];
 
-  const inPersonOptions = [
+  const whyChiRho = [
     {
-      name: 'Single Session',
-      price: '$75',
-      period: '/session',
-      duration: '60 minutes',
-      description: 'Perfect for technique refinement or getting started.'
+      icon: <FaDumbbell className="w-8 h-8 text-yellow-500" />,
+      title: '10+ Years Under the Bar',
+      description:
+        'Not theory from a textbook. 480-pound squat. 480-pound deadlift. A decade of figuring out what actually works and what\'s just noise.',
     },
     {
-      name: '4-Session Package',
-      price: '$280',
-      period: 'total',
-      savings: 'Save $20',
-      pricePerSession: '$70/session',
-      description: 'Build consistency with weekly training.'
+      icon: <FaChartLine className="w-8 h-8 text-yellow-500" />,
+      title: 'Systems That Work',
+      description:
+        'Auto-regulated periodization refined over 5 years. Programming that adapts to your life, not the other way around. No cookie-cutter templates.',
     },
     {
-      name: '10-Session Package',
-      price: '$650',
-      period: 'total',
-      savings: 'Save $100',
-      pricePerSession: '$65/session',
-      description: 'Best value for serious commitment.',
-      popular: true
-    }
+      icon: <FaHeartbeat className="w-8 h-8 text-yellow-500" />,
+      title: 'Real Talk on Health',
+      description:
+        'TRT knowledge from personal experience. GLP-1 medication considerations. Coaching that accounts for the stuff most trainers ignore.',
+    },
+    {
+      icon: <FaUsers className="w-8 h-8 text-yellow-500" />,
+      title: 'Built for Real Men',
+      description:
+        'Dads. Shift workers. Desk jockeys. Guys who\'ve let it slide for too long. This isn\'t Instagram fitness—it\'s coaching for men with real lives.',
+    },
   ];
 
   return (
-    <main className="min-h-screen bg-black text-white">
+    <div className="min-h-screen bg-gray-950 text-white">
       {/* Hero Section */}
-      <section className="py-16 px-4 bg-gradient-to-b from-gray-900 to-black">
-        <div className="max-w-6xl mx-auto text-center">
-          <h1 className="text-4xl md:text-5xl font-bold mb-4 text-yellow-400">
-            Coaching Services & Pricing
+      <section className="relative py-20 md:py-28 overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-to-b from-gray-900 via-gray-950 to-gray-950"></div>
+        <div className="absolute inset-0 opacity-5">
+          <div className="absolute inset-0" style={{ backgroundImage: 'radial-gradient(circle at 25% 25%, rgba(234,179,8,0.15) 0%, transparent 50%)' }}></div>
+        </div>
+        <div className="relative max-w-5xl mx-auto px-4 sm:px-6 text-center">
+          <p className="text-yellow-500 font-semibold tracking-widest uppercase text-sm mb-4">
+            Chi-Rho Power & Strength
+          </p>
+          <h1 className="text-4xl md:text-6xl font-extrabold leading-tight mb-6">
+            Stop Guessing.<br />
+            <span className="text-yellow-500">Start Getting Stronger.</span>
           </h1>
-          <div className="w-24 h-1 bg-yellow-500 mx-auto mb-6"></div>
-          <p className="text-xl text-gray-300 mb-8 max-w-3xl mx-auto">
-            Whether you're in Toledo or training remotely, I offer coaching that cuts through the garbage and focuses on what actually builds strength.
+          <p className="text-xl md:text-2xl text-gray-300 max-w-3xl mx-auto mb-4">
+            Evidence-based strength coaching for men who are done with excuses, gimmicks, and programs that don't work.
+          </p>
+          <p className="text-gray-400 max-w-2xl mx-auto mb-10">
+            Whether you're picking up a barbell for the first time, getting back in shape after years away, or chasing serious strength—there's a place for you here. No judgment. Just work.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <a 
-              href="#online-coaching"
-              className="inline-block bg-yellow-500 hover:bg-yellow-600 text-gray-900 font-bold py-3 px-8 rounded-lg transition duration-200"
+            <Link
+              href="#packages"
+              className="inline-block bg-yellow-500 hover:bg-yellow-600 text-gray-900 font-bold py-4 px-8 rounded-lg transition duration-200 shadow-lg hover:shadow-xl hover:scale-105 transform"
             >
-              View Online Coaching
-            </a>
-            <a 
-              href="#health-coaching"
-              className="inline-block bg-transparent border-2 border-yellow-500 hover:bg-yellow-500 hover:text-gray-900 text-yellow-500 font-bold py-3 px-8 rounded-lg transition duration-200"
+              See Coaching Packages
+            </Link>
+            <Link
+              href="/contact?service=consultation"
+              className="inline-block bg-transparent border-2 border-yellow-500 hover:bg-yellow-500 hover:text-gray-900 text-yellow-500 font-bold py-4 px-8 rounded-lg transition duration-200"
             >
-              View Health Coaching
-            </a>
-            <a 
-              href="#in-person-training"
-              className="inline-block bg-transparent border-2 border-yellow-500 hover:bg-yellow-500 hover:text-gray-900 text-yellow-500 font-bold py-3 px-8 rounded-lg transition duration-200"
-            >
-              View In-Person Training
-            </a>
+              Free Consultation
+            </Link>
           </div>
         </div>
       </section>
 
-      {/* Online Coaching Section */}
-      <section id="online-coaching" className="py-16 px-4 bg-black">
-        <div className="max-w-7xl mx-auto">
-          <div className="text-center mb-12">
-            <div className="inline-flex items-center justify-center w-16 h-16 bg-yellow-500/10 rounded-full mb-4">
-              <FaLaptop className="w-8 h-8 text-yellow-500" />
-            </div>
-            <h2 className="text-3xl md:text-4xl font-bold text-yellow-400 mb-4">
-              Online Strength Coaching
-            </h2>
-            <div className="w-24 h-1 bg-yellow-500 mx-auto mb-6"></div>
-            <p className="text-xl text-gray-300 max-w-3xl mx-auto">
-              Train anywhere with expert programming and accountability
-            </p>
+      {/* Who This Is For */}
+      <section className="py-16 md:py-20 bg-gray-900/50">
+        <div className="max-w-5xl mx-auto px-4 sm:px-6">
+          <h2 className="text-3xl md:text-4xl font-bold text-center mb-4">
+            This Is For <span className="text-yellow-500">You</span> If...
+          </h2>
+          <div className="w-16 h-1 bg-yellow-500 mx-auto mb-12"></div>
+          <div className="grid md:grid-cols-2 gap-6">
+            {[
+              'You\'re tired of spinning your wheels with random YouTube workouts',
+              'You\'ve got 30, 50, or 100+ pounds to lose and don\'t know where to start',
+              'You used to be strong but life got in the way—kids, career, injuries',
+              'You\'re on TRT or GLP-1 meds and need a coach who actually understands that',
+              'You want to build real strength, not just "tone up"',
+              'You need someone to hold you accountable because willpower alone isn\'t cutting it',
+              'You\'re a beginner who wants to learn the barbell lifts the right way',
+              'You\'re an intermediate lifter who\'s been stuck at the same numbers for months',
+            ].map((item, i) => (
+              <div key={i} className="flex items-start gap-3 bg-gray-900/80 p-4 rounded-lg border border-gray-800">
+                <FaCheck className="text-yellow-500 mt-1 flex-shrink-0" />
+                <p className="text-gray-300">{item}</p>
+              </div>
+            ))}
           </div>
+        </div>
+      </section>
 
-          <div className="grid md:grid-cols-3 gap-8 mb-12">
-            {onlinePackages.map((pkg, index) => (
-              <div 
-                key={index}
-                className={`bg-gray-900 rounded-xl overflow-hidden border-2 ${
-                  pkg.popular ? 'border-yellow-500' : 'border-gray-800'
-                } hover:border-yellow-500/50 transition-all relative`}
+      {/* Why Chi-Rho */}
+      <section className="py-16 md:py-20">
+        <div className="max-w-5xl mx-auto px-4 sm:px-6">
+          <h2 className="text-3xl md:text-4xl font-bold text-center mb-4">
+            Why <span className="text-yellow-500">Chi-Rho</span>?
+          </h2>
+          <div className="w-16 h-1 bg-yellow-500 mx-auto mb-12"></div>
+          <div className="grid md:grid-cols-2 gap-8">
+            {whyChiRho.map((item, i) => (
+              <div key={i} className="flex gap-4">
+                <div className="flex-shrink-0 mt-1">{item.icon}</div>
+                <div>
+                  <h3 className="text-xl font-bold text-white mb-2">{item.title}</h3>
+                  <p className="text-gray-400">{item.description}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Coaching Packages */}
+      <section id="packages" className="py-16 md:py-20 bg-gray-900/50">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6">
+          <h2 className="text-3xl md:text-4xl font-bold text-center mb-4">
+            Coaching <span className="text-yellow-500">Packages</span>
+          </h2>
+          <div className="w-16 h-1 bg-yellow-500 mx-auto mb-4"></div>
+          <p className="text-gray-400 text-center max-w-2xl mx-auto mb-12">
+            Every package includes evidence-based programming built on the same auto-regulated periodization system from <em>Shut Up and Lift</em>. Pick the level of support that fits your life.
+          </p>
+
+          <div className="grid md:grid-cols-2 gap-6">
+            {packages.map((pkg, i) => (
+              <div
+                key={i}
+                className={`relative bg-gray-900 rounded-xl border-2 ${pkg.color} p-6 md:p-8 flex flex-col transition-all duration-300 hover:shadow-lg hover:shadow-yellow-500/5`}
               >
                 {pkg.popular && (
-                  <div className="absolute top-0 right-0 bg-yellow-500 text-gray-900 font-bold px-4 py-1 text-sm">
-                    MOST POPULAR
+                  <div className="absolute -top-3 left-1/2 -translate-x-1/2 bg-yellow-500 text-gray-900 text-xs font-bold px-4 py-1 rounded-full uppercase tracking-wider">
+                    Most Popular
                   </div>
                 )}
-                
-                <div className="p-6 border-b border-gray-800">
-                  <h3 className="text-2xl font-bold text-white mb-1">{pkg.name}</h3>
-                  <p className="text-yellow-400 text-sm mb-4">{pkg.tagline}</p>
-                  <div className="flex items-baseline mb-2">
-                    <span className="text-4xl font-bold text-yellow-500">{pkg.price}</span>
-                    <span className="text-gray-400 ml-2">{pkg.period}</span>
-                  </div>
-                  <p className="text-gray-300 text-sm">{pkg.description}</p>
+                <div className="mb-4">
+                  <h3 className="text-2xl font-bold text-white">{pkg.name}</h3>
+                  <p className="text-sm text-yellow-500 font-semibold uppercase tracking-wide mt-1">
+                    {pkg.tagline}
+                  </p>
                 </div>
+                <div className="mb-4">
+                  <span className="text-4xl font-extrabold text-white">{pkg.price}</span>
+                  <span className="text-gray-400">{pkg.period}</span>
+                </div>
+                <p className="text-gray-400 mb-6 text-sm leading-relaxed">{pkg.description}</p>
 
-                <div className="p-6">
-                  <h4 className="font-semibold text-white mb-4">What's Included:</h4>
-                  <ul className="space-y-3 mb-6">
-                    {pkg.features.map((feature, i) => (
-                      <li key={i} className="flex items-start text-sm">
-                        <FaCheck className="w-4 h-4 text-yellow-500 mr-2 mt-0.5 flex-shrink-0" />
-                        <span className="text-gray-300">{feature}</span>
+                <div className="mb-6">
+                  <p className="text-xs font-semibold text-gray-500 uppercase tracking-wider mb-3">
+                    What&apos;s Included
+                  </p>
+                  <ul className="space-y-2">
+                    {pkg.features.map((f, j) => (
+                      <li key={j} className="flex items-start gap-2 text-sm text-gray-300">
+                        <FaCheck className="text-yellow-500 mt-1 flex-shrink-0 text-xs" />
+                        <span>{f}</span>
                       </li>
                     ))}
                   </ul>
+                </div>
 
-                  {pkg.notIncluded && (
-                    <div className="mb-6">
-                      <h4 className="font-semibold text-gray-400 mb-3 text-sm">Not Included:</h4>
-                      <ul className="space-y-2">
-                        {pkg.notIncluded.map((item, i) => (
-                          <li key={i} className="flex items-start text-sm">
-                            <span className="text-gray-600 mr-2">✗</span>
-                            <span className="text-gray-500">{item}</span>
-                          </li>
-                        ))}
-                      </ul>
-                    </div>
-                  )}
+                <div className="mb-6">
+                  <p className="text-xs font-semibold text-gray-500 uppercase tracking-wider mb-3">
+                    Best For
+                  </p>
+                  <ul className="space-y-2">
+                    {pkg.bestFor.map((b, j) => (
+                      <li key={j} className="flex items-start gap-2 text-sm text-gray-400">
+                        <FaArrowRight className="text-yellow-500/60 mt-1 flex-shrink-0 text-xs" />
+                        <span>{b}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
 
-                  {pkg.guarantee && (
-                    <div className="bg-yellow-500/10 border border-yellow-500/30 rounded-lg p-3 mb-4">
-                      <p className="text-yellow-400 text-xs font-semibold">✓ GUARANTEE</p>
-                      <p className="text-gray-300 text-sm">{pkg.guarantee}</p>
-                    </div>
-                  )}
-
-                  {pkg.bonus && (
-                    <div className="bg-gray-800/50 rounded-lg p-3 mb-4">
-                      <p className="text-yellow-400 text-xs font-semibold">🎁 BONUS</p>
-                      <p className="text-gray-300 text-sm">{pkg.bonus}</p>
-                    </div>
-                  )}
-
+                <div className="mt-auto">
                   <Link
                     href={pkg.href}
-                    className={`block w-full text-center font-bold py-3 px-6 rounded-lg transition duration-200 ${
+                    className={`block text-center font-bold py-3 px-6 rounded-lg transition duration-200 ${
                       pkg.popular
                         ? 'bg-yellow-500 hover:bg-yellow-600 text-gray-900'
-                        : 'bg-gray-800 hover:bg-gray-700 text-white'
+                        : 'bg-gray-800 hover:bg-gray-700 text-white border border-gray-700'
                     }`}
                   >
                     {pkg.cta}
@@ -228,458 +301,173 @@ export default function CoachingServices() {
               </div>
             ))}
           </div>
+        </div>
+      </section>
 
-          {/* Hybrid Coaching Callout */}
-          <div className="bg-gradient-to-r from-yellow-500/10 to-yellow-500/5 rounded-xl p-8 border border-yellow-500/20 mb-8">
-            <div className="max-w-4xl mx-auto text-center">
-              <h3 className="text-2xl font-bold text-yellow-400 mb-3">
-                🏆 Hybrid Coaching (Toledo Area Only)
-              </h3>
-              <p className="text-xl text-white mb-4">$497/month</p>
-              <p className="text-gray-300 mb-6">
-                Everything in Elite Performance Coaching PLUS 2 in-person sessions per month (60 minutes each). 
-                Real-time coaching on competition lifts, in-person movement assessment, and technique refinement.
+      {/* Add-Ons */}
+      <section className="py-16 md:py-20">
+        <div className="max-w-5xl mx-auto px-4 sm:px-6">
+          <h2 className="text-3xl md:text-4xl font-bold text-center mb-4">
+            Additional <span className="text-yellow-500">Services</span>
+          </h2>
+          <div className="w-16 h-1 bg-yellow-500 mx-auto mb-12"></div>
+          <div className="grid md:grid-cols-3 gap-6">
+            <div className="bg-gray-900 border border-gray-800 rounded-xl p-6">
+              <h3 className="text-xl font-bold text-white mb-2">One-Time Program Design</h3>
+              <p className="text-2xl font-bold text-yellow-500 mb-3">$197</p>
+              <p className="text-gray-400 text-sm mb-4">
+                A custom 12-week program built for you. Assessment call, programming spreadsheet, exercise library, and one follow-up call. For the DIY lifter who wants expert programming.
               </p>
-              <p className="text-yellow-400 font-semibold mb-4">Limited to 5 clients maximum</p>
               <Link
-                href="/contact?service=hybrid"
-                className="inline-block bg-yellow-500 hover:bg-yellow-600 text-gray-900 font-bold py-3 px-8 rounded-lg transition duration-200"
+                href="/contact?service=program-design"
+                className="text-yellow-500 hover:text-yellow-400 text-sm font-semibold"
               >
-                Apply for Hybrid Coaching
+                Learn More →
               </Link>
             </div>
-          </div>
-
-          {/* Special Offers */}
-          <div className="bg-gray-900 rounded-xl p-6 border border-gray-800">
-            <h3 className="text-xl font-bold text-yellow-400 mb-4">Special Offers</h3>
-            <div className="grid md:grid-cols-3 gap-4">
-              <div className="bg-gray-800/50 p-4 rounded-lg">
-                <p className="text-yellow-400 font-semibold mb-2">📚 Book Buyer Discount</p>
-                <p className="text-gray-300 text-sm">Show proof of "Shut Up and Lift" purchase → 15% off first month</p>
-              </div>
-              <div className="bg-gray-800/50 p-4 rounded-lg">
-                <p className="text-yellow-400 font-semibold mb-2">🤝 Referral Bonus</p>
-                <p className="text-gray-300 text-sm">Refer a client → $50 credit. They get $25 off first month</p>
-              </div>
-              <div className="bg-gray-800/50 p-4 rounded-lg">
-                <p className="text-yellow-400 font-semibold mb-2">💰 Multi-Month Discount</p>
-                <p className="text-gray-300 text-sm">Pay upfront: 3 months = 5% off | 6 months = 10% off | 12 months = 15% off</p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Health & Accountability Coaching Section */}
-      <section id="health-coaching" className="py-16 px-4 bg-gray-900">
-        <div className="max-w-6xl mx-auto">
-          <div className="text-center mb-12">
-            <div className="inline-flex items-center justify-center w-16 h-16 bg-yellow-500/10 rounded-full mb-4">
-              <FaHeart className="w-8 h-8 text-yellow-500" />
-            </div>
-            <h2 className="text-3xl md:text-4xl font-bold text-yellow-400 mb-4">
-              Health & Accountability Coaching
-            </h2>
-            <div className="w-24 h-1 bg-yellow-500 mx-auto mb-6"></div>
-            <p className="text-xl text-gray-300 max-w-3xl mx-auto">
-              For people ready to make fundamental lifestyle changes that last a lifetime—not just chase temporary results
-            </p>
-          </div>
-
-          {/* Single Package Card */}
-          <div className="max-w-2xl mx-auto mb-12">
-            <div className="bg-black rounded-xl overflow-hidden border-2 border-yellow-500/30 hover:border-yellow-500 transition-all">
-              <div className="p-8 border-b border-gray-800">
-                <h3 className="text-2xl font-bold text-white mb-2">Health & Accountability</h3>
-                <p className="text-yellow-400 text-sm mb-4">Sustainable Lifestyle Change</p>
-                <div className="flex items-baseline mb-2">
-                  <span className="text-4xl font-bold text-yellow-500">$147</span>
-                  <span className="text-gray-400 ml-2">/month</span>
-                </div>
-                <p className="text-gray-300 text-sm">
-                  Perfect for people who need to lose significant weight (50+ lbs), have medical considerations, or need 
-                  accountability to build healthy habits that stick.
-                </p>
-              </div>
-
-              <div className="p-8">
-                <h4 className="font-semibold text-white mb-4">What's Included:</h4>
-                <ul className="space-y-3 mb-6">
-                  {[
-                    'Custom 2-3 day/week strength program (modified for your limitations)',
-                    'Weekly 15-min accountability check-in calls',
-                    'Walking/cardio programming with daily step targets',
-                    'Basic nutrition framework (calories + protein targets)',
-                    'Form check videos (2 per week max)',
-                    'Email/text support (48-hour response)',
-                    'Monthly progress assessments and adjustments'
-                  ].map((feature, i) => (
-                    <li key={i} className="flex items-start text-sm">
-                      <FaCheck className="w-4 h-4 text-yellow-500 mr-2 mt-0.5 flex-shrink-0" />
-                      <span className="text-gray-300">{feature}</span>
-                    </li>
-                  ))}
-                </ul>
-
-                <div className="mb-6">
-                  <h4 className="font-semibold text-gray-400 mb-3 text-sm">Not Included:</h4>
-                  <ul className="space-y-2">
-                    {[
-                      'Competition lift focus or powerlifting meet prep',
-                      'Aggressive strength progression',
-                      'Detailed meal planning or macro tracking',
-                      'Daily messaging access'
-                    ].map((item, i) => (
-                      <li key={i} className="flex items-start text-sm">
-                        <span className="text-gray-600 mr-2">✗</span>
-                        <span className="text-gray-500">{item}</span>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-
-                <div className="bg-yellow-500/10 border border-yellow-500/30 rounded-lg p-4 mb-6">
-                  <p className="text-yellow-400 text-xs font-semibold mb-2">✓ SUCCESS GUARANTEE</p>
-                  <p className="text-gray-300 text-sm">
-                    90% adherence for 8 weeks with no measurable progress = 9th week free
-                  </p>
-                </div>
-
-                <Link
-                  href="/coaching/health-accountability"
-                  className="block w-full text-center bg-yellow-500 hover:bg-yellow-600 text-gray-900 font-bold py-3 px-6 rounded-lg transition duration-200 mb-3"
-                >
-                  Learn More
-                </Link>
-                <Link
-                  href="/contact?service=health-accountability"
-                  className="block w-full text-center bg-gray-800 hover:bg-gray-700 text-white font-bold py-3 px-6 rounded-lg transition duration-200"
-                >
-                  Apply Now
-                </Link>
-              </div>
-            </div>
-          </div>
-
-          {/* Who This Is For */}
-          <div className="bg-black rounded-xl p-8 border border-gray-800 mb-8">
-            <h3 className="text-2xl font-bold text-yellow-400 mb-6 text-center">
-              Is This Right for You?
-            </h3>
-            <div className="grid md:grid-cols-2 gap-6 max-w-4xl mx-auto">
-              <div className="bg-gray-900/50 p-6 rounded-lg border border-gray-800">
-                <h4 className="font-bold text-yellow-400 mb-3">Perfect For:</h4>
-                <ul className="space-y-2 text-gray-300 text-sm">
-                  <li className="flex items-start">
-                    <span className="text-yellow-500 mr-2">•</span>
-                    People who need to lose 50+ lbs sustainably
-                  </li>
-                  <li className="flex items-start">
-                    <span className="text-yellow-500 mr-2">•</span>
-                    Those with injuries or medical limitations
-                  </li>
-                  <li className="flex items-start">
-                    <span className="text-yellow-500 mr-2">•</span>
-                    Anyone who needs accountability to stay consistent
-                  </li>
-                  <li className="flex items-start">
-                    <span className="text-yellow-500 mr-2">•</span>
-                    People ready for a 12-18+ month commitment
-                  </li>
-                </ul>
-              </div>
-              <div className="bg-gray-900/50 p-6 rounded-lg border border-gray-800">
-                <h4 className="font-bold text-gray-400 mb-3">NOT For:</h4>
-                <ul className="space-y-2 text-gray-300 text-sm">
-                  <li className="flex items-start">
-                    <span className="text-gray-600 mr-2">•</span>
-                    People looking for quick-fix transformations
-                  </li>
-                  <li className="flex items-start">
-                    <span className="text-gray-600 mr-2">•</span>
-                    Those primarily focused on maximum strength gains
-                  </li>
-                  <li className="flex items-start">
-                    <span className="text-gray-600 mr-2">•</span>
-                    Competitive powerlifters preparing for meets
-                  </li>
-                  <li className="flex items-start">
-                    <span className="text-gray-600 mr-2">•</span>
-                    Anyone wanting aggressive training progression
-                  </li>
-                </ul>
-              </div>
-            </div>
-          </div>
-
-          {/* Realistic Timeline */}
-          <div className="bg-gradient-to-r from-gray-800 to-black rounded-xl p-8 border border-gray-700">
-            <h3 className="text-2xl font-bold text-yellow-400 mb-4 text-center">
-              What to Expect: Realistic Timeline
-            </h3>
-            <p className="text-gray-300 text-center mb-8 max-w-2xl mx-auto">
-              This isn't a 12-week transformation. It's a 12-18+ month journey to build habits that last forever.
-            </p>
-            <div className="grid md:grid-cols-3 gap-6 max-w-5xl mx-auto">
-              <div className="bg-gray-900/50 p-6 rounded-lg border-l-4 border-yellow-500">
-                <h4 className="font-bold text-white mb-2">Months 1-3</h4>
-                <p className="text-yellow-400 text-sm mb-3">Foundation Building</p>
-                <p className="text-gray-300 text-sm">
-                  Training 2x/week, walking 7,500-10,000 steps daily, basic nutrition compliance.
-                  Expected: 8-15 lbs loss.
-                </p>
-              </div>
-              <div className="bg-gray-900/50 p-6 rounded-lg border-l-4 border-yellow-500">
-                <h4 className="font-bold text-white mb-2">Months 4-6</h4>
-                <p className="text-yellow-400 text-sm mb-3">Progressive Challenge</p>
-                <p className="text-gray-300 text-sm">
-                  Increase to 3x/week if tolerated, 10,000+ steps consistently, refined nutrition.
-                  Expected: 12-18 lbs loss.
-                </p>
-              </div>
-              <div className="bg-gray-900/50 p-6 rounded-lg border-l-4 border-yellow-500">
-                <h4 className="font-bold text-white mb-2">Months 7-12+</h4>
-                <p className="text-yellow-400 text-sm mb-3">Building Strength</p>
-                <p className="text-gray-300 text-sm">
-                  May transition to more traditional strength programming. Established healthy lifestyle.
-                  Expected: 20-30+ lbs loss.
-                </p>
-              </div>
-            </div>
-            <div className="mt-6 text-center">
-              <p className="text-yellow-400 font-semibold">
-                For 100+ lbs to lose? Plan for 18-24 months. This is sustainable progress that actually lasts.
+            <div className="bg-gray-900 border border-gray-800 rounded-xl p-6">
+              <h3 className="text-xl font-bold text-white mb-2">Technique Audit</h3>
+              <p className="text-2xl font-bold text-yellow-500 mb-3">$97</p>
+              <p className="text-gray-400 text-sm mb-4">
+                Submit videos of your squat, bench, and deadlift. Get a detailed written analysis with specific corrections and drill recommendations. Follow-up review included.
               </p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* In-Person Training Section */}
-      <section id="in-person-training" className="py-16 px-4 bg-black">
-        <div className="max-w-6xl mx-auto">
-          <div className="text-center mb-12">
-            <div className="inline-flex items-center justify-center w-16 h-16 bg-yellow-500/10 rounded-full mb-4">
-              <FaDumbbell className="w-8 h-8 text-yellow-500" />
-            </div>
-            <h2 className="text-3xl md:text-4xl font-bold text-yellow-400 mb-4">
-              In-Person Training (Toledo Area)
-            </h2>
-            <div className="w-24 h-1 bg-yellow-500 mx-auto mb-6"></div>
-            <p className="text-xl text-gray-300 max-w-3xl mx-auto">
-              Hands-on strength coaching. Perfect your squat, bench, and deadlift with expert technique guidance.
-            </p>
-          </div>
-
-          <div className="grid md:grid-cols-3 gap-8 mb-12">
-            {inPersonOptions.map((option, index) => (
-              <div 
-                key={index}
-                className={`bg-gray-900 rounded-xl p-6 border-2 ${
-                  option.popular ? 'border-yellow-500' : 'border-gray-800'
-                } hover:border-yellow-500/50 transition-all relative`}
-              >
-                {option.popular && (
-                  <div className="absolute top-0 right-0 bg-yellow-500 text-gray-900 font-bold px-4 py-1 text-sm">
-                    BEST VALUE
-                  </div>
-                )}
-                
-                <h3 className="text-2xl font-bold text-white mb-2">{option.name}</h3>
-                {option.duration && (
-                  <p className="text-gray-400 text-sm mb-4">{option.duration}</p>
-                )}
-                
-                <div className="flex items-baseline mb-2">
-                  <span className="text-4xl font-bold text-yellow-500">{option.price}</span>
-                  <span className="text-gray-400 ml-2">{option.period}</span>
-                </div>
-                
-                {option.savings && (
-                  <p className="text-yellow-400 font-semibold mb-2">{option.savings}</p>
-                )}
-                {option.pricePerSession && (
-                  <p className="text-gray-400 text-sm mb-4">{option.pricePerSession}</p>
-                )}
-                
-                <p className="text-gray-300 mb-6">{option.description}</p>
-                
-                <Link
-                  href="/contact?service=in-person"
-                  className={`block w-full text-center font-bold py-3 px-6 rounded-lg transition duration-200 ${
-                    option.popular
-                      ? 'bg-yellow-500 hover:bg-yellow-600 text-gray-900'
-                      : 'bg-gray-800 hover:bg-gray-700 text-white'
-                  }`}
-                >
-                  Book Sessions
-                </Link>
-              </div>
-            ))}
-          </div>
-
-          {/* What's Included in Sessions */}
-          <div className="bg-gray-900 rounded-xl p-8 border border-gray-800">
-            <h3 className="text-2xl font-bold text-yellow-400 mb-6 text-center">
-              What's Included in Every Session
-            </h3>
-            <div className="grid md:grid-cols-2 gap-6 max-w-4xl mx-auto">
-              {[
-                'Personalized strength training focused on your goals',
-                'Hands-on technique coaching for compound lifts',
-                'Program design and progression strategy',
-                'Exercise selection based on your biomechanics',
-                'Training log review and planning',
-                'Real-time form corrections and cues'
-              ].map((item, i) => (
-                <div key={i} className="flex items-start">
-                  <FaCheck className="w-5 h-5 text-yellow-500 mr-3 mt-0.5 flex-shrink-0" />
-                  <span className="text-gray-300">{item}</span>
-                </div>
-              ))}
-            </div>
-          </div>
-
-          {/* Semi-Private Training */}
-          <div className="mt-8 bg-gradient-to-r from-gray-800 to-black rounded-xl p-8 border border-gray-700">
-            <h3 className="text-2xl font-bold text-yellow-400 mb-4">Semi-Private Training</h3>
-            <p className="text-gray-300 mb-4">
-              Train with 1-2 partners and split the cost while still getting individual attention.
-            </p>
-            <div className="grid sm:grid-cols-2 gap-4">
-              <div className="bg-gray-900/50 p-4 rounded-lg">
-                <p className="text-yellow-400 font-semibold mb-2">2 People</p>
-                <p className="text-2xl font-bold text-white">$50<span className="text-gray-400 text-base">/person/session</span></p>
-                <p className="text-gray-400 text-sm">4 sessions: $190/person | 8 sessions: $360/person</p>
-              </div>
-              <div className="bg-gray-900/50 p-4 rounded-lg">
-                <p className="text-yellow-400 font-semibold mb-2">3 People</p>
-                <p className="text-2xl font-bold text-white">$40<span className="text-gray-400 text-base">/person/session</span></p>
-                <p className="text-gray-400 text-sm">4 sessions: $150/person | 8 sessions: $288/person</p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Competition Prep */}
-      <section className="py-16 px-4 bg-gray-900">
-        <div className="max-w-4xl mx-auto">
-          <div className="bg-gradient-to-r from-yellow-500/10 to-yellow-500/5 rounded-xl p-8 border border-yellow-500/20">
-            <h2 className="text-3xl font-bold text-yellow-400 mb-4 text-center">
-              Competition Prep Intensive
-            </h2>
-            <div className="w-24 h-1 bg-yellow-500 mx-auto mb-6"></div>
-            <div className="text-center mb-6">
-              <p className="text-3xl font-bold text-white mb-2">$799 one-time</p>
-              <p className="text-gray-400">8-Week Powerlifting Meet Preparation</p>
-            </div>
-            <div className="grid md:grid-cols-2 gap-6 mb-6">
-              <div>
-                <h4 className="font-semibold text-yellow-400 mb-3">What's Included:</h4>
-                <ul className="space-y-2">
-                  {[
-                    'Complete 8-week meet prep program',
-                    '6 in-person coaching sessions',
-                    'Weekly online check-ins',
-                    'Competition lift technique refinement',
-                    'Peak week strategy',
-                    'Meet-day attempt selection'
-                  ].map((item, i) => (
-                    <li key={i} className="flex items-start text-sm">
-                      <FaCheck className="w-4 h-4 text-yellow-500 mr-2 mt-0.5 flex-shrink-0" />
-                      <span className="text-gray-300">{item}</span>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-              <div>
-                <h4 className="font-semibold text-yellow-400 mb-3">Perfect For:</h4>
-                <ul className="space-y-2 text-gray-300 text-sm">
-                  <li>• First-time meet competitors</li>
-                  <li>• Experienced lifters wanting expert prep</li>
-                  <li>• Anyone seeking a total on the platform</li>
-                </ul>
-              </div>
-            </div>
-            <div className="text-center">
               <Link
-                href="/contact?service=competition-prep"
-                className="inline-block bg-yellow-500 hover:bg-yellow-600 text-gray-900 font-bold py-3 px-8 rounded-lg transition duration-200"
+                href="/contact?service=technique-audit"
+                className="text-yellow-500 hover:text-yellow-400 text-sm font-semibold"
               >
-                Apply for Competition Prep
+                Learn More →
+              </Link>
+            </div>
+            <div className="bg-gray-900 border border-gray-800 rounded-xl p-6">
+              <h3 className="text-xl font-bold text-white mb-2">Competition Prep</h3>
+              <p className="text-2xl font-bold text-yellow-500 mb-3">$597</p>
+              <p className="text-gray-400 text-sm mb-4">
+                8-week peaking protocol with attempt selection, weight cut management (if needed), and day-of support. For lifters with an upcoming powerlifting meet.
+              </p>
+              <Link
+                href="/contact?service=comp-prep"
+                className="text-yellow-500 hover:text-yellow-400 text-sm font-semibold"
+              >
+                Learn More →
               </Link>
             </div>
           </div>
         </div>
       </section>
 
-      {/* FAQ Preview */}
-      <section className="py-16 px-4 bg-black">
-        <div className="max-w-4xl mx-auto">
-          <h2 className="text-3xl font-bold text-yellow-400 mb-8 text-center">Common Questions</h2>
-          <div className="space-y-4 mb-8">
+      {/* Gym Discount Callout */}
+      <section className="py-12 md:py-16 bg-gradient-to-r from-yellow-500/10 to-transparent border-y border-yellow-500/20">
+        <div className="max-w-5xl mx-auto px-4 sm:px-6 flex flex-col md:flex-row items-center gap-6">
+          <div className="flex-1">
+            <h3 className="text-2xl font-bold text-white mb-2">Train at Chi-Rho Barbell Club?</h3>
+            <p className="text-gray-300">
+              Coaching clients who train at the gym get <span className="text-yellow-500 font-bold">$25/month deducted</span> from their coaching rate. In-person coaching clients get gym access included.
+            </p>
+          </div>
+          <Link
+            href="/gym"
+            className="flex-shrink-0 bg-yellow-500 hover:bg-yellow-600 text-gray-900 font-bold py-3 px-6 rounded-lg transition duration-200"
+          >
+            Learn About the Gym →
+          </Link>
+        </div>
+      </section>
+
+      {/* Specials */}
+      <section className="py-16 md:py-20">
+        <div className="max-w-5xl mx-auto px-4 sm:px-6">
+          <h2 className="text-3xl md:text-4xl font-bold text-center mb-4">
+            <span className="text-yellow-500">Deals</span> & Discounts
+          </h2>
+          <div className="w-16 h-1 bg-yellow-500 mx-auto mb-12"></div>
+          <div className="grid md:grid-cols-3 gap-6">
+            <div className="bg-gray-900/50 border border-gray-800 rounded-lg p-6 text-center">
+              <p className="text-yellow-500 font-bold text-lg mb-2">Book Buyer Discount</p>
+              <p className="text-gray-300 text-sm">
+                Show proof of <em>Shut Up and Lift</em> purchase → <strong>15% off your first month</strong> of any coaching package.
+              </p>
+            </div>
+            <div className="bg-gray-900/50 border border-gray-800 rounded-lg p-6 text-center">
+              <p className="text-yellow-500 font-bold text-lg mb-2">Referral Bonus</p>
+              <p className="text-gray-300 text-sm">
+                Refer someone who signs up → <strong>$50 credit</strong> toward your next month. They get <strong>$25 off</strong> their first month.
+              </p>
+            </div>
+            <div className="bg-gray-900/50 border border-gray-800 rounded-lg p-6 text-center">
+              <p className="text-yellow-500 font-bold text-lg mb-2">Multi-Month Discount</p>
+              <p className="text-gray-300 text-sm">
+                3 months upfront: <strong>5% off</strong>. 6 months: <strong>10% off</strong>. 12 months: <strong>15% off</strong>. Online coaching only.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* FAQ */}
+      <section className="py-16 md:py-20 bg-gray-900/50">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6">
+          <h2 className="text-3xl md:text-4xl font-bold text-center mb-4">
+            Common <span className="text-yellow-500">Questions</span>
+          </h2>
+          <div className="w-16 h-1 bg-yellow-500 mx-auto mb-12"></div>
+          <div className="space-y-4">
             {[
               {
-                q: "I'm a beginner. Which package should I choose?",
-                a: "Foundation Program works for experienced beginners (6+ months of consistent training). True beginners in Toledo should start with in-person sessions. Remote beginners can start with Foundation and upgrade as needed."
+                q: "I'm not an athlete. Is this for me?",
+                a: "Most of my clients aren't athletes. They're regular guys—dads, professionals, shift workers—who want to get stronger, lose weight, and feel better. You don't need to be competitive or have any experience. You just need to be willing to show up and do the work.",
               },
               {
-                q: "Can I switch packages?",
-                a: "Yes. You can upgrade anytime (effective immediately). Downgrading is available at the end of your current billing cycle."
+                q: 'What if I\'ve never touched a barbell?',
+                a: "Good. You don't have bad habits to unlearn. Every client starts with an assessment, and your program is built around where you actually are—not where I think you should be. The Foundation and Health & Accountability tiers are specifically designed for guys starting from scratch.",
               },
               {
-                q: "What's your refund policy?",
-                a: "First month is risk-free. If you're not satisfied within 30 days, you get a full refund, no questions asked. After that, coaching is month-to-month with 30-day notice to cancel."
-              }
+                q: 'I need to lose weight first, then I\'ll start lifting.',
+                a: "That's backwards, and it's the number one reason guys fail. Strength training while losing weight preserves muscle, keeps your metabolism healthy, and gives you something productive to focus on besides the scale. The Health & Accountability tier exists specifically for this.",
+              },
+              {
+                q: "I'm on TRT / GLP-1 medication. Can you work with that?",
+                a: "Yes. I'm on TRT myself, so I understand the considerations firsthand. For GLP-1 clients, resistance training is critical—research shows 15-25% of weight lost on these meds comes from muscle. That's exactly what we prevent.",
+              },
+              {
+                q: 'What\'s the difference between Strength Coaching and Health & Accountability?',
+                a: "Strength Coaching is for men whose primary goal is getting stronger—building their squat, bench, and deadlift. Health & Accountability is for men who need to lose significant weight (50+ lbs) and build sustainable habits first. Different starting points, same principles.",
+              },
+              {
+                q: 'How long before I see results?',
+                a: "If you follow the program: you'll feel different in 2-3 weeks, look different in 6-8 weeks, and other people will notice in 12 weeks. Strength gains start showing up almost immediately for beginners. This isn't a quick fix—it's a permanent upgrade.",
+              },
             ].map((faq, i) => (
-              <div key={i} className="bg-gray-900 rounded-lg p-6 border border-gray-800">
-                <h3 className="font-bold text-white mb-2">{faq.q}</h3>
-                <p className="text-gray-300 text-sm">{faq.a}</p>
+              <div key={i} className="bg-gray-900 p-6 rounded-lg border border-gray-800">
+                <h3 className="text-lg font-bold text-white mb-2">{faq.q}</h3>
+                <p className="text-gray-400 text-sm leading-relaxed">{faq.a}</p>
               </div>
             ))}
-          </div>
-          <div className="text-center">
-            <Link 
-              href="/faq"
-              className="text-yellow-400 hover:text-yellow-300 font-semibold"
-            >
-              View All FAQs →
-            </Link>
           </div>
         </div>
       </section>
 
       {/* Final CTA */}
-      <section className="py-16 px-4 bg-gray-900">
-        <div className="max-w-4xl mx-auto text-center">
-          <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
-            Ready to Get Strong?
+      <section className="py-16 md:py-24">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 text-center">
+          <h2 className="text-3xl md:text-5xl font-extrabold mb-6">
+            Ready to <span className="text-yellow-500">Shut Up and Lift</span>?
           </h2>
-          <div className="w-24 h-1 bg-yellow-500 mx-auto mb-6"></div>
-          <p className="text-xl text-gray-300 mb-8">
-            Limited coaching spots available. Apply now to see if we're a good fit.
+          <p className="text-xl text-gray-300 mb-8 max-w-2xl mx-auto">
+            No gimmicks. No BS. Just honest coaching that gets results. Let's talk about your goals and find the right fit.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link
-              href="/contact"
-              className="inline-block bg-yellow-500 hover:bg-yellow-600 text-gray-900 font-bold py-4 px-8 rounded-lg transition duration-200 shadow-lg hover:shadow-xl hover:scale-105 transform"
-            >
-              Apply for Coaching
-            </Link>
-            <Link
               href="/contact?service=consultation"
-              className="inline-block bg-transparent border-2 border-yellow-500 hover:bg-yellow-500 hover:text-gray-900 text-yellow-500 font-bold py-4 px-8 rounded-lg transition duration-200"
+              className="inline-block bg-yellow-500 hover:bg-yellow-600 text-gray-900 font-bold py-4 px-10 rounded-lg transition duration-200 shadow-lg hover:shadow-xl hover:scale-105 transform text-lg"
             >
               Schedule Free Consultation
             </Link>
           </div>
-          <p className="text-gray-400 text-sm mt-6">
+          <p className="text-gray-500 text-sm mt-6">
             No pressure. No hard sell. Let's just talk about your goals and see if I can help.
           </p>
         </div>
       </section>
-    </main>
+    </div>
   );
 }
