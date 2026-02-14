@@ -16,7 +16,6 @@ export default function CoachingPage() {
       features: [
         'Custom training program based on your goals, schedule, and experience',
         'Monthly program updates as you progress',
-        'Access to training portal with full exercise library',
         'Email support (48-hour response)',
         'Monthly progress review and adjustments',
       ],

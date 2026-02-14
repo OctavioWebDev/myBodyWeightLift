@@ -148,7 +148,7 @@ export default function HealthAccountabilityCoaching() {
           <div className="bg-gray-900 rounded-xl p-8 border-2 border-yellow-500">
             <div className="text-center mb-6">
               <div className="flex items-baseline justify-center mb-2">
-                <span className="text-5xl font-bold text-yellow-500">$147</span>
+                <span className="text-5xl font-bold text-yellow-500">$197</span>
                 <span className="text-gray-400 ml-2">/month</span>
               </div>
               <p className="text-gray-300">Month-to-month, cancel anytime with 30-day notice</p>
