@@ -101,6 +101,12 @@ export default function Header() {
                             >
                                 Health & Accountability
                             </Link>
+                            <Link
+                                href="/coaching/group-classes"
+                                className="block px-4 py-2 hover:bg-gray-800 hover:text-yellow-400 transition-colors"
+                            >
+                                Group Classes
+                            </Link>
                              <Link
                                 href="/gym"
                                 className="block px-4 py-2 hover:bg-gray-800 hover:text-yellow-400 transition-colors"
