@@ -77,13 +77,13 @@ const tiers: Array<{
   {
     id: 'founding-monthly',
     name: 'Founding Monthly Member',
-    price: '$35',
-    priceNote: '/month — rate locked for first year',
+    price: '$25',
+    priceNote: '/month — rate locked for life',
     description:
-      'All the access, month to month. Your $35/month rate is locked for the first year of membership.',
+      'All the access, month to month. Your $35/month rate is locked for life.',
     perks: [
       'Full gym access, cancel anytime',
-      '$35/month locked for first year',
+      '$25/month locked for first year',
       'Founding member status + Discord role',
       'Everything in Community Supporter',
     ],
@@ -91,7 +91,7 @@ const tiers: Array<{
   {
     id: 'founding-coaching',
     name: 'Founding Coaching Client',
-    price: '$197',
+    price: '$250',
     priceNote: '/month',
     description:
       "Chi-Rho online coaching — and when the gym opens, $25/month of your coaching fee covers your membership. You train online now, in-person later.",
