@@ -124,6 +124,12 @@ export default function Header() {
                                     Training Journal
                                 </Link>
                                 <Link
+                                    href="https://chirholifts.com/"
+                                    className="block px-4 py-2 hover:bg-gray-800 hover:text-yellow-400 transition-colors"
+                                >
+                                    The App
+                                </Link>
+                                <Link
                                     href="/blog"
                                     className="block px-4 py-2 hover:bg-gray-800 hover:text-yellow-400 transition-colors"
                                 >
