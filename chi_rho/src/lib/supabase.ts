@@ -48,7 +48,7 @@ export function supabase() {
 
 // ─── Campaign helpers ─────────────────────────────────────────────────────────
 
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
+
 const db = () => supabase() as any;
 
 export async function insertFoundingMember(
