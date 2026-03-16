@@ -8,7 +8,7 @@ export default function CoachingPage() {
   const packages = [
     {
       name: 'Foundation Program',
-      price: '$97',
+      price: '$100',
       period: '/month',
       tagline: 'Build the Habits',
       description:
@@ -31,7 +31,7 @@ export default function CoachingPage() {
     },
     {
       name: 'Strength Coaching',
-      price: '$247',
+      price: '$250',
       period: '/month',
       tagline: 'Most Popular',
       description:
@@ -56,7 +56,7 @@ export default function CoachingPage() {
     },
     {
       name: 'Health & Accountability',
-      price: '$197',
+      price: '$250',
       period: '/month',
       tagline: 'Change Your Life',
       description:
@@ -83,7 +83,7 @@ export default function CoachingPage() {
     },
     {
       name: 'Elite Coaching',
-      price: '$447',
+      price: '$500',
       period: '/month',
       tagline: 'All-In',
       description:
@@ -337,7 +337,7 @@ export default function CoachingPage() {
                 Learn More →
               </Link>
             </div>
-            <div className="bg-gray-900 border border-gray-800 rounded-xl p-6">
+            {/* <div className="bg-gray-900 border border-gray-800 rounded-xl p-6">
               <h3 className="text-xl font-bold text-white mb-2">Competition Prep</h3>
               <p className="text-2xl font-bold text-yellow-500 mb-3">$597</p>
               <p className="text-gray-400 text-sm mb-4">
@@ -349,7 +349,7 @@ export default function CoachingPage() {
               >
                 Learn More →
               </Link>
-            </div>
+            </div> */}
           </div>
         </div>
       </section>

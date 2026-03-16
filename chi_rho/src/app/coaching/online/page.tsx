@@ -30,8 +30,8 @@ export default function OnlineCoaching() {
       popular: false
     },
     {
-      name: 'Strength Athlete Coaching',
-      price: '$247',
+      name: 'Strength Coaching',
+      price: '$250',
       period: '/month',
       tagline: 'Most Popular',
       description: 'Comprehensive coaching for serious lifters chasing PRs.',
@@ -58,7 +58,7 @@ export default function OnlineCoaching() {
     },
     {
       name: 'Elite Performance Coaching',
-      price: '$447',
+      price: '$500',
       period: '/month',
       tagline: 'Premium Service',
       description: 'White-glove service for competitive lifters pursuing elite strength.',

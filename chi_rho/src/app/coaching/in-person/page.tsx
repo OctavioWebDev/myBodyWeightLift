@@ -3,107 +3,158 @@
 import React from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
-import { FaCheck, FaDumbbell, FaUsers, FaTrophy } from 'react-icons/fa';
+import { FaCheck, FaMapMarkerAlt, FaVideo, FaChartLine, FaComments, FaDumbbell } from 'react-icons/fa';
 
 export default function InPersonCoaching() {
   const packages = [
     {
-      name: 'Single Session',
-      price: '$75',
-      period: '/session',
-      duration: '60 minutes',
-      description: 'Perfect for technique refinement or getting started with barbell training.',
-      cta: 'Book Session',
+      name: '1 Day / Week',
+      price: '$392',
+      period: '/month',
+      tagline: 'Build the Habit',
+      description: 'One focused session per week to learn the lifts, build consistency, and start making real progress.',
+      features: [
+        'One 60-minute coached session per week',
+        'Custom program built around your goals and schedule',
+        'Technique coaching on all major lifts',
+        'Monthly programming review and adjustments',
+        'Email support between sessions'
+      ],
+      bestFor: [
+        'Lifters new to structured barbell training',
+        'Busy schedules that allow one dedicated training day',
+        'Anyone wanting expert eyes on their technique',
+        'Those building a long-term strength habit'
+      ],
+      cta: 'Get Started',
+      href: '/contact?service=inperson-1day',
       popular: false
     },
     {
-      name: '4-Session Package',
-      price: '$280',
-      period: 'total',
-      savings: 'Save $20',
-      pricePerSession: '$70/session',
-      description: 'Build consistency with weekly training over a month.',
-      cta: 'Buy Package',
-      popular: false
-    },
-    {
-      name: '10-Session Package',
-      price: '$650',
-      period: 'total',
-      savings: 'Save $100',
-      pricePerSession: '$65/session',
-      description: 'Best value for serious commitment to your strength journey.',
-      cta: 'Buy Package',
+      name: '2 Days / Week',
+      price: '$784',
+      period: '/month',
+      tagline: 'Most Popular',
+      description: 'The sweet spot for consistent progress. Two sessions a week drives real strength gains without burning you out.',
+      features: [
+        'Two 60-minute coached sessions per week',
+        'Full custom programming tailored to your goals',
+        'Hands-on technique work every session',
+        'Bi-weekly program adjustments based on performance',
+        'Direct messaging support between sessions',
+        'Monthly progress review with trackable metrics'
+      ],
+      bestFor: [
+        'Intermediate lifters ready to get serious',
+        'Working men who want structure without overcommitting',
+        'Anyone who needs consistent accountability',
+        'Lifters chasing their first major strength PRs'
+      ],
+      guarantee: 'See measurable strength gains in the first 8 weeks',
+      cta: 'Start Training',
+      href: '/contact?service=inperson-2day',
       popular: true
+    },
+    {
+      name: '3 Days / Week',
+      price: '$1,175',
+      period: '/month',
+      tagline: 'Maximum Results',
+      description: 'Full-time commitment. Three sessions a week for lifters who are all-in on getting as strong as possible.',
+      features: [
+        'Three 60-minute coached sessions per week',
+        'Fully periodized custom programming updated in real time',
+        'Every session coached — no guesswork, no wasted reps',
+        'Weekly program adjustments based on how you\'re performing',
+        'Priority messaging — same-day responses',
+        'Comprehensive nutrition framework',
+        'Quarterly deep-dive programming design sessions',
+      ],
+      bestFor: [
+        'Dedicated lifters with serious strength goals',
+        'Those who want maximum coaching contact',
+        'Lifters ready to make strength their top priority'
+      ],
+      bonus: 'Free copy of "Shut Up and Lift" + training journal',
+      cta: 'Apply Now',
+      href: '/contact?service=inperson-3day',
+      popular: false
     }
   ];
 
-  const sessionIncludes = [
-    'Personalized strength training session focused on your goals',
-    'Hands-on technique coaching for compound lifts (squat, bench, deadlift)',
-    'Program design and progression strategy',
-    'Exercise selection based on your biomechanics and injury history',
-    'Training log review and next-session planning',
-    'Real-time form corrections and coaching cues'
-  ];
-
-  const semiPrivate = [
+  const howItWorks = [
     {
-      people: '2 People',
-      price: '$50',
-      perPerson: 'per person/session',
-      packages: '4 sessions: $190/person | 8 sessions: $360/person'
+      step: '1',
+      title: 'Apply',
+      description: 'Fill out a short application with your training history, goals, and availability.',
+      icon: <FaComments className="w-8 h-8" />
     },
     {
-      people: '3 People',
-      price: '$40',
-      perPerson: 'per person/session',
-      packages: '4 sessions: $150/person | 8 sessions: $288/person'
+      step: '2',
+      title: 'Consultation Call',
+      description: "We'll do a quick 20-minute call to make sure we're a good fit and answer your questions.",
+      icon: <FaVideo className="w-8 h-8" />
+    },
+    {
+      step: '3',
+      title: 'Assessment Session',
+      description: 'Your first session is a full movement and strength assessment. We find your baselines and build from there.',
+      icon: <FaChartLine className="w-8 h-8" />
+    },
+    {
+      step: '4',
+      title: 'Train & Progress',
+      description: 'Show up, execute the program, and let the coaching take care of the details.',
+      icon: <FaDumbbell className="w-8 h-8" />
     }
   ];
 
   return (
     <div className="min-h-screen bg-black py-12 px-4 sm:px-6 lg:px-8">
       <div className="max-w-7xl mx-auto">
+
         {/* Hero Section */}
         <div className="text-center mb-16">
           <div className="inline-flex items-center justify-center w-20 h-20 bg-yellow-500/10 rounded-full mb-6">
-            <FaDumbbell className="w-10 h-10 text-yellow-500" />
+            <FaMapMarkerAlt className="w-10 h-10 text-yellow-500" />
           </div>
           <h1 className="text-4xl md:text-5xl font-bold text-yellow-400 mb-4">
-            In-Person Strength Training
+            In-Person Strength Coaching
           </h1>
           <div className="w-24 h-1 bg-yellow-500 mx-auto mb-6"></div>
-          <p className="text-xl text-gray-300 max-w-3xl mx-auto mb-4">
-            Hands-on strength coaching in the Toledo area. Perfect your squat, bench, and deadlift with expert technique guidance.
+          <p className="text-xl text-gray-300 max-w-3xl mx-auto mb-8">
+            Side-by-side coaching in the gym. Real-time feedback, hands-on technique work, and programming built around you — not a template.
           </p>
-          <p className="text-yellow-400 font-semibold">📍 Toledo, Ohio</p>
+          <div className="inline-flex items-center gap-2 bg-yellow-500/10 border border-yellow-500/30 rounded-full px-5 py-2">
+            <FaMapMarkerAlt className="text-yellow-500 w-4 h-4" />
+            <span className="text-yellow-400 text-sm font-semibold">Toledo, OH — Limited Spots Available</span>
+          </div>
         </div>
 
-        {/* Benefits Section */}
-        <div className="grid md:grid-cols-2 gap-12 items-center mb-16">
-          <div className="space-y-6">
-            <h2 className="text-3xl font-bold text-white mb-6">Why In-Person Coaching?</h2>
+        {/* Benefits Grid */}
+        <div className="grid md:grid-cols-2 gap-8 mb-16">
+          <div className="bg-gray-900 rounded-xl p-8 border border-gray-800">
+            <h2 className="text-2xl font-bold text-yellow-400 mb-6">Why In-Person Coaching?</h2>
             <ul className="space-y-4">
               {[
-                'Real-time form corrections you can feel immediately',
-                'Hands-on cueing and positioning adjustments',
-                'Learn proper technique from day one',
-                'Immediate feedback prevents bad habits',
-                'Perfect for beginners who need foundational coaching',
-                'Build confidence under the bar with expert guidance'
+                'Real-time technique corrections every single rep',
+                'No second-guessing — I\'m right there with you',
+                'Accountability that an app or text can\'t replicate',
+                'Learn to train with intention, not just go through the motions',
+                'Build a foundation that lasts a lifetime - I want you to be independent by the end of a year'
               ].map((benefit, i) => (
                 <li key={i} className="flex items-start">
-                  <FaCheck className="w-6 h-6 text-yellow-500 mr-3 mt-1 flex-shrink-0" />
+                  <FaCheck className="w-5 h-5 text-yellow-500 mr-3 mt-1 flex-shrink-0" />
                   <span className="text-gray-300">{benefit}</span>
                 </li>
               ))}
             </ul>
           </div>
+
           <div className="relative h-96 rounded-xl overflow-hidden shadow-xl">
             <Image
-              src="/assets/images/samuel-girven-VJ2s0c20qCo-unsplash.jpg"
-              alt="In-person strength training session"
+              src="/assets/images/jakub-zerdzicki-2MbXuj8PDrA-unsplash.jpg"
+              alt="In-person coaching session"
               fill
               className="object-cover"
               priority
@@ -111,180 +162,126 @@ export default function InPersonCoaching() {
           </div>
         </div>
 
-        {/* Pricing Packages */}
+        {/* Packages */}
         <div className="mb-16">
           <h2 className="text-3xl font-bold text-center text-yellow-400 mb-4">
-            Training Packages
+            Choose Your Schedule
           </h2>
-          <div className="w-24 h-1 bg-yellow-500 mx-auto mb-12"></div>
-          
-          <div className="grid md:grid-cols-3 gap-8 mb-12">
+          <div className="w-24 h-1 bg-yellow-500 mx-auto mb-4"></div>
+          <p className="text-center text-gray-400 text-sm mb-12 max-w-xl mx-auto">
+            All packages are billed monthly at a flat rate. Sessions are $100 each — monthly pricing reflects a consistent year-round coaching relationship.
+          </p>
+
+          <div className="grid md:grid-cols-3 gap-8">
             {packages.map((pkg, index) => (
-              <div 
+              <div
                 key={index}
-                className={`bg-gray-900 rounded-xl p-6 border-2 ${
+                className={`bg-gray-900 rounded-xl overflow-hidden border-2 ${
                   pkg.popular ? 'border-yellow-500' : 'border-gray-800'
                 } hover:border-yellow-500/50 transition-all relative`}
               >
                 {pkg.popular && (
-                  <div className="absolute top-0 right-0 bg-yellow-500 text-gray-900 font-bold px-4 py-1 text-sm">
-                    BEST VALUE
+                  <div className="absolute top-0 right-0 bg-yellow-500 text-gray-900 font-bold px-4 py-1 text-sm z-10">
+                    MOST POPULAR
                   </div>
                 )}
-                
-                <h3 className="text-2xl font-bold text-white mb-2">{pkg.name}</h3>
-                {pkg.duration && (
-                  <p className="text-gray-400 text-sm mb-4">{pkg.duration}</p>
-                )}
-                
-                <div className="flex items-baseline mb-2">
-                  <span className="text-4xl font-bold text-yellow-500">{pkg.price}</span>
-                  <span className="text-gray-400 ml-2">{pkg.period}</span>
+
+                <div className="p-6 border-b border-gray-800">
+                  <h3 className="text-2xl font-bold text-white mb-1">{pkg.name}</h3>
+                  <p className="text-yellow-400 text-sm mb-4">{pkg.tagline}</p>
+                  <div className="flex items-baseline mb-2">
+                    <span className="text-4xl font-bold text-yellow-500">{pkg.price}</span>
+                    <span className="text-gray-400 ml-2">{pkg.period}</span>
+                  </div>
+                  <p className="text-gray-300 text-sm">{pkg.description}</p>
                 </div>
-                
-                {pkg.savings && (
-                  <p className="text-yellow-400 font-semibold mb-2">{pkg.savings}</p>
-                )}
-                {pkg.pricePerSession && (
-                  <p className="text-gray-400 text-sm mb-4">{pkg.pricePerSession}</p>
-                )}
-                
-                <p className="text-gray-300 mb-6 text-sm">{pkg.description}</p>
-                
-                <Link
-                  href="/contact?service=in-person"
-                  className={`block w-full text-center font-bold py-3 px-6 rounded-lg transition duration-200 ${
-                    pkg.popular
-                      ? 'bg-yellow-500 hover:bg-yellow-600 text-gray-900'
-                      : 'bg-gray-800 hover:bg-gray-700 text-white'
-                  }`}
-                >
-                  {pkg.cta}
-                </Link>
+
+                <div className="p-6">
+                  <h4 className="font-semibold text-white mb-4 text-sm">What's Included:</h4>
+                  <ul className="space-y-3 mb-6">
+                    {pkg.features.map((feature, i) => (
+                      <li key={i} className="flex items-start text-sm">
+                        <FaCheck className="w-4 h-4 text-yellow-500 mr-2 mt-0.5 flex-shrink-0" />
+                        <span className="text-gray-300">{feature}</span>
+                      </li>
+                    ))}
+                  </ul>
+
+                  <h4 className="font-semibold text-white mb-3 text-sm">Best For:</h4>
+                  <ul className="space-y-2 mb-6">
+                    {pkg.bestFor.map((item, i) => (
+                      <li key={i} className="text-gray-400 text-sm">• {item}</li>
+                    ))}
+                  </ul>
+
+                  {pkg.guarantee && (
+                    <div className="bg-yellow-500/10 border border-yellow-500/30 rounded-lg p-3 mb-4">
+                      <p className="text-yellow-400 text-xs font-semibold">✓ GUARANTEE</p>
+                      <p className="text-gray-300 text-sm">{pkg.guarantee}</p>
+                    </div>
+                  )}
+
+                  {pkg.bonus && (
+                    <div className="bg-gray-800/50 rounded-lg p-3 mb-4">
+                      <p className="text-yellow-400 text-xs font-semibold">🎁 BONUS</p>
+                      <p className="text-gray-300 text-sm">{pkg.bonus}</p>
+                    </div>
+                  )}
+
+                  <Link
+                    href={pkg.href}
+                    className={`block w-full text-center font-bold py-3 px-6 rounded-lg transition duration-200 ${
+                      pkg.popular
+                        ? 'bg-yellow-500 hover:bg-yellow-600 text-gray-900'
+                        : 'bg-gray-800 hover:bg-gray-700 text-white'
+                    }`}
+                  >
+                    {pkg.cta}
+                  </Link>
+                </div>
               </div>
             ))}
           </div>
         </div>
 
-        {/* What's Included */}
+        {/* How It Works */}
         <div className="bg-gray-900/80 rounded-xl p-8 mb-16 border border-yellow-500/20">
-          <h2 className="text-3xl font-bold text-center text-yellow-400 mb-4">
-            What's Included in Every Session
-          </h2>
+          <h2 className="text-3xl font-bold text-center text-yellow-400 mb-4">How It Works</h2>
           <div className="w-24 h-1 bg-yellow-500 mx-auto mb-12"></div>
-          <div className="grid md:grid-cols-2 gap-6 max-w-4xl mx-auto">
-            {sessionIncludes.map((item, i) => (
-              <div key={i} className="flex items-start">
-                <FaCheck className="w-5 h-5 text-yellow-500 mr-3 mt-1 flex-shrink-0" />
-                <span className="text-gray-300">{item}</span>
-              </div>
-            ))}
-          </div>
-          
-          <div className="mt-8 bg-black/50 rounded-lg p-6 max-w-3xl mx-auto">
-            <h3 className="text-xl font-bold text-yellow-400 mb-3">Session Structure:</h3>
-            <div className="space-y-2 text-gray-300">
-              <p><span className="text-yellow-400 font-semibold">5 minutes:</span> Check-in and session planning</p>
-              <p><span className="text-yellow-400 font-semibold">45 minutes:</span> Coached training with real-time feedback</p>
-              <p><span className="text-yellow-400 font-semibold">10 minutes:</span> Cool-down, notes, and next-session preview</p>
-            </div>
-          </div>
-        </div>
-
-        {/* Semi-Private Training */}
-        <div className="bg-gradient-to-r from-gray-900 to-black rounded-xl p-8 mb-16 border border-gray-800">
-          <div className="flex items-center justify-center mb-6">
-            <FaUsers className="w-8 h-8 text-yellow-500 mr-3" />
-            <h2 className="text-3xl font-bold text-yellow-400">Semi-Private Training</h2>
-          </div>
-          <div className="w-24 h-1 bg-yellow-500 mx-auto mb-8"></div>
-          <p className="text-gray-300 text-center mb-8 max-w-3xl mx-auto">
-            Train with 1-2 partners and split the cost while still getting individual attention and customized programming.
-          </p>
-          <div className="grid md:grid-cols-2 gap-6 max-w-4xl mx-auto">
-            {semiPrivate.map((option, i) => (
-              <div key={i} className="bg-gray-900/50 p-6 rounded-lg border border-gray-800">
-                <p className="text-yellow-400 font-semibold text-lg mb-2">{option.people}</p>
-                <div className="flex items-baseline mb-2">
-                  <span className="text-3xl font-bold text-white">{option.price}</span>
-                  <span className="text-gray-400 text-sm ml-2">{option.perPerson}</span>
+          <div className="grid md:grid-cols-4 gap-8">
+            {howItWorks.map((item, index) => (
+              <div key={index} className="text-center">
+                <div className="w-16 h-16 bg-yellow-500/10 rounded-full flex items-center justify-center text-yellow-500 mx-auto mb-4 border border-yellow-500/30">
+                  {item.icon}
                 </div>
-                <p className="text-gray-400 text-sm">{option.packages}</p>
+                <div className="text-2xl font-bold text-yellow-400 mb-2">{item.step}</div>
+                <h3 className="text-lg font-semibold text-white mb-2">{item.title}</h3>
+                <p className="text-gray-300 text-sm">{item.description}</p>
               </div>
             ))}
           </div>
-          <p className="text-gray-400 text-sm text-center mt-6">
-            All participants must have similar schedules and compatible goals (all strength-focused)
-          </p>
         </div>
 
-        {/* Competition Prep */}
+        {/* Special Offers */}
         <div className="bg-gradient-to-r from-yellow-500/10 to-yellow-500/5 rounded-xl p-8 mb-16 border border-yellow-500/20">
-          <div className="flex items-center justify-center mb-6">
-            <FaTrophy className="w-8 h-8 text-yellow-500 mr-3" />
-            <h2 className="text-3xl font-bold text-yellow-400">Competition Prep Intensive</h2>
-          </div>
-          <div className="w-24 h-1 bg-yellow-500 mx-auto mb-8"></div>
-          
-          <div className="max-w-4xl mx-auto">
-            <div className="text-center mb-8">
-              <p className="text-4xl font-bold text-white mb-2">$799</p>
-              <p className="text-gray-400">8-Week Powerlifting Meet Preparation</p>
+          <h2 className="text-2xl font-bold text-yellow-400 mb-6 text-center">Special Offers</h2>
+          <div className="grid md:grid-cols-3 gap-6">
+            <div className="bg-black/50 p-6 rounded-lg border border-gray-800">
+              <p className="text-yellow-400 font-semibold mb-2">📚 Book Buyer Discount</p>
+              <p className="text-gray-300 text-sm">Bought "Shut Up and Lift"? Get 15% off your first month of coaching.</p>
             </div>
-            
-            <div className="grid md:grid-cols-2 gap-8 mb-8">
-              <div>
-                <h3 className="font-semibold text-yellow-400 mb-4">What's Included:</h3>
-                <ul className="space-y-3">
-                  {[
-                    'Complete 8-week meet prep program',
-                    '6 strategically-placed in-person sessions',
-                    'Weekly online check-ins and adjustments',
-                    'Competition lift technique refinement',
-                    'Peak week strategy and deload management',
-                    'Meet-day attempt selection and handling',
-                    'Post-meet analysis and next-cycle planning'
-                  ].map((item, i) => (
-                    <li key={i} className="flex items-start">
-                      <FaCheck className="w-4 h-4 text-yellow-500 mr-2 mt-1 flex-shrink-0" />
-                      <span className="text-gray-300 text-sm">{item}</span>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-              
-              <div>
-                <h3 className="font-semibold text-yellow-400 mb-4">Perfect For:</h3>
-                <ul className="space-y-2 text-gray-300">
-                  <li>• First-time meet competitors</li>
-                  <li>• Experienced lifters wanting expert meet prep</li>
-                  <li>• Those seeking a competitive total on the platform</li>
-                </ul>
-                
-                <div className="mt-6 bg-black/50 rounded-lg p-4">
-                  <h4 className="font-semibold text-white mb-2 text-sm">Timeline:</h4>
-                  <div className="space-y-1 text-gray-300 text-sm">
-                    <p>Weeks 1-2: Assessment + technique (2 sessions)</p>
-                    <p>Weeks 3-6: Intensity build (2 sessions)</p>
-                    <p>Week 7: Deload + polish (1 session)</p>
-                    <p>Week 8: Meet week + day-of support (1 session)</p>
-                  </div>
-                </div>
-              </div>
+            <div className="bg-black/50 p-6 rounded-lg border border-gray-800">
+              <p className="text-yellow-400 font-semibold mb-2">🤝 Referral Bonus</p>
+              <p className="text-gray-300 text-sm">Refer a friend who signs up → $50 credit. They get $25 off their first month.</p>
             </div>
-            
-            <div className="text-center">
-              <Link
-                href="/contact?service=competition-prep"
-                className="inline-block bg-yellow-500 hover:bg-yellow-600 text-gray-900 font-bold py-3 px-8 rounded-lg transition duration-200 shadow-lg"
-              >
-                Apply for Competition Prep
-              </Link>
+            <div className="bg-black/50 p-6 rounded-lg border border-gray-800">
+              <p className="text-yellow-400 font-semibold mb-2">💰 Multi-Month Discount</p>
+              <p className="text-gray-300 text-sm">Pay upfront: 3mo = 5% off | 6mo = 10% off | 12mo = 15% off</p>
             </div>
           </div>
         </div>
 
-        {/* FAQ Section */}
+        {/* FAQ */}
         <div className="max-w-4xl mx-auto mb-16">
           <h2 className="text-3xl font-bold text-center text-yellow-400 mb-4">Common Questions</h2>
           <div className="w-24 h-1 bg-yellow-500 mx-auto mb-12"></div>
@@ -292,23 +289,27 @@ export default function InPersonCoaching() {
             {[
               {
                 question: 'Where do sessions take place?',
-                answer: 'We\'ll coordinate gym access in the Toledo area. I can work with your gym membership or suggest facilities depending on your location and equipment needs.'
+                answer: 'Sessions are held in Toledo, OH. Exact location provided after your consultation call. You need access to a barbell, rack, and plates — we\'ll confirm the setup before your first session.'
               },
               {
-                question: 'What should I bring to my first session?',
-                answer: 'Just bring workout clothes, water, and a notebook if you like to take notes. We provide all necessary equipment and guidance.'
+                question: 'Do I need experience to train with you?',
+                answer: 'Some basic familiarity with barbell movements is helpful, but not required. If you\'re a true beginner, we\'ll start with the fundamentals and build from the ground up. Just be ready to show up and put in the work.'
               },
               {
-                question: 'How often should I train with you?',
-                answer: 'Most clients benefit from 1-2 sessions per week to establish proper form and build consistency. The 4-session package works well for weekly training over a month.'
+                question: 'What happens if I need to miss a session?',
+                answer: 'Life happens — especially for working men and fathers. Give me a heads up and we\'ll reschedule when possible. The monthly rate covers your ongoing coaching relationship, not just individual sessions.'
               },
               {
-                question: 'I\'m a complete beginner. Is this right for me?',
-                answer: 'Absolutely. In-person training is the best way to learn proper barbell technique from the start. We\'ll build your foundation correctly so you can train safely for years.'
+                question: 'Can I add online coaching support between sessions?',
+                answer: 'The 2-day and 3-day packages include messaging support between sessions. If you\'re on the 1-day package and want more touchpoints, we can discuss adding online coaching support.'
               },
               {
-                question: 'Can I combine in-person and online coaching?',
-                answer: 'Yes! The Hybrid Coaching package ($497/month) includes 2 in-person sessions monthly plus all the benefits of Elite Performance online coaching. Perfect for locals who want the best of both.'
+                question: 'Can I cancel anytime?',
+                answer: 'Yes. First month is risk-free with a full refund if not satisfied. After that, it\'s month-to-month with 30 days notice to cancel. No long-term contracts.'
+              },
+              {
+                question: 'How quickly will I see results?',
+                answer: 'Most clients hit their first noticeable PRs within 4–6 weeks. The 2-day package comes with an 8-week guarantee — see measurable strength gains or we\'ll make it right.'
               }
             ].map((faq, index) => (
               <div key={index} className="bg-gray-900/50 p-6 rounded-lg border border-yellow-500/10 hover:border-yellow-500/30 transition-colors">
@@ -318,7 +319,7 @@ export default function InPersonCoaching() {
             ))}
           </div>
           <div className="text-center mt-8">
-            <Link 
+            <Link
               href="/coaching"
               className="text-yellow-400 hover:text-yellow-300 font-semibold"
             >
@@ -329,29 +330,30 @@ export default function InPersonCoaching() {
 
         {/* Final CTA */}
         <div className="bg-gradient-to-r from-gray-900 to-black rounded-xl p-8 md:p-12 text-center border border-yellow-500/20">
-          <h2 className="text-3xl font-bold text-white mb-4">Ready to Get Started?</h2>
+          <h2 className="text-3xl font-bold text-white mb-4">Ready to Train?</h2>
           <div className="w-24 h-1 bg-yellow-500 mx-auto mb-6"></div>
           <p className="text-xl text-gray-300 mb-8 max-w-2xl mx-auto">
-            Limited in-person training slots available in Toledo. Book your first session today.
+            In-person spots are limited. Apply now and let's see if we're a good fit.
           </p>
           <div className="space-y-4 sm:space-y-0 sm:space-x-4">
-            <Link 
-              href="/contact?service=in-person" 
+            <Link
+              href="/contact"
               className="inline-block bg-yellow-500 hover:bg-yellow-600 text-gray-900 font-bold py-4 px-8 rounded-lg transition duration-200 shadow-lg hover:shadow-xl hover:scale-105 transform"
             >
-              Book In-Person Training
+              Apply for In-Person Coaching
             </Link>
-            <Link 
-              href="/contact?service=consultation" 
+            <Link
+              href="/contact?service=consultation"
               className="inline-block bg-transparent border-2 border-yellow-500 hover:bg-yellow-500 hover:text-gray-900 text-yellow-500 font-bold py-4 px-8 rounded-lg transition duration-200"
             >
               Schedule Free Consultation
             </Link>
           </div>
           <p className="text-gray-400 text-sm mt-6">
-            Not sure which option is right for you? Let's talk.
+            No pressure. No hard sell. Let's talk about your goals.
           </p>
         </div>
+
       </div>
     </div>
   );
