@@ -118,6 +118,7 @@ export default function GroupClassTraining() {
                     <p className="text-yellow-400 font-bold text-lg mb-2">Founding Member Benefit</p>
                     <p className="text-gray-300 text-sm leading-relaxed">
                       Pay a full year upfront and you become a Founding Member of Chi-Rho Barbell Club. Complete your first year of training (47 weeks) and you earn <strong className="text-white">lifetime gym access</strong> — no monthly membership fee, ever.
+                      <p className="text-gray-400 text-xs mt-2">*Limited time offer.</p>
                     </p>
                     <p className="text-gray-400 text-xs mt-2">47 weeks of training scheduled across 52 weeks — built-in holidays and planned recovery time.</p>
                   </div>
