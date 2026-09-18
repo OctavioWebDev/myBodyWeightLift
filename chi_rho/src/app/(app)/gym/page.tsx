@@ -1,16 +1,19 @@
 'use client';
 
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import Link from 'next/link';
 import { FaCheck, FaDumbbell, FaMapMarkerAlt, FaUsers } from 'react-icons/fa';
 
 // ─── Campaign config ────────────────────────────────────────────────────────
-// Update these three numbers as the campaign progresses
 const CAMPAIGN_GOAL = 65000;
-const CURRENT_RAISED = 0;    // update as funds come in
-const TOTAL_BACKERS = 0;      // update as members sign up
 const DAYS_REMAINING = 60;
 // ────────────────────────────────────────────────────────────────────────────
+
+interface CampaignTotals {
+  totalRaisedDollars: number;
+  totalBackers: number;
+  percentFunded: number;
+}
 
 type TierId =
   | 'community-supporter'
@@ -80,10 +83,10 @@ const tiers: Array<{
     price: '$25',
     priceNote: '/month — rate locked for life',
     description:
-      'All the access, month to month. Your $35/month rate is locked for life.',
+      'All the access, month to month. Your $25/month rate is locked for life.',
     perks: [
       'Full gym access, cancel anytime',
-      '$25/month locked for first year',
+      '$25/month locked for life',
       'Founding member status + Discord role',
       'Everything in Community Supporter',
     ],
@@ -127,8 +130,28 @@ const timeline = [
 export default function GymFundingPage() {
   const [loadingTier, setLoadingTier] = useState<TierId | null>(null);
   const [error, setError] = useState<string | null>(null);
+  const [totals, setTotals] = useState<CampaignTotals>({
+    totalRaisedDollars: 0,
+    totalBackers: 0,
+    percentFunded: 0,
+  });
 
-  const progressPercent = Math.min((CURRENT_RAISED / CAMPAIGN_GOAL) * 100, 100);
+  useEffect(() => {
+    fetch('/api/gym/campaign')
+      .then((res) => res.json())
+      .then((data) =>
+        setTotals({
+          totalRaisedDollars: data.totalRaisedDollars ?? 0,
+          totalBackers: data.totalBackers ?? 0,
+          percentFunded: data.percentFunded ?? 0,
+        })
+      )
+      .catch(() => {
+        // Leave totals at zero — the campaign section still renders fine.
+      });
+  }, []);
+
+  const progressPercent = totals.percentFunded;
 
   const handleCheckout = async (tierId: TierId) => {
     setLoadingTier(tierId);
@@ -186,7 +209,7 @@ export default function GymFundingPage() {
           <div className="bg-gray-900 border border-gray-800 rounded-xl p-6 max-w-2xl mx-auto mb-8">
             <div className="flex justify-between text-sm text-gray-400 mb-3">
               <span>
-                <span className="text-white font-bold text-lg">${CURRENT_RAISED.toLocaleString()}</span> raised
+                <span className="text-white font-bold text-lg">${totals.totalRaisedDollars.toLocaleString()}</span> raised
               </span>
               <span>Goal: ${CAMPAIGN_GOAL.toLocaleString()}</span>
             </div>
@@ -198,7 +221,7 @@ export default function GymFundingPage() {
             </div>
             <div className="grid grid-cols-3 gap-4 text-center">
               <div>
-                <p className="text-2xl font-bold text-yellow-400">{TOTAL_BACKERS}</p>
+                <p className="text-2xl font-bold text-yellow-400">{totals.totalBackers}</p>
                 <p className="text-xs text-gray-400">Founding Members</p>
               </div>
               <div>

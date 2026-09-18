@@ -22,7 +22,7 @@ const tierMessages: Record<string, { headline: string; body: string; emoji: stri
   'founding-monthly': {
     emoji: '🔑',
     headline: 'Founding Monthly Member!',
-    body: 'Your $35/month rate is locked in for life. You\'ll receive your founding member number and updates on the gym build-out via email.',
+    body: 'Your $25/month rate is locked in for life. You\'ll receive your founding member number and updates on the gym build-out via email.',
   },
   'founding-coaching': {
     emoji: '🎯',

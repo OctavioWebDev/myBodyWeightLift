@@ -28,23 +28,24 @@ const gymTierConfig = {
   },
   'founding-annual': {
     name: 'Founding Annual Member',
-    description: '1-year founding membership — locked-in rate for life of membership',
-    amount: 30000, // $300.00 in cents
-    mode: 'payment' as const,
-    recurring: false,
+    description: 'Annual founding membership — $300/year, locked-in rate for life of membership',
+    amount: 30000, // $300.00/year in cents
+    mode: 'subscription' as const,
+    recurring: true,
+    interval: 'year' as const,
   },
   'founding-monthly': {
     name: 'Founding Monthly Member',
-    description: 'Monthly founding membership — $35/month, locked in for life of membership',
-    amount: 3500, // $35.00/month in cents
+    description: 'Monthly founding membership — $25/month, locked in for life of membership',
+    amount: 2500, // $25.00/month in cents
     mode: 'subscription' as const,
     recurring: true,
     interval: 'month' as const,
   },
   'founding-coaching': {
     name: 'Founding Coaching Client',
-    description: 'Monthly gym membership + online coaching — $197/month',
-    amount: 19700, // $197.00/month in cents
+    description: 'Monthly gym membership + online coaching — $250/month',
+    amount: 25000, // $250.00/month in cents
     mode: 'subscription' as const,
     recurring: true,
     interval: 'month' as const,
