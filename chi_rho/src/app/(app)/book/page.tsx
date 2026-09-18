@@ -309,7 +309,7 @@ export default function BookPage() {
                                 </li>
                             </ul>
                             <div className="mt-6">
-                                <p className="text-white font-semibold mb-2">Starting at: $97/month</p>
+                                <p className="text-white font-semibold mb-2">Starting at: $250/month</p>
                                 <Link
                                     href="/coaching"
                                     className="block w-full bg-yellow-500 hover:bg-yellow-600 text-gray-900 font-bold py-3 px-6 rounded-lg transition duration-200 text-center"

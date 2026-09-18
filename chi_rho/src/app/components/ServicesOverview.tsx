@@ -6,13 +6,13 @@ const services = [
     icon: <FaDumbbell className="w-8 h-8 text-yellow-500" />,
     title: "In-Person Training",
     subtitle: "Toledo Area Only",
-    price: "Starting at $75/session",
+    price: "$1,150/month",
     description: "Hands-on strength coaching. Perfect your squat, bench, and deadlift with expert technique guidance.",
     features: [
-      "One-on-one coaching",
+      "One-on-one coaching, 3x/week",
       "Real-time form corrections",
       "Personalized programming",
-      "Competition prep available"
+      "47 weeks of training a year"
     ],
     link: "/coaching/in-person"
   },
@@ -20,7 +20,7 @@ const services = [
     icon: <FaLaptop className="w-8 h-8 text-yellow-500" />,
     title: "Online Coaching",
     subtitle: "Train Anywhere",
-    price: "Starting at $97/month",
+    price: "Starting at $250/month",
     description: "Custom programming, form checks, and accountability. Expert guidance wherever you train.",
     features: [
       "Auto-regulated programming",

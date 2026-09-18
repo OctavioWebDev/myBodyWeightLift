@@ -8,61 +8,14 @@ import { FaCheck, FaMapMarkerAlt, FaVideo, FaChartLine, FaComments, FaDumbbell }
 export default function InPersonCoaching() {
   const packages = [
     {
-      name: '1 Day / Week',
-      price: '$392',
+      name: 'In-Person Coaching',
+      price: '$1,150',
       period: '/month',
-      tagline: 'Build the Habit',
-      description: 'One focused session per week to learn the lifts, build consistency, and start making real progress.',
-      features: [
-        'One 60-minute coached session per week',
-        'Custom program built around your goals and schedule',
-        'Technique coaching on all major lifts',
-        'Monthly programming review and adjustments',
-        'Email support between sessions'
-      ],
-      bestFor: [
-        'Lifters new to structured barbell training',
-        'Busy schedules that allow one dedicated training day',
-        'Anyone wanting expert eyes on their technique',
-        'Those building a long-term strength habit'
-      ],
-      cta: 'Get Started',
-      href: '/contact?service=inperson-1day',
-      popular: false
-    },
-    {
-      name: '2 Days / Week',
-      price: '$784',
-      period: '/month',
-      tagline: 'Most Popular',
-      description: 'The sweet spot for consistent progress. Two sessions a week drives real strength gains without burning you out.',
-      features: [
-        'Two 60-minute coached sessions per week',
-        'Full custom programming tailored to your goals',
-        'Hands-on technique work every session',
-        'Bi-weekly program adjustments based on performance',
-        'Direct messaging support between sessions',
-        'Monthly progress review with trackable metrics'
-      ],
-      bestFor: [
-        'Intermediate lifters ready to get serious',
-        'Working men who want structure without overcommitting',
-        'Anyone who needs consistent accountability',
-        'Lifters chasing their first major strength PRs'
-      ],
-      guarantee: 'See measurable strength gains in the first 8 weeks',
-      cta: 'Start Training',
-      href: '/contact?service=inperson-2day',
-      popular: true
-    },
-    {
-      name: '3 Days / Week',
-      price: '$1,175',
-      period: '/month',
-      tagline: 'Maximum Results',
-      description: 'Full-time commitment. Three sessions a week for lifters who are all-in on getting as strong as possible.',
+      tagline: 'Full-Time Coaching',
+      description: '3 coached sessions a week, 47 weeks a year. Full-time commitment for lifters who are all-in on getting as strong as possible.',
       features: [
         'Three 60-minute coached sessions per week',
+        '47 weeks of training scheduled across 52 weeks — holidays and planned recovery built in',
         'Fully periodized custom programming updated in real time',
         'Every session coached — no guesswork, no wasted reps',
         'Weekly program adjustments based on how you\'re performing',
@@ -75,9 +28,10 @@ export default function InPersonCoaching() {
         'Those who want maximum coaching contact',
         'Lifters ready to make strength their top priority'
       ],
+      guarantee: 'See measurable strength gains in the first 8 weeks',
       bonus: 'Free copy of "Shut Up and Lift" + training journal',
       cta: 'Apply Now',
-      href: '/contact?service=inperson-3day',
+      href: '/contact?service=inperson',
       popular: false
     }
   ];
@@ -165,27 +119,19 @@ export default function InPersonCoaching() {
         {/* Packages */}
         <div className="mb-16">
           <h2 className="text-3xl font-bold text-center text-yellow-400 mb-4">
-            Choose Your Schedule
+            One Package. All In.
           </h2>
           <div className="w-24 h-1 bg-yellow-500 mx-auto mb-4"></div>
           <p className="text-center text-gray-400 text-sm mb-12 max-w-xl mx-auto">
-            All packages are billed monthly at a flat rate. Sessions are $100 each — monthly pricing reflects a consistent year-round coaching relationship.
+            Billed monthly at a flat rate. Training runs 47 weeks out of 52 — the remaining 5 account for major holidays and scheduled time off, so your rate reflects a consistent year-round coaching relationship, not individual sessions.
           </p>
 
-          <div className="grid md:grid-cols-3 gap-8">
+          <div className="grid gap-8 max-w-md mx-auto">
             {packages.map((pkg, index) => (
               <div
                 key={index}
-                className={`bg-gray-900 rounded-xl overflow-hidden border-2 ${
-                  pkg.popular ? 'border-yellow-500' : 'border-gray-800'
-                } hover:border-yellow-500/50 transition-all relative`}
+                className="bg-gray-900 rounded-xl overflow-hidden border-2 border-yellow-500 relative"
               >
-                {pkg.popular && (
-                  <div className="absolute top-0 right-0 bg-yellow-500 text-gray-900 font-bold px-4 py-1 text-sm z-10">
-                    MOST POPULAR
-                  </div>
-                )}
-
                 <div className="p-6 border-b border-gray-800">
                   <h3 className="text-2xl font-bold text-white mb-1">{pkg.name}</h3>
                   <p className="text-yellow-400 text-sm mb-4">{pkg.tagline}</p>
@@ -230,11 +176,7 @@ export default function InPersonCoaching() {
 
                   <Link
                     href={pkg.href}
-                    className={`block w-full text-center font-bold py-3 px-6 rounded-lg transition duration-200 ${
-                      pkg.popular
-                        ? 'bg-yellow-500 hover:bg-yellow-600 text-gray-900'
-                        : 'bg-gray-800 hover:bg-gray-700 text-white'
-                    }`}
+                    className="block w-full text-center font-bold py-3 px-6 rounded-lg transition duration-200 bg-yellow-500 hover:bg-yellow-600 text-gray-900"
                   >
                     {pkg.cta}
                   </Link>
@@ -301,7 +243,7 @@ export default function InPersonCoaching() {
               },
               {
                 question: 'Can I add online coaching support between sessions?',
-                answer: 'The 2-day and 3-day packages include messaging support between sessions. If you\'re on the 1-day package and want more touchpoints, we can discuss adding online coaching support.'
+                answer: 'Priority messaging between sessions is already included. If you want more structured programming for the days you\'re not in the gym with me, we can discuss it on your consultation call.'
               },
               {
                 question: 'Can I cancel anytime?',
@@ -309,7 +251,7 @@ export default function InPersonCoaching() {
               },
               {
                 question: 'How quickly will I see results?',
-                answer: 'Most clients hit their first noticeable PRs within 4–6 weeks. The 2-day package comes with an 8-week guarantee — see measurable strength gains or we\'ll make it right.'
+                answer: 'Most clients hit their first noticeable PRs within 4–6 weeks of consistent training.'
               }
             ].map((faq, index) => (
               <div key={index} className="bg-gray-900/50 p-6 rounded-lg border border-yellow-500/10 hover:border-yellow-500/30 transition-colors">
@@ -343,10 +285,10 @@ export default function InPersonCoaching() {
               Apply for In-Person Coaching
             </Link>
             <Link
-              href="/contact?service=consultation"
+              href="/contact?service=discovery-call"
               className="inline-block bg-transparent border-2 border-yellow-500 hover:bg-yellow-500 hover:text-gray-900 text-yellow-500 font-bold py-4 px-8 rounded-lg transition duration-200"
             >
-              Schedule Free Consultation
+              Schedule a Free Discovery Call
             </Link>
           </div>
           <p className="text-gray-400 text-sm mt-6">

@@ -309,10 +309,10 @@ export default function GroupClassTraining() {
               Reserve Your Spot
             </Link>
             <Link
-              href="/contact?service=consultation"
+              href="/contact?service=discovery-call"
               className="inline-block bg-transparent border-2 border-yellow-500 hover:bg-yellow-500 hover:text-gray-900 text-yellow-500 font-bold py-4 px-8 rounded-lg transition duration-200"
             >
-              Schedule Free Consultation
+              Schedule a Free Discovery Call
             </Link>
           </div>
           <p className="text-gray-400 text-sm mt-6">

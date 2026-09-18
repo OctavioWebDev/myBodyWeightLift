@@ -8,52 +8,30 @@ import { FaCheck, FaLaptop, FaVideo, FaChartLine, FaComments, FaDumbbell } from 
 export default function OnlineCoaching() {
   const packages = [
     {
-      name: 'Foundation Program',
-      price: '$97',
-      period: '/month',
-      tagline: 'For Self-Motivated Lifters',
-      description: 'Solid programming for experienced beginners who can execute independently.',
-      features: [
-        'Custom training program based on detailed assessment',
-        'Monthly program updates',
-        // 'Access to training portal with exercise library',
-        'Email support (48-hour response)',
-        'Monthly progress review and adjustments'
-      ],
-      bestFor: [
-        'Experienced lifters who know the basics',
-        'Those who\'ve read "Shut Up and Lift"',
-        'Self-motivated athletes with consistent schedules'
-      ],
-      cta: 'Get Started',
-      href: '/contact?service=foundation',
-      popular: false
-    },
-    {
       name: 'Strength Coaching',
       price: '$250',
       period: '/month',
       tagline: 'Most Popular',
-      description: 'Comprehensive coaching for serious lifters chasing PRs.',
+      description: 'Comprehensive coaching for serious lifters chasing PRs — or for men who need to lose significant weight while preserving muscle.',
       features: [
-        'Everything in Foundation Program, PLUS:',
+        'Custom training program based on detailed assessment',
         'Weekly check-ins via discord',
         'Form check video analysis (up to 3/week)',
         'Program adjustments based on performance data',
         'Direct messaging support (24-hour response time)',
         'Bi-weekly accountability calls (15 minutes)',
-        'Basic nutrition framework',
-        'Access to "Shut Up and Lift" methodology resources'
+        'Nutrition framework — strength-focused or fat-loss focused',
+        'TRT and GLP-1 medication considerations if applicable'
       ],
       bestFor: [
         'Intermediate to advanced lifters chasing PRs',
         'Those preparing for powerlifting meets',
-        'Lifters who want expert eyes on technique',
+        'Men with significant weight to lose who want to preserve muscle',
         'Anyone who needs accountability and feedback'
       ],
       guarantee: 'See measurable strength gains in first 8 weeks',
       cta: 'Start Coaching',
-      href: '/contact?service=strength-athlete',
+      href: '/contact?service=strength-coaching',
       popular: true
     },
     {
@@ -63,7 +41,7 @@ export default function OnlineCoaching() {
       tagline: 'Premium Service',
       description: 'White-glove service for competitive lifters pursuing elite strength.',
       features: [
-        'Everything in Strength Athlete Coaching, PLUS:',
+        'Everything in Strength Coaching, PLUS:',
         'Bi-weekly video coaching calls (30 minutes)',
         'Unlimited form check reviews (48-hour turnaround)',
         'Daily messaging access via private channel',
@@ -167,7 +145,7 @@ export default function OnlineCoaching() {
           </h2>
           <div className="w-24 h-1 bg-yellow-500 mx-auto mb-12"></div>
           
-          <div className="grid md:grid-cols-3 gap-8">
+          <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
             {packages.map((pkg, index) => (
               <div 
                 key={index}
@@ -284,15 +262,15 @@ export default function OnlineCoaching() {
             {[
               {
                 question: 'What equipment do I need?',
-                answer: `Foundation and Strength Athlete programs work best with a barbell, rack, and plates. I can adapt for dumbbells, but barbell training produces better results. Elite clients: I'll work with whatever you have.`
+                answer: `Strength Coaching works best with a barbell, rack, and plates. I can adapt for dumbbells, but barbell training produces better results. Elite clients: I'll work with whatever you have.`
               },
               {
                 question: 'How often will we communicate?',
-                answer: 'Foundation: email check-ins monthly. Strength Athlete: weekly app check-ins + bi-weekly calls. Elite: bi-weekly video calls + daily messaging access.'
+                answer: 'Strength Coaching: weekly app check-ins + bi-weekly calls. Elite: bi-weekly video calls + daily messaging access.'
               },
               {
                 question: 'I\'m a complete beginner. Is this for me?',
-                answer: 'Foundation Program works for experienced beginners (6+ months training). True beginners should consider in-person training first to learn proper technique, or start with the Foundation package and be prepared to study form videos closely.'
+                answer: 'Strength Coaching works for experienced beginners (6+ months training). True beginners should consider in-person training first to learn proper technique, or start online and be prepared to study form videos closely.'
               },
               {
                 question: 'Can I cancel anytime?',
@@ -334,10 +312,10 @@ export default function OnlineCoaching() {
               Apply for Online Coaching
             </Link>
             <Link 
-              href="/contact?service=consultation" 
+              href="/contact?service=discovery-call" 
               className="inline-block bg-transparent border-2 border-yellow-500 hover:bg-yellow-500 hover:text-gray-900 text-yellow-500 font-bold py-4 px-8 rounded-lg transition duration-200"
             >
-              Schedule Free Consultation
+              Schedule a Free Discovery Call
             </Link>
           </div>
           <p className="text-gray-400 text-sm mt-6">

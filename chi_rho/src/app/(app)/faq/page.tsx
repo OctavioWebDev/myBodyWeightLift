@@ -22,14 +22,14 @@ export default function FAQPage() {
         <>
           <p className="mb-3">It depends on what you mean by "complete beginner."</p>
           <p className="mb-3"><strong className="text-yellow-400">If you've never touched a barbell:</strong> I recommend starting with in-person training (if you're in Toledo) so you can learn proper technique from day one. Bad habits formed early are hard to break.</p>
-          <p><strong className="text-yellow-400">If you have 6+ months of training experience:</strong> The Foundation Program is perfect. You know the basics, you just need better programming and accountability.</p>
+          <p><strong className="text-yellow-400">If you have 6+ months of training experience:</strong> Strength Coaching is perfect. You know the basics, you just need better programming and accountability.</p>
         </>
       )
     },
     {
       category: 'Getting Started',
       question: 'What if I\'ve never done the "big three" lifts before?',
-      answer: 'If you\'re completely new to squats, bench press, and deadlifts, I strongly recommend in-person coaching first (if possible) or starting with the Foundation Program and studying form videos extensively. These movements require proper technique to be safe and effective. I can program alternatives if needed, but the big three are the foundation of strength training for a reason.'
+      answer: 'If you\'re completely new to squats, bench press, and deadlifts, I strongly recommend in-person coaching first (if possible) or starting with Strength Coaching and studying form videos extensively. These movements require proper technique to be safe and effective. I can program alternatives if needed, but the big three are the foundation of strength training for a reason.'
     },
     {
       category: 'Getting Started',
@@ -57,7 +57,7 @@ export default function FAQPage() {
     {
       category: 'Program & Training',
       question: 'How many days per week do I need to train?',
-      answer: 'Three days per week minimum for the Foundation and Strength Athlete programs. This is based on optimal frequency for strength gains. If you can only do 2 days, we can make it work, but progress will be slower. If you want to train 4-5 days, we can program that too, but beginners don\'t need it.'
+      answer: 'Three days per week is the sweet spot for online Strength Coaching, based on optimal frequency for strength gains. If you can only do 2 days, we can make it work, but progress will be slower. If you want to train 4-5 days, we can program that too, but beginners don\'t need it. In-person coaching is a fixed 3 sessions a week.'
     },
     {
       category: 'Program & Training',
@@ -67,7 +67,7 @@ export default function FAQPage() {
     {
       category: 'Program & Training',
       question: 'Can I add extra exercises or "accessory work"?',
-      answer: 'Foundation Program clients: Stick to the program. You\'re paying for my expertise - trust the process. Strength Athlete and Elite clients: We can discuss additions, but most beginners don\'t need more volume. They need better execution on the basics. If you\'re advanced enough to benefit from accessories, we\'ll program them strategically.'
+      answer: 'We can discuss additions, but most beginners don\'t need more volume. They need better execution on the basics. If you\'re advanced enough to benefit from accessories, we\'ll program them strategically.'
     },
     {
       category: 'Program & Training',
@@ -77,7 +77,7 @@ export default function FAQPage() {
     {
       category: 'Program & Training',
       question: 'Do you provide nutrition coaching?',
-      answer: 'Strength Athlete package includes basic nutrition framework (calories, protein targets, meal timing). Elite Performance includes comprehensive nutrition coaching. Foundation Program does not include nutrition - you\'re responsible for eating enough to support training. I\'m not a registered dietitian, but I can guide you on eating to support strength gains.'
+      answer: 'Strength Coaching includes a nutrition framework (calories, protein targets, meal timing) that flexes toward strength or fat-loss goals. Elite Performance includes comprehensive nutrition periodization and supplement guidance. I\'m not a registered dietitian, but I can guide you on eating to support your goals.'
     },
 
     // PRICING & LOGISTICS
@@ -106,8 +106,7 @@ export default function FAQPage() {
       question: 'How quickly do you respond to messages?',
       answer: (
         <>
-          <p className="mb-2"><strong className="text-yellow-400">Foundation:</strong> 48-hour response via email</p>
-          <p className="mb-2"><strong className="text-yellow-400">Strength Athlete:</strong> 24-hour response time via discord</p>
+          <p className="mb-2"><strong className="text-yellow-400">Strength Coaching:</strong> 24-hour response time via discord</p>
           <p><strong className="text-yellow-400">Elite:</strong> Same-day response via private channel</p>
         </>
       )
@@ -127,7 +126,7 @@ export default function FAQPage() {
     {
       category: 'Online vs In-Person',
       question: 'I\'m in Toledo. Should I do in-person or online?',
-      answer: 'If you\'re a beginner: Start with in-person training to learn proper technique. If you\'re experienced: Online coaching is more cost-effective unless you want the Hybrid option (2 in-person sessions per month + full online coaching). If you\'re preparing for a competition: Competition Prep Intensive gives you strategically-placed in-person sessions plus online support.'
+      answer: 'If you\'re a beginner: Start with in-person training to learn proper technique. If you\'re experienced: Online coaching is more cost-effective. If you want maximum coaching contact and can commit to 3 sessions a week: In-person is the full-time option.'
     },
 
     // COACHING STYLE & PHILOSOPHY
@@ -177,12 +176,11 @@ export default function FAQPage() {
     // COMPARING TO OTHER OPTIONS
     {
       category: 'Comparing Options',
-      question: 'What\'s the difference between your three online packages?',
+      question: 'What\'s the difference between your two online packages?',
       answer: (
         <>
-          <p className="mb-3"><strong className="text-yellow-400">Foundation ($97/mo):</strong> Programming + monthly check-ins. For self-motivated lifters who can execute independently.</p>
-          <p className="mb-3"><strong className="text-yellow-400">Strength Athlete ($247/mo):</strong> Everything in Foundation + weekly check-ins, form checks, messaging support, bi-weekly calls, basic nutrition. For people who want accountability and regular feedback.</p>
-          <p><strong className="text-yellow-400">Elite ($447/mo):</strong> White-glove service. Bi-weekly video calls, unlimited form checks, daily messaging, comprehensive nutrition, competition prep. For serious lifters who demand premium support.</p>
+          <p className="mb-3"><strong className="text-yellow-400">Strength Coaching ($250/mo):</strong> Weekly check-ins, form checks, messaging support, bi-weekly calls, a nutrition framework that flexes toward strength or fat-loss goals. For people who want real accountability and regular feedback.</p>
+          <p><strong className="text-yellow-400">Elite ($500/mo):</strong> White-glove service. Daily check-ins, bi-weekly video calls, unlimited form checks, daily messaging, comprehensive nutrition, competition prep. For serious lifters who demand premium support.</p>
         </>
       )
     },

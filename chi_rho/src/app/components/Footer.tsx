@@ -8,7 +8,8 @@ import {
     faDumbbell,
     faBook,
     faUser,
-    faArrowRight
+    faArrowRight,
+    faMobileScreen
 } from '@fortawesome/free-solid-svg-icons';
 import {
     faFacebookF,
@@ -21,14 +22,26 @@ import Image from 'next/image';
 
 const Map = dynamic(() => import('./Map'), { ssr: false });
 
-const FooterLink = ({ href, icon: Icon, children }: { href: string, icon: any, children: React.ReactNode }) => (
-    <Link href={href} className="flex items-center space-x-2 text-gray-300 hover:text-yellow-400 transition-colors py-1 group">
-        <span className="w-6 h-6 flex items-center justify-center">
-            <FontAwesomeIcon icon={Icon} className="text-yellow-500 group-hover:translate-x-1 transition-transform" />
-        </span>
-        <span>{children}</span>
-    </Link>
-);
+const FooterLink = ({ href, icon: Icon, children, external }: { href: string, icon: any, children: React.ReactNode, external?: boolean }) => {
+    const content = (
+        <>
+            <span className="w-6 h-6 flex items-center justify-center">
+                <FontAwesomeIcon icon={Icon} className="text-yellow-500 group-hover:translate-x-1 transition-transform" />
+            </span>
+            <span>{children}</span>
+        </>
+    );
+    const className = "flex items-center space-x-2 text-gray-300 hover:text-yellow-400 transition-colors py-1 group";
+    return external ? (
+        <a href={href} target="_blank" rel="noopener noreferrer" className={className}>
+            {content}
+        </a>
+    ) : (
+        <Link href={href} className={className}>
+            {content}
+        </Link>
+    );
+};
 
 const SocialIcon = ({ href, icon: Icon }: { href: string, icon: any }) => (
     <a 
@@ -90,6 +103,9 @@ export default function Footer() {
                             </FooterLink>
                             <FooterLink href="/coaching" icon={faArrowRight}>
                                 Coaching
+                            </FooterLink>
+                            <FooterLink href="https://chirholifts.com/" icon={faMobileScreen} external>
+                                Lift-Log App
                             </FooterLink>
                         </div>
                     </div>
