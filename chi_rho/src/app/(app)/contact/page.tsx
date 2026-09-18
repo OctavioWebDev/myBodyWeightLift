@@ -302,17 +302,17 @@ export default function ContactPage() {
               >
                 <option value="">Select a coaching option...</option>
                 <optgroup label="Online Coaching" className="bg-gray-800">
-                  <option value="foundation">Foundation Program ($97/month)</option>
-                  <option value="strength-athlete">Strength Athlete Coaching ($247/month)</option>
-                  <option value="elite">Elite Performance Coaching ($447/month)</option>
+                  <option value="strength-coaching">Strength Coaching ($250/month)</option>
+                  <option value="elite">Elite Performance Coaching ($500/month)</option>
                 </optgroup>
                 <optgroup label="In-Person (Toledo Area)" className="bg-gray-800">
-                  <option value="in-person">In-Person Training (starting $75/session)</option>
-                  <option value="hybrid">Hybrid Coaching ($497/month)</option>
+                  <option value="inperson">In-Person Coaching ($1,150/month)</option>
                 </optgroup>
-                <optgroup label="Other" className="bg-gray-800">
-                  <option value="competition-prep">Competition Prep Intensive ($799)</option>
-                  <option value="consultation">Free Consultation (just exploring options)</option>
+                <optgroup label="Group & Other" className="bg-gray-800">
+                  <option value="group-class">Group Classes ($300/month)</option>
+                  <option value="consultation-program">Program Design Consultation ($100 one-time)</option>
+                  <option value="technique-audit">Technique Audit ($97 one-time)</option>
+                  <option value="discovery-call">Free Discovery Call (just exploring options)</option>
                 </optgroup>
               </select>
             </div>

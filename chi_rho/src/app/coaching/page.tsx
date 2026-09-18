@@ -7,79 +7,31 @@ import { FaCheck, FaDumbbell, FaHeartbeat, FaChartLine, FaUsers, FaArrowRight } 
 export default function CoachingPage() {
   const packages = [
     {
-      name: 'Foundation Program',
-      price: '$100',
-      period: '/month',
-      tagline: 'Build the Habits',
-      description:
-        'For guys who are ready to stop guessing and start training with a real plan. Whether you\'re stepping into a gym for the first time or getting back after years away, this gets you moving the right direction.',
-      features: [
-        'Custom training program based on your goals, schedule, and experience',
-        'Monthly program updates as you progress',
-        'Email support (48-hour response)',
-        'Monthly progress review and adjustments',
-      ],
-      bestFor: [
-        'Men getting back into training after a long break',
-        'Self-motivated guys who can follow a plan',
-        'Anyone who\'s read "Shut Up and Lift" and wants to apply it',
-      ],
-      cta: 'Get Started',
-      href: '/contact?service=foundation',
-      popular: false,
-      color: 'border-gray-700',
-    },
-    {
       name: 'Strength Coaching',
       price: '$250',
       period: '/month',
       tagline: 'Most Popular',
       description:
-        'Comprehensive, hands-on coaching for men who are serious about getting stronger and building a body that performs. Weekly check-ins, form review, and programming that adapts to your life.',
+        'Comprehensive, hands-on online coaching for men who are serious about getting stronger and building a body that performs. Weekly check-ins, form review, and programming that adapts to your life — whether your goal is chasing PRs or losing significant weight while preserving muscle.',
       features: [
         'Fully individualized auto-regulated programming',
         'Weekly video check-ins (15-20 minutes)',
         'Unlimited form check reviews via video',
         'Direct messaging access (24-hour response)',
-        'Nutrition guidance framework',
+        'Nutrition guidance framework — strength-focused or fat-loss focused',
         'Program adjustments based on recovery, stress, and schedule',
+        'TRT and GLP-1 medication considerations if applicable',
       ],
       bestFor: [
         'Men who want real accountability and coaching',
         'Intermediate lifters who\'ve plateaued on generic programs',
+        'Men with significant weight to lose who want to preserve muscle',
         'Guys balancing training with demanding careers and family',
       ],
       cta: 'Apply Now',
       href: '/contact?service=strength-coaching',
       popular: true,
       color: 'border-yellow-500',
-    },
-    {
-      name: 'Health & Accountability',
-      price: '$250',
-      period: '/month',
-      tagline: 'Change Your Life',
-      description:
-        'Built for men who need to lose significant weight and build sustainable habits. Not a crash diet. Not a 90-day fix. This is a long-term coaching relationship focused on getting you healthy and keeping you there.',
-      features: [
-        'Custom 2-3 day/week strength program designed around your limitations',
-        'Weekly 15-minute accountability check-ins',
-        'Walking and cardio programming',
-        'Nutrition framework (calories, protein, meal timing)',
-        'Form check video analysis (2 videos/week)',
-        'Email and text support (48-hour response)',
-        'Monthly progress assessments and program adjustments',
-      ],
-      bestFor: [
-        'Men with 50+ lbs to lose who are ready for real change',
-        'Guys dealing with pre-diabetes, high blood pressure, or joint pain',
-        'Men on GLP-1 medications who need to preserve muscle',
-        'Anyone tired of starting over every January',
-      ],
-      cta: 'Apply Now',
-      href: '/contact?service=health-accountability',
-      popular: false,
-      color: 'border-red-600',
     },
     {
       name: 'Elite Coaching',
@@ -166,10 +118,10 @@ export default function CoachingPage() {
               See Coaching Packages
             </Link>
             <Link
-              href="/contact?service=consultation"
+              href="/contact?service=discovery-call"
               className="inline-block bg-transparent border-2 border-yellow-500 hover:bg-yellow-500 hover:text-gray-900 text-yellow-500 font-bold py-4 px-8 rounded-lg transition duration-200"
             >
-              Free Consultation
+              Free Discovery Call
             </Link>
           </div>
         </div>
@@ -227,14 +179,14 @@ export default function CoachingPage() {
       <section id="packages" className="py-16 md:py-20 bg-gray-900/50">
         <div className="max-w-6xl mx-auto px-4 sm:px-6">
           <h2 className="text-3xl md:text-4xl font-bold text-center mb-4">
-            Coaching <span className="text-yellow-500">Packages</span>
+            Online Coaching <span className="text-yellow-500">Packages</span>
           </h2>
           <div className="w-16 h-1 bg-yellow-500 mx-auto mb-4"></div>
           <p className="text-gray-400 text-center max-w-2xl mx-auto mb-12">
             Every package includes evidence-based programming built on the same auto-regulated periodization system from <em>Shut Up and Lift</em>. Pick the level of support that fits your life.
           </p>
 
-          <div className="grid md:grid-cols-2 gap-6">
+          <div className="grid md:grid-cols-2 gap-6 max-w-4xl mx-auto">
             {packages.map((pkg, i) => (
               <div
                 key={i}
@@ -303,22 +255,60 @@ export default function CoachingPage() {
         </div>
       </section>
 
-      {/* Add-Ons */}
+      {/* Other Ways to Train */}
       <section className="py-16 md:py-20">
+        <div className="max-w-5xl mx-auto px-4 sm:px-6">
+          <h2 className="text-3xl md:text-4xl font-bold text-center mb-4">
+            Other Ways to <span className="text-yellow-500">Train</span>
+          </h2>
+          <div className="w-16 h-1 bg-yellow-500 mx-auto mb-12"></div>
+          <div className="grid md:grid-cols-2 gap-6">
+            <div className="bg-gray-900 border border-gray-800 rounded-xl p-6 md:p-8">
+              <h3 className="text-2xl font-bold text-white mb-1">In-Person Coaching</h3>
+              <p className="text-3xl font-extrabold text-yellow-500 mb-3">$1,150<span className="text-base font-normal text-gray-400">/month</span></p>
+              <p className="text-gray-400 text-sm mb-4">
+                Side-by-side coaching in the gym, 3 sessions a week for 47 weeks a year. Real-time technique corrections every rep — Toledo, OH.
+              </p>
+              <Link
+                href="/coaching/in-person"
+                className="text-yellow-500 hover:text-yellow-400 text-sm font-semibold"
+              >
+                Learn More →
+              </Link>
+            </div>
+            <div className="bg-gray-900 border border-gray-800 rounded-xl p-6 md:p-8">
+              <h3 className="text-2xl font-bold text-white mb-1">Group Classes</h3>
+              <p className="text-3xl font-extrabold text-yellow-500 mb-3">$300<span className="text-base font-normal text-gray-400">/month</span></p>
+              <p className="text-gray-400 text-sm mb-4">
+                Coached barbell training in small groups, built for men and women over 50. Single-gender classes, capped at 12 people.
+              </p>
+              <Link
+                href="/coaching/group-classes"
+                className="text-yellow-500 hover:text-yellow-400 text-sm font-semibold"
+              >
+                Learn More →
+              </Link>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Add-Ons */}
+      <section className="py-16 md:py-20 bg-gray-900/50">
         <div className="max-w-5xl mx-auto px-4 sm:px-6">
           <h2 className="text-3xl md:text-4xl font-bold text-center mb-4">
             Additional <span className="text-yellow-500">Services</span>
           </h2>
           <div className="w-16 h-1 bg-yellow-500 mx-auto mb-12"></div>
           <div className="grid md:grid-cols-3 gap-6">
-            <div className="bg-gray-900 border border-gray-800 rounded-xl p-6">
-              <h3 className="text-xl font-bold text-white mb-2">One-Time Program Design</h3>
-              <p className="text-2xl font-bold text-yellow-500 mb-3">$197</p>
+            <div className="bg-gray-900 border border-yellow-500/40 rounded-xl p-6">
+              <h3 className="text-xl font-bold text-white mb-2">Program Design Consultation</h3>
+              <p className="text-2xl font-bold text-yellow-500 mb-3">$100</p>
               <p className="text-gray-400 text-sm mb-4">
-                A custom 12-week program built for you. Assessment call, programming spreadsheet, exercise library, and one follow-up call. For the DIY lifter who wants expert programming.
+                One consultation, then a custom program built for you — your choice of 8, 12, or 16 weeks. For the DIY lifter who wants expert programming without ongoing coaching.
               </p>
               <Link
-                href="/contact?service=program-design"
+                href="/contact?service=consultation-program"
                 className="text-yellow-500 hover:text-yellow-400 text-sm font-semibold"
               >
                 Learn More →
@@ -372,6 +362,26 @@ export default function CoachingPage() {
         </div>
       </section>
 
+      {/* Lift-Log App Callout */}
+      <section className="py-12 md:py-16">
+        <div className="max-w-5xl mx-auto px-4 sm:px-6 flex flex-col md:flex-row items-center gap-6 bg-gray-900 border border-gray-800 rounded-xl p-6 md:p-8">
+          <div className="flex-1">
+            <h3 className="text-2xl font-bold text-white mb-2">Track Every Session in Lift-Log</h3>
+            <p className="text-gray-300">
+              Every coaching client trains in Lift-Log — the app I built to log sets, track PRs, and stay on top of your program between check-ins. Available on web and mobile.
+            </p>
+          </div>
+          <a
+            href="https://chirholifts.com/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex-shrink-0 bg-yellow-500 hover:bg-yellow-600 text-gray-900 font-bold py-3 px-6 rounded-lg transition duration-200"
+          >
+            Try Lift-Log →
+          </a>
+        </div>
+      </section>
+
       {/* Specials */}
       <section className="py-16 md:py-20">
         <div className="max-w-5xl mx-auto px-4 sm:px-6">
@@ -417,19 +427,19 @@ export default function CoachingPage() {
               },
               {
                 q: 'What if I\'ve never touched a barbell?',
-                a: "Good. You don't have bad habits to unlearn. Every client starts with an assessment, and your program is built around where you actually are—not where I think you should be. The Foundation and Health & Accountability tiers are specifically designed for guys starting from scratch.",
+                a: "Good. You don't have bad habits to unlearn. Every client starts with an assessment, and your program is built around where you actually are—not where I think you should be. If you're brand new and local, in-person coaching is the fastest way to learn the lifts right; if you're remote, Strength Coaching works too.",
               },
               {
                 q: 'I need to lose weight first, then I\'ll start lifting.',
-                a: "That's backwards, and it's the number one reason guys fail. Strength training while losing weight preserves muscle, keeps your metabolism healthy, and gives you something productive to focus on besides the scale. The Health & Accountability tier exists specifically for this.",
+                a: "That's backwards, and it's the number one reason guys fail. Strength training while losing weight preserves muscle, keeps your metabolism healthy, and gives you something productive to focus on besides the scale. Strength Coaching is built to flex toward a fat-loss and health focus, not just chasing PRs.",
               },
               {
                 q: "I'm on TRT / GLP-1 medication. Can you work with that?",
                 a: "Yes. I'm on TRT myself, so I understand the considerations firsthand. For GLP-1 clients, resistance training is critical—research shows 15-25% of weight lost on these meds comes from muscle. That's exactly what we prevent.",
               },
               {
-                q: 'What\'s the difference between Strength Coaching and Health & Accountability?',
-                a: "Strength Coaching is for men whose primary goal is getting stronger—building their squat, bench, and deadlift. Health & Accountability is for men who need to lose significant weight (50+ lbs) and build sustainable habits first. Different starting points, same principles.",
+                q: 'What\'s the difference between Strength Coaching and the Program Design Consultation?',
+                a: "Strength Coaching ($250/mo) is an ongoing relationship — weekly check-ins, form reviews, and a program that adapts as you go. The Program Design Consultation ($100 one-time) is for the DIY lifter who just wants an expert-built 8, 12, or 16-week program and doesn't want ongoing coaching.",
               },
               {
                 q: 'How long before I see results?',
@@ -456,10 +466,10 @@ export default function CoachingPage() {
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link
-              href="/contact?service=consultation"
+              href="/contact?service=discovery-call"
               className="inline-block bg-yellow-500 hover:bg-yellow-600 text-gray-900 font-bold py-4 px-10 rounded-lg transition duration-200 shadow-lg hover:shadow-xl hover:scale-105 transform text-lg"
             >
-              Schedule Free Consultation
+              Schedule a Free Discovery Call
             </Link>
           </div>
           <p className="text-gray-500 text-sm mt-6">
