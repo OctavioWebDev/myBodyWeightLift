@@ -23,7 +23,7 @@ const webhookSecret =
   process.env.STRIPE_GYM_WEBHOOK_SECRET || process.env.STRIPE_WEBHOOK_SECRET || '';
 
 // One-time tiers don't have a Stripe subscription
-const RECURRING_TIERS = new Set(['founding-monthly', 'founding-coaching']);
+const RECURRING_TIERS = new Set(['founding-monthly', 'founding-coaching', 'founding-annual']);
 
 export async function POST(request: Request) {
   const body = await request.text();

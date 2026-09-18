@@ -28,17 +28,17 @@ const TIER_LABELS: Record<string, { emoji: string; headline: string; billing: st
   'founding-annual': {
     emoji: '🏆',
     headline: 'You\'re a Founding Annual Member!',
-    billing: '$300/year — locked for life',
+    billing: '$300/year — auto-renews annually, rate locked for life',
   },
   'founding-monthly': {
     emoji: '⚡',
     headline: 'You\'re a Founding Monthly Member!',
-    billing: '$35/month — locked for your first year',
+    billing: '$25/month — locked for life',
   },
   'founding-coaching': {
     emoji: '🎯',
     headline: 'You\'re a Founding Coaching Client!',
-    billing: '$197/month — coaching + gym credit when we open',
+    billing: '$250/month — coaching + gym credit when we open',
   },
 };
 
